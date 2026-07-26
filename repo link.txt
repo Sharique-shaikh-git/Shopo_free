@@ -1,0 +1,10 @@
+https://github.com/thedotmack/claude-mem
+https://github.com/speclib/awesome-openspec
+https://github.com/Fission-AI/OpenSpec
+https://github.com/diegosouzapw/OmniRoute
+https://github.com/kunickiaj/codemem
+https://github.com/garrytan/gstack
+https://github.com/1jehuang/jcode
+https://herdr.dev/
+https://github.com/lidge-jun/opencodex
+https://github.com/mempalace/mempalace

@@ -1,0 +1,23 @@
+{
+  "name": "shopo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered store builder for Pakistani merchants",
+  "scripts": {
+    "dev:api": "pnpm --filter @shopo/api dev",
+    "dev:worker": "pnpm --filter @shopo/worker dev",
+    "dev:storefront": "pnpm --filter @shopo/storefront-web dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean"
+  },
+  "keywords": ["e-commerce", "pakistan", "ai", "mobile-first"],
+  "author": "",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

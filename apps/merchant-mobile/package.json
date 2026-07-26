@@ -1,0 +1,15 @@
+{
+  "name": "@shopo/merchant-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shopo/shared": "workspace:*"
+  }
+}

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.next/
+.expo/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Turbo
+.turbo/
+
+# Supabase
+supabase/.temp/
+
+# Obsidian (keep the vault structure but not cache)
+obsidian-vault/.obsidian/workspace.json
+obsidian-vault/.obsidian/workspace-mobile.json
+
+# claude-mem
+.claude-mem/cache/
+
+# Docs (keep — these are reference)
+# docs_generated_by_Kimi k2.6_used _in_blackbox_extention_in_vscode/
+# docs_generated_by_MIMO2.5v_model_used_in_opencode_cli/
