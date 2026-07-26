@@ -1,4 +1,40 @@
-# Model Assignment Guide — Digital Dukaan
+# Model Assignment Guide — SHOPO
+
+> [!CAUTION]
+> **Claude Opus 4.6 has a ~2 task limit per session.** Do NOT waste Opus turns on code that Gemini Flash can write. Opus is for PLANNING and REVIEWING only.
+
+## The "Opus Seeds, Flash Builds" Workflow
+
+```
+┌──────────────────────────────────────────────────┐
+│  DAILY WORKFLOW                                   │
+│                                                   │
+│  🔴 Opus Task 1 (morning):                       │
+│     → Plan the day's work                        │
+│     → Write detailed specs/blueprints            │
+│     → Define exact file paths, function sigs     │
+│                                                   │
+│  🟢 Gemini Flash (bulk of the day):               │
+│     → Execute the blueprint Opus wrote           │
+│     → Write all code, tests, configs             │
+│     → Fix bugs, refactor, style                  │
+│                                                   │
+│  🔴 Opus Task 2 (end of day):                    │
+│     → Review what Flash built                    │
+│     → Catch security/architecture issues         │
+│     → Plan tomorrow's blueprint                  │
+│                                                   │
+│  🔵 MIMO/Kimi (anytime):                         │
+│     → Docs, research, simple utilities           │
+│     → Obsidian updates                           │
+└──────────────────────────────────────────────────┘
+```
+
+### What to tell Opus (maximize those 2 turns):
+> "Plan Phase [X] — give me the EXACT file list, folder structure, every function signature, every import, every type, detailed enough that Gemini Flash can build it without guessing."
+
+### What to tell Gemini Flash:
+> "Read `.agents/context/PROJECT_BRIEF.md` and the implementation plan. Build [specific feature] following the spec exactly."
 
 ## Your Available Models
 

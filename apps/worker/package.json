@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nest start --watch",
-    "build": "nest build",
-    "start": "node dist/main",
-    "lint": "eslint src/",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src/"
   },
   "dependencies": {
-    "@shopo/shared": "workspace:*"
+    "@shopo/database": "workspace:*",
+    "@shopo/shared": "workspace:*",
+    "@google/genai": "^2.13.0",
+    "bullmq": "^5.7.8",
+    "dotenv": "^16.4.5",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.1",
+    "typescript": "^5.7.0"
   }
 }

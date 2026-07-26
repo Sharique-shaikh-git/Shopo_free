@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+
+[[services]]
+name = "api"
+buildCommand = "pnpm --filter @shopo/api build"
+startCommand = "pnpm --filter @shopo/api start:prod"
+
+[[services]]
+name = "worker"
+buildCommand = "pnpm --filter @shopo/worker build"
+startCommand = "pnpm --filter @shopo/worker start"

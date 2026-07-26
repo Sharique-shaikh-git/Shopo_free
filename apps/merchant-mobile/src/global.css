@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Colors */
+  --surface: #f9f9fc;
+  --surface-dim: #dadadc;
+  --surface-bright: #f9f9fc;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3f6;
+  --surface-container: #eeeef0;
+  --surface-container-high: #e8e8ea;
+  --surface-container-highest: #e2e2e5;
+  --on-surface: #1a1c1e;
+  --on-surface-variant: #3e4946;
+  
+  --primary: #005147;
+  --on-primary: #ffffff;
+  --primary-container: #006b5e;
+  --on-primary-container: #95e8d8;
+  
+  --secondary: #006d2f;
+  --on-secondary: #ffffff;
+  --secondary-container: #5dfd8a;
+  --on-secondary-container: #007232;
+  
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  
+  --background: var(--surface);
+  --foreground: var(--on-surface);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--on-secondary);
+  --color-muted: var(--surface-container);
+  --color-muted-foreground: var(--on-surface-variant);
+  --color-card: var(--surface-container-lowest);
+  --color-card-foreground: var(--on-surface);
+  --color-border: var(--surface-container-highest);
+  --color-input: var(--surface-container-highest);
+}
