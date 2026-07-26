@@ -8,6 +8,7 @@
 - **Phase 3:** Customer Storefront scaffolded (Next.js 15 app router). Integrated "Kinetic Growth" UI theme from Stitcher MCP directly into Tailwind v4. Built public `OrdersController` on API and Cart state with Zustand.
 - **Phase 4:** Merchant Mobile App scaffolded (React Native Expo). Added NativeWind, built reusable Button component, Auth screen, and Dashboard.
 - **Phase 5:** Infrastructure & DevOps completed. GitHub Action workflow added (`ci.yml`) for automated testing/building. `railway.toml` setup for monorepo backend services deployment.
+- **Phase 6:** Polish & Launch Prep completed. Security audit conducted: enabled `helmet` headers and `@nestjs/throttler` (Rate Limiting). K6 load testing script prepared in `scripts/load-test.js`.
 - **Git:** Code has been pushed to `https://github.com/Sharique-shaikh-git/Shopo_free`.
 
 **Architectural Notes:**
