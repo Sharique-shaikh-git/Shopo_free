@@ -13,7 +13,7 @@ export default function DashboardScreen() {
         
         <View className="bg-primary-container rounded-2xl p-6 mb-8">
           <Text className="text-on-primary-container text-lg font-medium mb-1">
-            Today's Sales
+            Today&apos;s Sales
           </Text>
           <Text className="text-on-primary-container text-4xl font-bold">
             Rs 12,500

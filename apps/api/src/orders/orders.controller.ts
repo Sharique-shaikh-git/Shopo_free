@@ -1,4 +1,4 @@
-import { Controller, Post, Body, BadRequestException, NotFoundException, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, BadRequestException, NotFoundException, Get, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentMerchantId } from '../auth/current-merchant.decorator';
 import { db, orders, orderItems, products, stores, eq, inArray } from '@shopo/database';

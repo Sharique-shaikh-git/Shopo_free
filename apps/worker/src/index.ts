@@ -98,7 +98,7 @@ Write a professional product title and a compelling description. Suggest a fair 
 
         console.log(`Successfully enriched product ${product[0].id}`);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Error processing job ${jobId}:`, error);
       
       const nextStatus = dbJob.retryCount + 1 >= dbJob.maxRetries ? 'failed' : 'queued';
@@ -106,7 +106,7 @@ Write a professional product title and a compelling description. Suggest a fair 
       await db.update(aiJobs).set({
         status: nextStatus,
         retryCount: dbJob.retryCount + 1,
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       }).where(eq(aiJobs.id, jobId));
 
       if (nextStatus === 'queued') {

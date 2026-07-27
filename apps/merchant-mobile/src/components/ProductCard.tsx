@@ -1,5 +1,4 @@
 import { View, Text, Image } from 'react-native';
-import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 interface ProductCardProps {

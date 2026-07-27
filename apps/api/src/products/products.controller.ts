@@ -85,7 +85,7 @@ export class ProductsController {
       storeId: data.storeId,
       productId: inserted.id,
       type: 'product_enrichment',
-      input: data as any,
+      input: data as unknown,
       inputHash,
       dedupeKey,
     }).returning();
@@ -104,7 +104,7 @@ export class ProductsController {
     @Body(new ZodValidationPipe(updateProductSchema)) data: UpdateProductDto,
   ) {
     // Make sure we only update our own product
-    const valuesToUpdate: any = { ...data };
+    const valuesToUpdate: Record<string, unknown> = { ...data };
     if (data.price !== undefined) valuesToUpdate.price = data.price.toString();
 
     const [updated] = await db.update(products)

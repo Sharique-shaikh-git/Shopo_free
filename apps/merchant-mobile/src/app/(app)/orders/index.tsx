@@ -2,13 +2,13 @@ import { View, Text, ScrollView, SafeAreaView } from 'react-native';
 import { OrderCard } from '../../../components/OrderCard';
 
 export default function OrdersScreen() {
-  const dummyOrders: Array<{
+  const dummyOrders: {
     id: string;
     customerName: string;
     total: number;
     status: 'PENDING' | 'SHIPPED' | 'DELIVERED';
     date: string;
-  }> = [
+  }[] = [
     { id: '8921', customerName: 'Ahmed Ali', total: 3200, status: 'PENDING', date: 'Today, 2:30 PM' },
     { id: '8920', customerName: 'Sara Khan', total: 12500, status: 'SHIPPED', date: 'Yesterday' },
     { id: '8919', customerName: 'Usman Tariq', total: 4500, status: 'SHIPPED', date: 'Yesterday' },

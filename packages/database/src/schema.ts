@@ -63,7 +63,7 @@ export const products = pgTable('products', {
   images: jsonb('images').$type<string[]>().default([]).notNull(),
   thumbnailUrl: text('thumbnail_url'),
   hasVariants: boolean('has_variants').default(false).notNull(),
-  variants: jsonb('variants').$type<any[]>().default([]).notNull(),
+  variants: jsonb('variants').$type<unknown[]>().default([]).notNull(),
   status: text('status').$type<typeof PRODUCT_STATUSES[number]>().default('draft').notNull(),
   isAiGenerated: boolean('is_ai_generated').default(false).notNull(),
   aiJobId: uuid('ai_job_id'),

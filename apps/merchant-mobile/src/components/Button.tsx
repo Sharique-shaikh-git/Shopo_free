@@ -1,5 +1,4 @@
 import { TouchableOpacity, Text, TouchableOpacityProps } from 'react-native';
-import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps extends TouchableOpacityProps {
