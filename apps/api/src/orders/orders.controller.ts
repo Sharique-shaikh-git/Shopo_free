@@ -123,7 +123,7 @@ export class OrdersController {
     }
 
     const [updatedOrder] = await db.update(orders)
-      .set({ status: data.status as any })
+      .set({ status: data.status as "pending" | "confirmed" | "packed" | "shipped" | "delivered" })
       .where(and(eq(orders.merchantId, merchantId), eq(orders.id, id)))
       .returning();
 
