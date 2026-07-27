@@ -9,7 +9,7 @@ export default async function ProductsPage() {
     return null;
   }
 
-  let products = [];
+  let products: any[] = [];
   try {
     products = await fetchProducts(store.id);
   } catch {

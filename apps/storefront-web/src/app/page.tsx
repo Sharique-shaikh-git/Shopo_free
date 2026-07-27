@@ -11,7 +11,7 @@ export default async function HomePage() {
     return null; // StoreProvider handles the fallback
   }
 
-  let products = [];
+  let products: any[] = [];
   try {
     products = await fetchProducts(store.id);
   } catch {
