@@ -1,4 +1,5 @@
 import { Tabs } from 'expo-router';
+import { Feather } from '@expo/vector-icons';
 
 export default function AppLayout() {
   return (
@@ -26,24 +27,28 @@ export default function AppLayout() {
         name="dashboard"
         options={{
           title: 'My Shop',
+          tabBarIcon: ({ color, size }) => <Feather name="home" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="products/index"
+        name="products"
         options={{
           title: 'Products',
+          tabBarIcon: ({ color, size }) => <Feather name="box" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="orders/index"
+        name="orders"
         options={{
           title: 'Orders',
+          tabBarIcon: ({ color, size }) => <Feather name="shopping-cart" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="settings/index"
+        name="settings"
         options={{
           title: 'Settings',
+          tabBarIcon: ({ color, size }) => <Feather name="settings" size={size} color={color} />,
         }}
       />
     </Tabs>

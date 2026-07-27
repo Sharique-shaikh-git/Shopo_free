@@ -16,7 +16,7 @@ import { ZodValidationPipe } from '../products/products.controller';
  * Public endpoints — NO authentication required.
  * These serve the customer-facing storefront.
  */
-@Controller('v1/public')
+@Controller('public')
 export class PublicController {
 
   /**

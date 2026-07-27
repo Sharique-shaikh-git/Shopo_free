@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 interface ProductCardProps {
@@ -7,11 +7,16 @@ interface ProductCardProps {
   stock: number;
   imageUrl?: string;
   className?: string;
+  onPress?: () => void;
 }
 
-export function ProductCard({ name, price, stock, imageUrl, className }: ProductCardProps) {
+export function ProductCard({ name, price, stock, imageUrl, className, onPress }: ProductCardProps) {
+  const Container = onPress ? TouchableOpacity : View;
   return (
-    <View className={twMerge('bg-surface-container-lowest rounded-xl border border-border-subtle p-4 mb-4 flex-row', className)}>
+    <Container 
+      onPress={onPress}
+      className={twMerge('bg-surface-container-lowest rounded-xl border border-border-subtle p-4 mb-4 flex-row', className)}
+    >
       <View className="h-16 w-16 bg-surface-container rounded-lg items-center justify-center mr-4 overflow-hidden">
         {imageUrl ? (
           <Image source={{ uri: imageUrl }} className="w-full h-full" resizeMode="cover" />
@@ -30,6 +35,6 @@ export function ProductCard({ name, price, stock, imageUrl, className }: Product
           </Text>
         </View>
       </View>
-    </View>
+    </Container>
   );
 }

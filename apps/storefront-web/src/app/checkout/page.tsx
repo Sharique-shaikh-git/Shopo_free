@@ -1,7 +1,7 @@
 'use client';
 
 import { useCartStore } from '@/store/cart';
-import { useStore } from '@/components/StoreShell';
+import { useStore } from '@/components/StoreProvider';
 import { CheckoutForm } from '@/components/CheckoutForm';
 import Link from 'next/link';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';

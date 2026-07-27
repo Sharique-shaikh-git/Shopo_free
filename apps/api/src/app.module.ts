@@ -6,6 +6,8 @@ import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { PublicModule } from './public/public.module';
+import { StoresModule } from './stores/stores.module';
+import { MerchantModule } from './merchant/merchant.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { PublicModule } from './public/public.module';
     ProductsModule,
     OrdersModule,
     PublicModule,
+    StoresModule,
+    MerchantModule,
   ],
   controllers: [],
   providers: [

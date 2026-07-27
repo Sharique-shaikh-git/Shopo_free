@@ -1,14 +1,28 @@
-import { View, Text, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, ActivityIndicator } from 'react-native';
 import { Button } from '../../../components/Button';
 import { ProductCard } from '../../../components/ProductCard';
+import { useEffect, useState } from 'react';
+import { apiFetch } from '../../../lib/api';
+import { useRouter } from 'expo-router';
 
 export default function ProductsScreen() {
-  const dummyProducts = [
-    { id: '1', name: 'Premium Lawn Suit (Unstitched)', price: 4500, stock: 12 },
-    { id: '2', name: 'Mens Kurta Shalwar (White)', price: 3200, stock: 5 },
-    { id: '3', name: 'Digital Printed Dupatta', price: 1200, stock: 0 },
-    { id: '4', name: 'Embroidered Chiffon Saree', price: 12500, stock: 2 },
-  ];
+  const router = useRouter();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await apiFetch('/products');
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadProducts();
+  }, []);
 
   return (
     <SafeAreaView className="flex-1 bg-surface">
@@ -17,26 +31,36 @@ export default function ProductsScreen() {
       </View>
       
       <ScrollView className="flex-1 px-6 pt-6">
-        <View className="mb-6">
-          <Button 
-            title="+ AI Add Product" 
-            variant="primary" 
-            onPress={() => console.log('Open AI Flow')} 
-          />
+        <View className="mb-6 flex-row gap-4">
+          <View className="flex-1">
+            <Button 
+              title="+ Add Product" 
+              variant="primary" 
+              onPress={() => router.push('/(app)/products/create')} 
+            />
+          </View>
         </View>
 
         <Text className="text-sm font-semibold text-outline mb-4 uppercase tracking-wider">
-          All Inventory ({dummyProducts.length})
+          All Inventory ({products.length})
         </Text>
 
-        {dummyProducts.map(product => (
-          <ProductCard 
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            stock={product.stock}
-          />
-        ))}
+        {loading ? (
+          <ActivityIndicator size="large" color="#006b5e" />
+        ) : products.length === 0 ? (
+          <Text className="text-muted-foreground text-center mt-10">No products found. Add some!</Text>
+        ) : (
+          products.map((product: any) => (
+            <ProductCard 
+              key={product.id}
+              name={product.title}
+              price={parseFloat(product.price)}
+              stock={product.stock}
+              imageUrl={product.thumbnailUrl}
+              onPress={() => router.push(`/(app)/products/${product.id}`)}
+            />
+          ))
+        )}
         
         <View className="h-12" />
       </ScrollView>

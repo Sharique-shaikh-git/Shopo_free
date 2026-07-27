@@ -1,19 +1,27 @@
-import { View, Text, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, ActivityIndicator } from 'react-native';
 import { OrderCard } from '../../../components/OrderCard';
+import { useEffect, useState } from 'react';
+import { apiFetch } from '../../../lib/api';
+import { useRouter } from 'expo-router';
 
 export default function OrdersScreen() {
-  const dummyOrders: {
-    id: string;
-    customerName: string;
-    total: number;
-    status: 'PENDING' | 'SHIPPED' | 'DELIVERED';
-    date: string;
-  }[] = [
-    { id: '8921', customerName: 'Ahmed Ali', total: 3200, status: 'PENDING', date: 'Today, 2:30 PM' },
-    { id: '8920', customerName: 'Sara Khan', total: 12500, status: 'SHIPPED', date: 'Yesterday' },
-    { id: '8919', customerName: 'Usman Tariq', total: 4500, status: 'SHIPPED', date: 'Yesterday' },
-    { id: '8918', customerName: 'Fatima Zohra', total: 2200, status: 'DELIVERED', date: 'Jul 24' },
-  ];
+  const router = useRouter();
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadOrders() {
+      try {
+        const data = await apiFetch('/orders');
+        setOrders(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadOrders();
+  }, []);
 
   return (
     <SafeAreaView className="flex-1 bg-surface">
@@ -23,19 +31,26 @@ export default function OrdersScreen() {
       
       <ScrollView className="flex-1 px-6 pt-6">
         <Text className="text-sm font-semibold text-outline mb-4 uppercase tracking-wider">
-          Recent Orders
+          All Orders ({orders.length})
         </Text>
 
-        {dummyOrders.map(order => (
-          <OrderCard 
-            key={order.id}
-            id={order.id}
-            customerName={order.customerName}
-            total={order.total}
-            status={order.status}
-            date={order.date}
-          />
-        ))}
+        {loading ? (
+          <ActivityIndicator size="large" color="#006b5e" />
+        ) : orders.length === 0 ? (
+          <Text className="text-muted-foreground text-center mt-10">No orders yet.</Text>
+        ) : (
+          orders.map((order: any) => (
+            <OrderCard 
+              key={order.id}
+              id={order.orderNumber}
+              customerName={order.customerName}
+              total={parseFloat(order.total)}
+              status={order.status.toUpperCase()}
+              date={new Date(order.createdAt).toLocaleString()}
+              onPress={() => router.push(`/(app)/orders/${order.id}`)}
+            />
+          ))
+        )}
         
         <View className="h-12" />
       </ScrollView>

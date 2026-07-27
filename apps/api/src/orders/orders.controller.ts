@@ -1,7 +1,7 @@
-import { Controller, Post, Body, BadRequestException, NotFoundException, Get, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, BadRequestException, NotFoundException, Get, Patch, Param, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentMerchantId } from '../auth/current-merchant.decorator';
-import { db, orders, orderItems, products, stores, eq, inArray } from '@shopo/database';
+import { db, orders, orderItems, products, stores, eq, inArray, and } from '@shopo/database';
 import { createOrderSchema, CreateOrderDto } from '@shopo/shared/src/schemas/order.schema';
 import { ZodValidationPipe } from '../products/products.controller'; // Reuse pipe
 
@@ -90,5 +90,47 @@ export class OrdersController {
       .select()
       .from(orders)
       .where(eq(orders.merchantId, merchantId));
+  }
+
+  @Get(':id')
+  @UseGuards(AuthGuard('jwt'))
+  async getMerchantOrder(
+    @CurrentMerchantId() merchantId: string,
+    @Param('id') id: string,
+  ) {
+    const results = await db
+      .select()
+      .from(orders)
+      .where(and(eq(orders.merchantId, merchantId), eq(orders.id, id)))
+      .limit(1);
+
+    if (!results[0]) {
+      throw new NotFoundException('Order not found');
+    }
+
+    return results[0];
+  }
+
+  @Patch(':id/status')
+  @UseGuards(AuthGuard('jwt'))
+  async updateOrderStatus(
+    @CurrentMerchantId() merchantId: string,
+    @Param('id') id: string,
+    @Body() data: { status: string }
+  ) {
+    if (!data.status) {
+      throw new BadRequestException('Status is required');
+    }
+
+    const [updatedOrder] = await db.update(orders)
+      .set({ status: data.status as any })
+      .where(and(eq(orders.merchantId, merchantId), eq(orders.id, id)))
+      .returning();
+
+    if (!updatedOrder) {
+      throw new NotFoundException('Order not found');
+    }
+
+    return updatedOrder;
   }
 }

@@ -1,20 +1,25 @@
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 interface OrderCardProps {
   id: string;
   customerName: string;
   total: number;
-  status: 'PENDING' | 'SHIPPED' | 'DELIVERED';
+  status: string;
   date: string;
   className?: string;
+  onPress?: () => void;
 }
 
-export function OrderCard({ id, customerName, total, status, date, className }: OrderCardProps) {
+export function OrderCard({ id, customerName, total, status, date, className, onPress }: OrderCardProps) {
   const isPending = status === 'PENDING';
+  const Container = onPress ? TouchableOpacity : View;
   
   return (
-    <View className={twMerge('bg-surface-container-lowest rounded-xl border border-border-subtle p-5 mb-4', className)}>
+    <Container 
+      onPress={onPress}
+      className={twMerge('bg-surface-container-lowest rounded-xl border border-border-subtle p-5 mb-4', className)}
+    >
       <View className="flex-row justify-between items-center mb-3">
         <Text className="font-bold text-on-surface text-lg">Order #{id}</Text>
         <View className={twMerge('px-3 py-1 rounded-full', isPending ? 'bg-status-pending' : 'bg-status-shipped')}>
@@ -33,6 +38,6 @@ export function OrderCard({ id, customerName, total, status, date, className }: 
           Rs {total.toLocaleString()}
         </Text>
       </View>
-    </View>
+    </Container>
   );
 }
