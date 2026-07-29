@@ -1,6 +1,7 @@
 {
   "name": "@shopo/api",
   "version": "0.1.0",
+  "description": "API service for Shopo",
   "private": true,
   "scripts": {
     "prebuild": "cd ../../packages/database && pnpm run build && cd ../../packages/shared && pnpm run build",

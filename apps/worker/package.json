@@ -1,6 +1,7 @@
 {
   "name": "@shopo/worker",
   "version": "0.1.0",
+  "description": "Worker service for Shopo",
   "private": true,
   "scripts": {
     "prebuild": "cd ../../packages/database && pnpm run build && cd ../../packages/shared && pnpm run build",
