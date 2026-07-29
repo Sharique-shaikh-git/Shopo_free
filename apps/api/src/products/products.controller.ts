@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, UseGuards, Put, Delete, NotFoundExc
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentMerchantId } from '../auth/current-merchant.decorator';
 import { db, products, aiJobs, eq, and } from '@shopo/database';
-import { createProductSchema, CreateProductDto, updateProductSchema, UpdateProductDto } from '@shopo/shared/src/schemas/product.schema';
+import { createProductSchema, CreateProductDto, updateProductSchema, UpdateProductDto } from '@shopo/shared';
 import { Queue } from 'bullmq';
 import * as crypto from 'crypto';
 
