@@ -2,7 +2,7 @@ import { Controller, Post, Body, BadRequestException, NotFoundException, Get, Pa
 import { AuthGuard } from '@nestjs/passport';
 import { CurrentMerchantId } from '../auth/current-merchant.decorator';
 import { db, orders, orderItems, products, stores, eq, inArray, and } from '@shopo/database';
-import { createOrderSchema, CreateOrderDto } from '@shopo/shared/src/schemas/order.schema';
+import { createOrderSchema, CreateOrderDto } from '@shopo/shared';
 import { ZodValidationPipe } from '../products/products.controller'; // Reuse pipe
 
 @Controller('orders')

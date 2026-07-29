@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { SkipThrottle } from '@nestjs/throttler';
 import { db, stores, products, orders, orderItems, eq, and, inArray } from '@shopo/database';
-import { createOrderSchema, CreateOrderDto } from '@shopo/shared/src/schemas/order.schema';
+import { createOrderSchema, CreateOrderDto } from '@shopo/shared';
 import { ZodValidationPipe } from '../products/products.controller';
 
 /**

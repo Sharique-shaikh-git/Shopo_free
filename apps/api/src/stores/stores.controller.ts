@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { db, stores, eq, and } from '@shopo/database';
 import { CurrentMerchantId } from '../auth/current-merchant.decorator';
 import { ZodValidationPipe } from '../products/products.controller';
-import { createStoreSchema, CreateStoreDto, updateStoreSchema, UpdateStoreDto } from '@shopo/shared/src/schemas/store.schema';
+import { createStoreSchema, CreateStoreDto, updateStoreSchema, UpdateStoreDto } from '@shopo/shared';
 
 @Controller('stores')
 @UseGuards(AuthGuard('jwt'))
