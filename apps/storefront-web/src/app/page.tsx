@@ -1,5 +1,5 @@
 import { getStoreFromHeaders } from '@/lib/get-store';
-import { fetchProducts } from '@/lib/api';
+import { fetchProducts, type ProductData } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 import { Store } from 'lucide-react';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ export default async function HomePage() {
     return null; // StoreProvider handles the fallback
   }
 
-  let products: any[] = [];
+  let products: ProductData[] = [];
   try {
     products = await fetchProducts(store.id);
   } catch {

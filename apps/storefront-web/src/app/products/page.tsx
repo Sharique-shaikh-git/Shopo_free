@@ -1,5 +1,5 @@
 import { getStoreFromHeaders } from '@/lib/get-store';
-import { fetchProducts } from '@/lib/api';
+import { fetchProducts, type ProductData } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 
 export default async function ProductsPage() {
@@ -9,7 +9,7 @@ export default async function ProductsPage() {
     return null;
   }
 
-  let products: any[] = [];
+  let products: ProductData[] = [];
   try {
     products = await fetchProducts(store.id);
   } catch {
