@@ -26,6 +26,12 @@ jobs:
     - name: Install Dependencies
       run: pnpm install --frozen-lockfile
       
+    - name: Build Shared
+      run: pnpm --filter @shopo/shared build
+      
+    - name: Build Database
+      run: pnpm --filter @shopo/database build
+
     - name: Typecheck Shared
       run: pnpm --filter @shopo/shared typecheck
       
@@ -34,12 +40,6 @@ jobs:
       
     - name: Typecheck API
       run: pnpm --filter @shopo/api exec tsc --noEmit
-      
-    - name: Build Shared
-      run: pnpm --filter @shopo/shared build
-      
-    - name: Build Database
-      run: pnpm --filter @shopo/database build
       
     - name: Build API
       run: pnpm --filter @shopo/api build

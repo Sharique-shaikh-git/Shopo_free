@@ -71,3 +71,9 @@
 **Status**: Tentative
 **Decision**: Use "SHOPO" as the working title. Name is NOT finalized.
 **Rationale**: Simple, memorable, works across languages. Final name decision deferred.
+
+## ADR-013: NativeWind v2 over v4
+**Date**: 2026-07-30
+**Status**: Accepted
+**Decision**: Downgrade the Mobile App to NativeWind v2 instead of using v4 (react-native-css-interop).
+**Rationale**: NativeWind v4's `cssInterop` wraps all React components and modifies standard React Context stringification. This causes a fundamental breaking bug with Expo Router and React Navigation (`Couldn't find a navigation context`). NativeWind v2 uses a safe Babel plugin approach that avoids mutating core React components.

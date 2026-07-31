@@ -5,13 +5,16 @@ interface ButtonProps extends TouchableOpacityProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   title: string;
+  className?: string;
+  onPress?: (event: any) => void;
+  disabled?: boolean;
 }
 
-export function Button({ variant = 'primary', size = 'md', title, className, ...props }: ButtonProps) {
+export function Button({ variant = 'primary', size = 'md', title, className, style, ...props }: ButtonProps & { style?: any }) {
   return (
     <TouchableOpacity
       className={twMerge(
-        'items-center justify-center rounded-xl flex-row',
+        'items-center justify-center rounded-[16px] flex-row',
         variant === 'primary' && 'bg-primary',
         variant === 'secondary' && 'bg-secondary',
         variant === 'outline' && 'border-2 border-primary bg-transparent',
@@ -30,9 +33,9 @@ export function Button({ variant = 'primary', size = 'md', title, className, ...
           variant === 'secondary' && 'text-secondary-foreground',
           variant === 'outline' && 'text-primary',
           variant === 'ghost' && 'text-primary',
-          size === 'sm' && 'text-sm',
-          size === 'md' && 'text-base',
-          size === 'lg' && 'text-lg'
+          size === 'sm' && 'text-[14px]',
+          size === 'md' && 'text-[16px]',
+          size === 'lg' && 'text-[18px]'
         )}
       >
         {title}

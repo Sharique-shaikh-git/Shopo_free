@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Alert, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Alert, KeyboardAvoidingView, Platform, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Feather } from '@expo/vector-icons';
 import { apiFetch, setToken } from '../../lib/api';
 import { Button } from '../../components/Button';
 
@@ -11,9 +12,10 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async () => {
-    if (!phone || (!isLogin && !name)) {
+    if (!phone || (!isLogin && !name) || !password) {
       Alert.alert('Error', 'Please fill in all required fields');
       return;
     }
@@ -42,81 +44,94 @@ export default function LoginScreen() {
   };
 
   return (
-    <KeyboardAvoidingView 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      className="flex-1 bg-background p-6 justify-center"
-    >
-      <View className="items-center mb-10">
-        <Text className="text-4xl font-bold text-primary mb-2">Shopo</Text>
-        <Text className="text-muted-foreground text-center">
-          {isLogin ? 'Welcome back! Let\'s manage your shop.' : 'Create your online shop in 5 minutes.'}
-        </Text>
-      </View>
+    <SafeAreaView className="flex-1 bg-surface">
+      <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        className="flex-1"
+      >
+        <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 24, justifyContent: 'center' }}>
+          <View className="items-center mb-12">
+            <Text className="text-[32px] font-bold text-primary mb-3">Shopo</Text>
+            <Text className="text-muted-foreground text-center text-[16px] leading-6">
+              {isLogin ? 'Welcome back! Let\'s manage your shop.' : 'Create your online shop in 5 minutes.'}
+            </Text>
+          </View>
 
-      <View className="bg-card p-6 rounded-3xl shadow-sm border border-border">
-        {/* Tabs */}
-        <View className="flex-row mb-6 bg-muted p-1 rounded-xl">
-          <TouchableOpacity 
-            className={`flex-1 py-3 rounded-lg items-center ${isLogin ? 'bg-background shadow-sm' : ''}`}
-            onPress={() => setIsLogin(true)}
-          >
-            <Text className={`font-semibold ${isLogin ? 'text-foreground' : 'text-muted-foreground'}`}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity 
-            className={`flex-1 py-3 rounded-lg items-center ${!isLogin ? 'bg-background shadow-sm' : ''}`}
-            onPress={() => setIsLogin(false)}
-          >
-            <Text className={`font-semibold ${!isLogin ? 'text-foreground' : 'text-muted-foreground'}`}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Form */}
-        <View className="space-y-4">
-          {!isLogin && (
-            <View>
-              <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Full Name</Text>
-              <TextInput
-                value={name}
-                onChangeText={setName}
-                placeholder="Ali Ahmed"
-                className="bg-background border border-border rounded-xl px-4 py-4 text-base"
-                placeholderTextColor="#9ca3af"
-              />
+          <View className="bg-surface-container-lowest p-6 rounded-[16px] border border-border-subtle">
+            {/* Tabs */}
+            <View className="flex-row mb-8 bg-surface-container-low p-1 rounded-xl">
+              <TouchableOpacity 
+                className={`flex-1 py-3 rounded-lg items-center ${isLogin ? 'bg-surface-container-lowest shadow-sm' : ''}`}
+                onPress={() => setIsLogin(true)}
+              >
+                <Text className={`font-semibold text-[14px] ${isLogin ? 'text-foreground' : 'text-muted-foreground'}`}>Login</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                className={`flex-1 py-3 rounded-lg items-center ${!isLogin ? 'bg-surface-container-lowest shadow-sm' : ''}`}
+                onPress={() => setIsLogin(false)}
+              >
+                <Text className={`font-semibold text-[14px] ${!isLogin ? 'text-foreground' : 'text-muted-foreground'}`}>Sign Up</Text>
+              </TouchableOpacity>
             </View>
-          )}
 
-          <View>
-            <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Phone Number</Text>
-            <TextInput
-              value={phone}
-              onChangeText={setPhone}
-              placeholder="0300 1234567"
-              keyboardType="phone-pad"
-              className="bg-background border border-border rounded-xl px-4 py-4 text-base"
-              placeholderTextColor="#9ca3af"
-            />
+            {/* Form */}
+            <View className="space-y-6">
+              {!isLogin && (
+                <View>
+                  <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Full Name</Text>
+                  <TextInput
+                    value={name}
+                    onChangeText={setName}
+                    placeholder="Ali Ahmed"
+                    className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px]"
+                    placeholderTextColor="#9ca3af"
+                  />
+                </View>
+              )}
+
+              <View>
+                <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Phone Number</Text>
+                <TextInput
+                  value={phone}
+                  onChangeText={setPhone}
+                  placeholder="0300 1234567"
+                  keyboardType="phone-pad"
+                  className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px]"
+                  placeholderTextColor="#9ca3af"
+                />
+              </View>
+
+              <View>
+                <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Password</Text>
+                <View className="relative">
+                  <TextInput
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="••••••"
+                    secureTextEntry={!showPassword}
+                    className="bg-surface-container-lowest border border-border-subtle rounded-xl pl-4 pr-12 py-4 text-[16px]"
+                    placeholderTextColor="#9ca3af"
+                  />
+                  <TouchableOpacity 
+                    className="absolute right-4 top-1/2 -translate-y-1/2" 
+                    onPress={() => setShowPassword(!showPassword)}
+                  >
+                    <Feather name={showPassword ? "eye-off" : "eye"} size={20} color="#6e7976" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View className="mt-6">
+                <Button 
+                  title={isLoading ? 'Please wait...' : (isLogin ? 'Login' : 'Create Account')} 
+                  onPress={handleSubmit}
+                  disabled={isLoading}
+                />
+              </View>
+            </View>
           </View>
-
-          <View>
-            <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Password</Text>
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              placeholder="••••••"
-              secureTextEntry
-              className="bg-background border border-border rounded-xl px-4 py-4 text-base"
-              placeholderTextColor="#9ca3af"
-            />
-          </View>
-
-          <Button 
-            title={isLoading ? 'Please wait...' : (isLogin ? 'Login' : 'Create Account')} 
-            onPress={handleSubmit}
-            disabled={isLoading}
-            className="mt-4"
-          />
-        </View>
-      </View>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }

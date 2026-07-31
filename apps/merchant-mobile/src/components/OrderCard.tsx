@@ -13,17 +13,13 @@ interface OrderCardProps {
 
 export function OrderCard({ id, customerName, total, status, date, className, onPress }: OrderCardProps) {
   const isPending = status === 'PENDING';
-  const Container = onPress ? TouchableOpacity : View;
   
-  return (
-    <Container 
-      onPress={onPress}
-      className={twMerge('bg-surface-container-lowest rounded-xl border border-border-subtle p-5 mb-4', className)}
-    >
+  const content = (
+    <>
       <View className="flex-row justify-between items-center mb-3">
-        <Text className="font-bold text-on-surface text-lg">Order #{id}</Text>
-        <View className={twMerge('px-3 py-1 rounded-full', isPending ? 'bg-status-pending' : 'bg-status-shipped')}>
-          <Text className={twMerge('text-xs font-bold tracking-wider', isPending ? 'text-primary' : 'text-secondary')}>
+        <Text className="font-bold text-on-surface text-[18px]">Order #{id}</Text>
+        <View className={twMerge('px-3 py-1 rounded-full', isPending ? 'bg-[#fff8e1]' : 'bg-secondary-container')}>
+          <Text className={twMerge('text-[12px] font-bold tracking-wider', isPending ? 'text-[#f57c00]' : 'text-secondary')}>
             {status}
           </Text>
         </View>
@@ -31,13 +27,29 @@ export function OrderCard({ id, customerName, total, status, date, className, on
       
       <View className="flex-row justify-between items-end">
         <View>
-          <Text className="text-on-surface-variant font-medium">{customerName}</Text>
-          <Text className="text-outline text-sm mt-1">{date}</Text>
+          <Text className="text-on-surface-variant font-medium text-[16px]">{customerName}</Text>
+          <Text className="text-muted-foreground text-[14px] mt-1">{date}</Text>
         </View>
-        <Text className="text-xl font-bold text-growth-green">
+        <Text className="text-[20px] font-bold text-primary">
           Rs {total.toLocaleString()}
         </Text>
       </View>
-    </Container>
+    </>
+  );
+
+  const containerClassName = twMerge('bg-surface-container-lowest rounded-[16px] border border-border-subtle p-5 mb-4', className);
+
+  if (onPress) {
+    return (
+      <TouchableOpacity onPress={onPress} className={containerClassName}>
+        {content}
+      </TouchableOpacity>
+    );
+  }
+
+  return (
+    <View className={containerClassName}>
+      {content}
+    </View>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView, SafeAreaView, TouchableOpacity, Image, Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
@@ -14,7 +14,24 @@ export default function CreateProductScreen() {
   const [price, setPrice] = useState('');
   const [stock, setStock] = useState('1');
   const [loading, setLoading] = useState(false);
+  const [storeId, setStoreId] = useState<string | null>(null);
+  const [loadingStore, setLoadingStore] = useState(true);
 
+  useEffect(() => {
+    async function loadStore() {
+      try {
+        const stores = await apiFetch('/stores');
+        if (stores && stores.length > 0) {
+          setStoreId(stores[0].id);
+        }
+      } catch (err) {
+        console.error('Failed to load store:', err);
+      } finally {
+        setLoadingStore(false);
+      }
+    }
+    loadStore();
+  }, []);
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],
@@ -34,6 +51,11 @@ export default function CreateProductScreen() {
       return;
     }
 
+    if (!storeId) {
+      Alert.alert('Error', 'No store found. Please create a store first.');
+      return;
+    }
+
     setLoading(true);
     try {
       // In a real app, we would upload the image to a bucket and get a URL.
@@ -43,11 +65,12 @@ export default function CreateProductScreen() {
       await apiFetch('/products', {
         method: 'POST',
         body: JSON.stringify({
+          storeId,
           title,
           description,
-          price,
+          price: parseFloat(price),
           stock: parseInt(stock, 10),
-          thumbnailUrl: mockImageUrl,
+          images: [mockImageUrl],
         }),
       });
       
@@ -65,7 +88,7 @@ export default function CreateProductScreen() {
         <TouchableOpacity onPress={() => router.back()} className="mr-4 p-2 -ml-2 rounded-full">
           <Feather name="arrow-left" size={24} color="#006b5e" />
         </TouchableOpacity>
-        <Text className="text-xl font-bold text-on-surface">Add Product</Text>
+        <Text className="text-[20px] font-bold text-on-surface">Add Product</Text>
       </View>
 
       <KeyboardAvoidingView 
@@ -73,74 +96,74 @@ export default function CreateProductScreen() {
         className="flex-1"
       >
         <ScrollView className="flex-1 px-6 pt-6">
-          <Text className="text-sm font-medium mb-2 text-foreground">Product Image</Text>
+          <Text className="text-[14px] font-semibold mb-2 text-foreground">Product Image</Text>
           <TouchableOpacity 
             onPress={pickImage}
-            className="h-48 bg-surface-container rounded-2xl border-2 border-dashed border-border-subtle justify-center items-center mb-6 overflow-hidden"
+            className="h-48 bg-surface-container-lowest rounded-[16px] border-2 border-dashed border-border-subtle justify-center items-center mb-6 overflow-hidden"
           >
             {image ? (
               <Image source={{ uri: image }} className="w-full h-full" resizeMode="cover" />
             ) : (
               <View className="items-center">
                 <Feather name="camera" size={32} color="#6e7976" />
-                <Text className="text-muted-foreground mt-2 font-medium">Tap to upload photo</Text>
+                <Text className="text-muted-foreground mt-2 font-medium text-[14px]">Tap to upload photo</Text>
               </View>
             )}
           </TouchableOpacity>
 
           <View className="mb-4">
-            <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Title</Text>
+            <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Title</Text>
             <TextInput
               value={title}
               onChangeText={setTitle}
               placeholder="e.g. Premium Lawn Suit"
-              className="bg-background border border-border rounded-xl px-4 py-4 text-base"
+              className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px]"
               placeholderTextColor="#9ca3af"
             />
           </View>
 
           <View className="mb-4">
-            <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Description (AI will improve this)</Text>
+            <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Description (AI will improve this)</Text>
             <TextInput
               value={description}
               onChangeText={setDescription}
               placeholder="Describe your product..."
               multiline
               numberOfLines={4}
-              className="bg-background border border-border rounded-xl px-4 py-4 text-base h-28 align-top"
+              className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px] h-28 align-top"
               placeholderTextColor="#9ca3af"
             />
           </View>
 
           <View className="flex-row gap-4 mb-8">
             <View className="flex-1">
-              <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Price (Rs)</Text>
+              <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Price (Rs)</Text>
               <TextInput
                 value={price}
                 onChangeText={setPrice}
                 placeholder="4500"
                 keyboardType="numeric"
-                className="bg-background border border-border rounded-xl px-4 py-4 text-base"
+                className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px]"
                 placeholderTextColor="#9ca3af"
               />
             </View>
             <View className="flex-1">
-              <Text className="text-sm font-medium mb-1 ml-1 text-foreground">Stock</Text>
+              <Text className="text-[14px] font-semibold mb-2 ml-1 text-foreground">Stock</Text>
               <TextInput
                 value={stock}
                 onChangeText={setStock}
                 placeholder="10"
                 keyboardType="numeric"
-                className="bg-background border border-border rounded-xl px-4 py-4 text-base"
+                className="bg-surface-container-lowest border border-border-subtle rounded-xl px-4 py-4 text-[16px]"
                 placeholderTextColor="#9ca3af"
               />
             </View>
           </View>
 
           <Button 
-            title={loading ? "Saving..." : "Save Product"} 
+            title={loadingStore ? "Loading..." : (loading ? "Saving..." : "Save Product")} 
             onPress={handleCreate} 
-            disabled={loading}
+            disabled={loadingStore || loading}
           />
           <View className="h-12" />
         </ScrollView>

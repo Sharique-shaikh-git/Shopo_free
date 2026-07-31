@@ -1,7 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  /* Core Colors */
   --surface: #f9f9fc;
   --surface-dim: #dadadc;
   --surface-bright: #f9f9fc;
@@ -12,36 +13,41 @@
   --surface-container-highest: #e2e2e5;
   --on-surface: #1a1c1e;
   --on-surface-variant: #3e4946;
-  
   --primary: #005147;
   --on-primary: #ffffff;
   --primary-container: #006b5e;
   --on-primary-container: #95e8d8;
-  
   --secondary: #006d2f;
   --on-secondary: #ffffff;
   --secondary-container: #5dfd8a;
   --on-secondary-container: #007232;
-  
   --error: #ba1a1a;
   --on-error: #ffffff;
-  
   --background: var(--surface);
   --foreground: var(--on-surface);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--on-primary);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--on-secondary);
-  --color-muted: var(--surface-container);
-  --color-muted-foreground: var(--on-surface-variant);
-  --color-card: var(--surface-container-lowest);
-  --color-card-foreground: var(--on-surface);
-  --color-border: var(--surface-container-highest);
-  --color-input: var(--surface-container-highest);
+.dark {
+  --surface: #1a1c1e;
+  --surface-dim: #121316;
+  --surface-bright: #38393e;
+  --surface-container-lowest: #0d0e11;
+  --surface-container-low: #1a1c1e;
+  --surface-container: #1e2023;
+  --surface-container-high: #282a2d;
+  --surface-container-highest: #333537;
+  --on-surface: #e2e2e5;
+  --on-surface-variant: #c4c7c5;
+  --primary: #6dd5c4;
+  --on-primary: #003731;
+  --primary-container: #005147;
+  --on-primary-container: #95e8d8;
+  --secondary: #9cd4a0;
+  --on-secondary: #003916;
+  --secondary-container: #005222;
+  --on-secondary-container: #b8f0b8;
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --background: var(--surface);
+  --foreground: var(--on-surface);
 }

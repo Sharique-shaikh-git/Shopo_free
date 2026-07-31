@@ -1,7 +1,9 @@
 import * as SecureStore from 'expo-secure-store';
 import { Platform } from 'react-native';
 
-const API_BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3001/v1' : 'http://localhost:3001/v1';
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL 
+  ? `${process.env.EXPO_PUBLIC_API_URL}/v1`
+  : (Platform.OS === 'android' ? 'http://10.0.2.2:3001/v1' : 'http://localhost:3001/v1');
 const TOKEN_KEY = 'merchant_jwt';
 
 export async function setToken(token: string) {
