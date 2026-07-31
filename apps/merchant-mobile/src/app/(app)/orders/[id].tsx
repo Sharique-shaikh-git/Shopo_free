@@ -6,10 +6,10 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { apiFetch } from '../../../lib/api';
 
 const TIMELINE_STEPS = [
-  { key: 'placed', label: 'Order Placed', desc: 'Successfully received by shop', icon: 'check' },
-  { key: 'processing', label: 'Processing', desc: 'Merchant verified and packed items', icon: 'check' },
-  { key: 'shipped', label: 'On the way', desc: 'The rider has picked up your order', icon: 'local_shipping' },
-  { key: 'delivered', label: 'Delivered', desc: 'Waiting to reach your doorstep', icon: 'check' },
+  { key: 'placed', label: 'Order Placed', desc: 'Successfully received by shop', icon: 'check' as const },
+  { key: 'processing', label: 'Processing', desc: 'Merchant verified and packed items', icon: 'check' as const },
+  { key: 'shipped', label: 'On the way', desc: 'The rider has picked up your order', icon: 'local-shipping' as const },
+  { key: 'delivered', label: 'Delivered', desc: 'Waiting to reach your doorstep', icon: 'check' as const },
 ];
 
 export default function OrderTrackingScreen() {

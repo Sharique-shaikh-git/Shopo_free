@@ -7,13 +7,13 @@ import { apiFetch } from '../../lib/api';
 const PERIODS = ['Today', 'This Week', 'This Month', 'All Time'];
 
 const BAR_DATA = [
-  { label: 'Mon', value: 12000, height: '30%' },
-  { label: 'Tue', value: 18000, height: '45%' },
-  { label: 'Wed', value: 10000, height: '25%' },
-  { label: 'Thu', value: 24000, height: '60%' },
-  { label: 'Fri', value: 34000, height: '85%', isToday: true },
-  { label: 'Sat', value: 16000, height: '40%' },
-  { label: 'Sun', value: 22000, height: '55%' },
+  { label: 'Mon', value: 12000, height: 58 },
+  { label: 'Tue', value: 18000, height: 86 },
+  { label: 'Wed', value: 10000, height: 48 },
+  { label: 'Thu', value: 24000, height: 115 },
+  { label: 'Fri', value: 34000, height: 163, isToday: true },
+  { label: 'Sat', value: 16000, height: 77 },
+  { label: 'Sun', value: 22000, height: 106 },
 ];
 
 export default function AnalyticsScreen() {
