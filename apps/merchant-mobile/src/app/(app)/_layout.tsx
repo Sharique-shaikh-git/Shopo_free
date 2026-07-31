@@ -19,8 +19,8 @@ export default function AppLayout() {
           shadowRadius: 20,
           elevation: 8,
         },
-        tabBarActiveTintColor: '#006B5E', // growth-green
-        tabBarInactiveTintColor: '#6e7976', // outline
+        tabBarActiveTintColor: '#006B5E',
+        tabBarInactiveTintColor: '#6e7976',
         tabBarLabelStyle: {
           fontFamily: 'Be Vietnam Pro',
           fontSize: 12,
@@ -29,7 +29,7 @@ export default function AppLayout() {
       }}
     >
       <Tabs.Screen
-        name="dashboard"
+        name="index"
         options={{
           title: 'Home',
           tabBarLabel: 'Home',
@@ -39,12 +39,12 @@ export default function AppLayout() {
         }}
       />
       <Tabs.Screen
-        name="store"
+        name="products"
         options={{
-          title: 'Store',
-          tabBarLabel: 'Store',
+          title: 'Products',
+          tabBarLabel: 'Products',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="storefront" size={size} color={color} />
+            <MaterialIcons name="inventory-2" size={size} color={color} />
           ),
         }}
       />
@@ -59,29 +59,15 @@ export default function AppLayout() {
         }}
       />
       <Tabs.Screen
-        name="analytics"
+        name="more"
         options={{
-          title: 'Analytics',
-          tabBarLabel: 'Analytics',
+          title: 'More',
+          tabBarLabel: 'More',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="bar-chart" size={size} color={color} />
+            <MaterialIcons name="menu" size={size} color={color} />
           ),
         }}
       />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: 'Settings',
-          tabBarLabel: 'Settings',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="settings" size={size} color={color} />
-          ),
-        }}
-      />
-      
-      {/* Hide screens that aren't in bottom nav */}
-      <Tabs.Screen name="products" options={{ href: null }} />
-      <Tabs.Screen name="customers" options={{ href: null }} />
     </Tabs>
   );
 }
