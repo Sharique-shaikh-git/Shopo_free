@@ -34,7 +34,7 @@ export default function LoginScreen() {
 
       if (res.token) {
         await setToken(res.token);
-        router.replace('/(app)/dashboard');
+        router.replace('/(app)');
       }
     } catch (err: any) {
       Alert.alert('Authentication Failed', err.message);

@@ -27,7 +27,7 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
       if (!token && !inAuthGroup) {
         router.replace('/(auth)/welcome');
       } else if (token && inAuthGroup) {
-        router.replace('/(app)/dashboard');
+        router.replace('/(app)');
       }
       setIsReady(true);
     }
