@@ -6,16 +6,29 @@ const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL
   : (Platform.OS === 'android' ? 'http://10.0.2.2:3001/v1' : 'http://localhost:3001/v1');
 const TOKEN_KEY = 'merchant_jwt';
 
+const isWeb = Platform.OS === 'web';
+
 export async function setToken(token: string) {
-  await SecureStore.setItemAsync(TOKEN_KEY, token);
+  if (isWeb) {
+    localStorage.setItem(TOKEN_KEY, token);
+  } else {
+    await SecureStore.setItemAsync(TOKEN_KEY, token);
+  }
 }
 
-export async function getToken() {
+export async function getToken(): Promise<string | null> {
+  if (isWeb) {
+    return localStorage.getItem(TOKEN_KEY);
+  }
   return await SecureStore.getItemAsync(TOKEN_KEY);
 }
 
 export async function removeToken() {
-  await SecureStore.deleteItemAsync(TOKEN_KEY);
+  if (isWeb) {
+    localStorage.removeItem(TOKEN_KEY);
+  } else {
+    await SecureStore.deleteItemAsync(TOKEN_KEY);
+  }
 }
 
 export async function apiFetch(endpoint: string, options: RequestInit = {}) {
