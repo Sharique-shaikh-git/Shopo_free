@@ -3,22 +3,45 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import Animated, { FadeIn } from 'react-native-reanimated';
+import { apiFetch } from '../../../lib/api';
 
 export default function AIEnrichmentReviewScreen() {
   const router = useRouter();
-  const { imageUri } = useLocalSearchParams();
-  const [title, setTitle] = useState('Handcrafted Leather Wallet - Vintage Brown');
-  const [price, setPrice] = useState('4500');
+  const { imageUri, productId } = useLocalSearchParams<{ imageUri?: string; productId?: string }>();
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [aiLoading, setAiLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setDescription('Elevate your everyday carry with this premium handcrafted leather wallet. Made from authentic, top-grain leather that develops a beautiful patina over time. Features 6 card slots, a spacious bill compartment, and reinforced stitching for ultimate durability. The perfect blend of traditional craftsmanship and modern utility.');
+    if (!productId) {
       setAiLoading(false);
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, []);
+      return;
+    }
+    // Poll for AI job completion
+    let attempts = 0;
+    const maxAttempts = 20;
+    const interval = setInterval(async () => {
+      attempts++;
+      try {
+        const product = await apiFetch(`/products/${productId}`);
+        if (product.title) setTitle(product.title);
+        if (product.suggestedPrice) setPrice(String(product.suggestedPrice));
+        if (product.description) {
+          setDescription(product.description);
+          setAiLoading(false);
+          clearInterval(interval);
+        }
+      } catch {
+        // ignore polling errors
+      }
+      if (attempts >= maxAttempts) {
+        setAiLoading(false);
+        clearInterval(interval);
+      }
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [productId]);
 
   return (
     <View className="flex-1 bg-white">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking, Alert } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn, useSharedValue, useAnimatedStyle, withRepeat, withTiming } from 'react-native-reanimated';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -39,18 +39,8 @@ export default function OrderTrackingScreen() {
         const data = await apiFetch(`/orders/${id}`);
         setOrder(data);
       } catch (err) {
-        setOrder({
-          id,
-          orderNumber: 'SB-8291',
-          status: 'shipped',
-          totalAmount: 6650,
-          customerName: 'Customer',
-          estimatedDelivery: 'Oct 24, 2023',
-          items: [
-            { title: 'Classic Polo T-Shirt', variant: 'Size: L, Blue', price: 2450, quantity: 1 },
-            { title: 'Canvas Sneakers', variant: 'Size: 42, White', price: 4200, quantity: 1 },
-          ],
-        });
+        Alert.alert('Error', 'Could not load order details');
+        router.back();
       } finally {
         setLoading(false);
       }

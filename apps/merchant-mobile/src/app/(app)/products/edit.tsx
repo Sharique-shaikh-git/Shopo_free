@@ -1,22 +1,41 @@
-import { View, Text, ScrollView, TextInput, TouchableOpacity, Switch, Alert } from 'react-native';
+import { View, Text, ScrollView, TextInput, TouchableOpacity, Switch, Alert, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
+import { apiFetch } from '../../../lib/api';
 
 const CATEGORIES = ['Home & Decor', 'Electronics', 'Clothing', 'Health & Beauty'];
 
 export default function EditProductScreen() {
   const router = useRouter();
-  const { id } = useLocalSearchParams();
-  const [title, setTitle] = useState('Minimalist Ceramic Mug');
-  const [description, setDescription] = useState('Handcrafted ceramic mug with a matte finish. Perfect for your morning coffee or tea.');
-  const [price, setPrice] = useState('850');
-  const [stock, setStock] = useState('12');
-  const [category, setCategory] = useState('Home & Decor');
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [stock, setStock] = useState('');
+  const [category, setCategory] = useState('');
   const [isActive, setIsActive] = useState(true);
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+
+  useEffect(() => {
+    if (!id) { setLoading(false); return; }
+    apiFetch(`/products/${id}`)
+      .then((p: any) => {
+        setTitle(p.title || '');
+        setDescription(p.description || '');
+        setPrice(String(p.price || ''));
+        setStock(String(p.stock || ''));
+        setCategory(p.category || '');
+        setIsActive(p.status === 'active');
+        if (p.images?.[0]) setImageUri(p.images[0]);
+      })
+      .catch(() => Alert.alert('Error', 'Could not load product'))
+      .finally(() => setLoading(false));
+  }, [id]);
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({

@@ -265,13 +265,17 @@ export default function DashboardScreen() {
           </LinearGradient>
         </Animated.View>
 
-        {/* Quick Actions Grid */}
+        {/* Quick Actions Grid — 2-col, works in NativeWind (flex-wrap breaks w-[48%] on RN) */}
         <Animated.View entering={FadeInDown.duration(600).delay(500).springify()} className="mt-8">
           <Text className="text-[24px] font-bold text-on-surface mb-4">Quick Actions</Text>
-          <View className="flex-row flex-wrap justify-between gap-3">
-            
+          <View className="flex-row flex-wrap gap-3">
+
             {/* Add Product */}
-            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/products/create' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => router.push('/(app)/products/create' as any)}
+              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+            >
               <View className="w-12 h-12 rounded-full bg-primary-container items-center justify-center mb-3">
                 <MaterialIcons name="add" size={24} color="white" />
               </View>
@@ -279,7 +283,11 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* View Orders */}
-            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/orders' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => router.push('/(app)/orders' as any)}
+              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+            >
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="receipt-long" size={24} color="#1a1c1e" />
               </View>
@@ -287,7 +295,11 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* Share Shop */}
-            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/store/share' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => router.push('/(app)/(stack)/store/share' as any)}
+              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+            >
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="share" size={24} color="#25D366" />
               </View>
@@ -295,7 +307,11 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* Analytics */}
-            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/analytics' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => router.push('/(app)/(stack)/analytics' as any)}
+              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+            >
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="bar-chart" size={24} color="#1a1c1e" />
               </View>

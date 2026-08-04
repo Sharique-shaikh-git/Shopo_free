@@ -83,18 +83,22 @@ module.exports = {
         "status-shipped": "#F0FDF4"
       },
       borderRadius: {
-        DEFAULT: "0.25rem",
-        lg: "0.5rem",
-        xl: "0.75rem",
-        full: "9999px"
+        DEFAULT: 4,
+        sm: 4,
+        md: 8,
+        lg: 8,
+        xl: 12,
+        "2xl": 16,
+        "3xl": 24,
+        full: 9999
       },
       spacing: {
-        "stack-sm": "0.5rem",
-        "stack-md": "1rem",
-        "stack-lg": "2rem",
-        "margin-mobile": "1.25rem",
-        "gutter-mobile": "1rem",
-        "touch-target-min": "3rem"
+        "stack-sm": 8,
+        "stack-md": 16,
+        "stack-lg": 32,
+        "margin-mobile": 20,
+        "gutter-mobile": 16,
+        "touch-target-min": 48
       },
       fontFamily: {
         sans: ["Be Vietnam Pro", "sans-serif"],
@@ -107,13 +111,13 @@ module.exports = {
         "label-sm": ["Be Vietnam Pro"]
       },
       fontSize: {
-        "headline-lg": ["32px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
-        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
-        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
-        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-        "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
-        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+        "headline-lg": 32,
+        "headline-lg-mobile": 28,
+        "headline-md": 24,
+        "body-lg": 18,
+        "body-md": 16,
+        "label-lg": 14,
+        "label-sm": 12
       }
     }
   },

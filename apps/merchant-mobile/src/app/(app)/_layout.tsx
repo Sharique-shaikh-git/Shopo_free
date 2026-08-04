@@ -1,23 +1,32 @@
 import { Tabs } from 'expo-router';
+import { Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function AppLayout() {
+  const insets = useSafeAreaInsets();
+  const bottomPadding = Math.max(insets.bottom, 12);
+
   return (
-    <Tabs 
-      screenOptions={{ 
+    <Tabs
+      screenOptions={{
         headerShown: false,
         tabBarStyle: {
           backgroundColor: '#f9f9fc',
           borderTopColor: '#E1E3E5',
           borderTopWidth: 1,
-          height: 64,
-          paddingBottom: 8,
+          height: 64 + bottomPadding,
+          paddingBottom: bottomPadding,
           paddingTop: 8,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: -4 },
-          shadowOpacity: 0.05,
-          shadowRadius: 20,
           elevation: 8,
+          ...Platform.select({
+            ios: {
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: -4 },
+              shadowOpacity: 0.05,
+              shadowRadius: 20,
+            },
+          }),
         },
         tabBarActiveTintColor: '#006B5E',
         tabBarInactiveTintColor: '#6e7976',
