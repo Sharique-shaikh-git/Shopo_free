@@ -104,6 +104,11 @@ export default function SettingsMainScreen() {
               }
             />
             <SettingsRow
+              icon="inbox"
+              label="Notifications Inbox"
+              onPress={() => router.push('/(app)/(stack)/settings/notifications-inbox' as never)}
+            />
+            <SettingsRow
               icon="light-mode"
               label="Dark Mode"
               value={preference === 'system' ? 'System' : preference === 'dark' ? 'Dark' : 'Light'}
