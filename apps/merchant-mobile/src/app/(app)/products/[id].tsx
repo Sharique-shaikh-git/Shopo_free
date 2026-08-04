@@ -134,8 +134,12 @@ export default function EditProductScreen() {
         <ScrollView contentContainerStyle={{ paddingBottom: 100 }} className="flex-1 w-full max-w-md mx-auto" showsVerticalScrollIndicator={false}>
           
           {/* Product Image Section */}
-          <View className="relative w-full aspect-square bg-surface-container-low mb-8 group">
-            <Image source={{ uri: image || 'https://via.placeholder.com/400' }} className="w-full h-full object-cover" />
+          <View className="relative w-full aspect-square bg-surface-container-low mb-8 group items-center justify-center overflow-hidden">
+            {image ? (
+              <Image source={{ uri: image }} className="w-full h-full object-cover" />
+            ) : (
+              <MaterialIcons name="image" size={64} color="#bec9c5" />
+            )}
             <View className="absolute inset-0 bg-black/20 items-center justify-center">
               <TouchableOpacity className="bg-surface/90 px-6 py-3 rounded-full flex-row items-center gap-2 active:scale-95 duration-150 shadow-sm">
                 <MaterialIcons name="photo-camera" size={20} color="#005147" />

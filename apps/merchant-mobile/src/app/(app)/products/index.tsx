@@ -26,36 +26,10 @@ export default function ProductsScreen() {
     loadProducts();
   }, []);
 
+
   const filters = ['All Products', 'In Stock', 'Out of Stock', 'Drafts'];
 
-  // Mock data to ensure beautiful UI is visible even if DB is empty
-  const mockProducts = [
-    {
-      id: 'mock1',
-      title: 'Embroidered Pashmina Shawl',
-      price: '4500',
-      stock: 10,
-      images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuCArU5I8ROApjKcuGZhwIeMqMxFo_gs9fxyVlfCfB2t43FFyZISzvfKL2yswNaZjFqjWvB5emQn6cB-abQkQMInnQQNM3BHb74eCi6diOiqrntUD4BbEsdjsrcHuLEinq4wjFJfQhi0GGEQl84MaNo5GSujaQNQMhnYF8e6FzaMp38917TvTH4zcGYpBnuaZxFxD456ukQbS-uMi-JOHyfjPvW6-t8Nb--Q_GqzpcynzXyRxLf4QaqV97aY2pvDT6UeJVh1wVxFfOo']
-    },
-    {
-      id: 'mock2',
-      title: 'Handmade Leather Sandals',
-      price: '2850',
-      stock: 5,
-      images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuBGeVbxb253p2gQsWHgQn9r3PkWHPpA7Yrn71qYJlXzm7oboEyTuH-QwDcGS6euSGjBK8ndVrEUV8YEEoD4Z4qA8EvrcCXCtXkSKubEXiXovhize8Yr12_C97fd6EDTI4NRc7cjxTnNCC0PL6XYu-5fptVtLuATfhxBKkHdjt9t7TrvOZjgV64PB8n2FJLs7EcmtJo8tVo5ph1LMjQwQIe4xI-jf-MFmJv3nGcpaWb1Hsk754cwZq7hgZIOlDjPGOBIx1YT-xyL5s8']
-    },
-    {
-      id: 'mock3',
-      title: 'Smart Series-X Watch',
-      price: '12000',
-      stock: 0,
-      images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuBuvXng8d7OVTDLk3tmhkDKQ_uA8ROghXmcXIzHHhESMNSxsE9OGMPVkcszy5eDw3F9SSHFyfqEpWFYWtVVUI8A_riIK9yceiWEEO696EmYNdssVwNxEdhQ54G-svVn98DlMbaTZei-fzS6AtwR5oJzA-z19VoI1fx0jK6BYZqcnLMU9EVplNw4rngrFassMsSiTiLvjoJlhg4Em9vXZ_Wk3uuqhjGkLkSOELQs0Y9fXMCVySJK1XWdJrdSUo5ocJn49fWk92khiT0']
-    }
-  ];
-
-  const displayProducts = products.length > 0 ? products : mockProducts;
-  
-  const filteredProducts = displayProducts.filter(p => {
+  const filteredProducts = products.filter(p => {
     if (searchQuery && !p.title?.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     if (activeFilter === 'In Stock' && p.stock <= 0) return false;
     if (activeFilter === 'Out of Stock' && p.stock > 0) return false;
@@ -111,9 +85,15 @@ export default function ProductsScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }} className="flex-1 px-6 mt-2" showsVerticalScrollIndicator={false}>
         {loading ? (
           <ActivityIndicator size="large" color="#005147" className="mt-8" />
-        ) : filteredProducts.length === 0 ? (
-          <View className="mt-10 items-center justify-center">
-            <Text className="text-[16px] text-on-surface-variant text-center">No products found.</Text>
+        ) : products.length === 0 ? (
+          <View className="mt-20 items-center justify-center gap-4">
+            <View className="w-20 h-20 rounded-full bg-surface-container-high items-center justify-center">
+              <MaterialIcons name="inventory-2" size={40} color="#6e7976" />
+            </View>
+            <Text className="text-[18px] font-semibold text-on-surface">No products yet</Text>
+            <Text className="text-[14px] text-on-surface-variant text-center max-w-[220px] leading-5">
+              Tap the + button to add your first product!
+            </Text>
           </View>
         ) : (
           <View className="flex-col gap-3">
@@ -126,11 +106,15 @@ export default function ProductsScreen() {
                     onPress={() => router.push(`/(app)/products/${product.id}`)}
                     className="flex-row items-center p-3 bg-surface-container-lowest border border-border-subtle rounded-xl shadow-sm min-h-[88px]"
                   >
-                    <View className={`w-16 h-16 rounded-lg overflow-hidden bg-surface-container border border-border-subtle shrink-0 ${!inStock ? 'opacity-60' : ''}`}>
-                      <Image 
-                        source={{ uri: product.images?.[0] || 'https://via.placeholder.com/100' }} 
-                        className={`w-full h-full object-cover ${!inStock ? 'opacity-60' : ''}`}
-                      />
+                    <View className={`w-16 h-16 rounded-lg overflow-hidden bg-surface-container border border-border-subtle shrink-0 items-center justify-center ${!inStock ? 'opacity-60' : ''}`}>
+                      {product.images?.[0] ? (
+                        <Image
+                          source={{ uri: product.images[0] }}
+                          className={`w-full h-full object-cover ${!inStock ? 'opacity-60' : ''}`}
+                        />
+                      ) : (
+                        <MaterialIcons name="inventory-2" size={24} color="#bec9c5" />
+                      )}
                     </View>
                     <View className="ml-4 flex-1">
                       <View className="flex-row justify-between items-start">
