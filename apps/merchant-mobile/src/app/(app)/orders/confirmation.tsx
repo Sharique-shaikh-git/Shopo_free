@@ -1,22 +1,28 @@
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
-
-const ORDER_ITEMS = [
-  { name: 'Premium Organic Basmati Rice 5kg', qty: 2, price: 4500 },
-  { name: 'Pure Cooking Oil 3L', qty: 1, price: 2800 },
-];
+import { apiFetch } from '../../../lib/api';
 
 export default function OrderConfirmationScreen() {
   const router = useRouter();
-  const { orderId } = useLocalSearchParams();
-  const trackingNumber = `PK-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 5).toUpperCase()}`;
+  const { orderId } = useLocalSearchParams<{ orderId: string }>();
+  const [order, setOrder] = useState<any>(null);
+  const [loading, setLoading] = useState(!!orderId);
 
-  const subtotal = ORDER_ITEMS.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const deliveryFee = 200;
-  const total = subtotal + deliveryFee;
+  useEffect(() => {
+    if (!orderId) return;
+    apiFetch(`/orders/${orderId}`)
+      .then(setOrder)
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [orderId]);
+
+  const items = order?.items || [];
+  const subtotal = order?.subtotal ? Number(order.subtotal) : 0;
+  const deliveryFee = order?.deliveryFee ? Number(order.deliveryFee) : 0;
+  const total = order?.total ? Number(order.total) : 0;
 
   return (
     <View className="flex-1 bg-white">
@@ -30,47 +36,45 @@ export default function OrderConfirmationScreen() {
       </View>
 
       <ScrollView className="flex-1 px-5 pb-24">
-        {/* Hero Success */}
-        <Animated.View entering={FadeIn.duration(600)} className="items-center py-8">
-          <View className="w-24 h-24 items-center justify-center mb-6">
-            <View className="absolute inset-0 bg-[#005147] opacity-10 rounded-full" style={{ transform: [{ scale: 1.3 }] }} />
-            <View className="absolute inset-2 bg-[#005147] opacity-20 rounded-full" />
-            <Ionicons name="checkmark-circle" size={72} color="#005147" style={{ zIndex: 10 }} />
-          </View>
-          <Text className="text-[28px] font-bold text-[#1a1c1e] text-center mb-2">Order Placed!</Text>
-          <Text className="text-[16px] text-[#75797E] text-center mb-6 max-w-[280px]">
-            Thank you for your purchase. The merchant has received your order.
-          </Text>
-          {/* Tracking Pill */}
-          <View className="items-center gap-2 w-full max-w-sm">
-            <Text className="text-[12px] font-semibold text-[#75797E] uppercase tracking-wider">Tracking Number</Text>
-            <TouchableOpacity className="w-full max-w-[240px] bg-[#F2F0F4] border border-[#E0E3DE] rounded-xl py-3 px-4 flex-row items-center justify-center gap-3">
-              <Text className="text-[14px] font-semibold text-[#1a1c1e] tracking-widest font-mono">{trackingNumber}</Text>
-              <Ionicons name="copy-outline" size={18} color="#75797E" />
-            </TouchableOpacity>
-          </View>
-        </Animated.View>
-
-        {/* Order Summary Card */}
-        <Animated.View entering={FadeInDown.duration(600).delay(200)} className="border border-[#E0E3DE] rounded-xl overflow-hidden mb-6 shadow-sm">
-          <View className="flex-row items-center gap-2 px-4 py-3 bg-[#F2F0F4] border-b border-[#E0E3DE]">
-            <MaterialIcons name="receipt" size={18} color="#75797E" />
-            <Text className="text-[20px] font-semibold text-[#1a1c1e]">Order Summary</Text>
-          </View>
-          <View className="px-4 py-4 gap-4">
-            {ORDER_ITEMS.map((item, i) => (
-              <View key={i} className="flex-row items-center gap-4">
-                <View className="w-16 h-16 rounded-lg bg-[#F2F0F4] border border-[#E0E3DE] items-center justify-center">
-                  <Ionicons name="cube" size={22} color="#75797E" />
-                </View>
-                <View className="flex-1 min-w-0">
-                  <Text className="text-[16px] font-medium text-[#1a1c1e]" numberOfLines={1}>{item.name}</Text>
-                  <Text className="text-[12px] text-[#75797E] mt-1">Qty: {item.qty}</Text>
-                </View>
-                <Text className="text-[16px] font-medium text-[#1a1c1e]">Rs {item.price.toLocaleString()}</Text>
+        {loading ? (
+          <ActivityIndicator size="large" color="#005147" className="mt-12" />
+        ) : (
+          <>
+            {/* Hero Success */}
+            <Animated.View entering={FadeIn.duration(600)} className="items-center py-8">
+              <View className="w-24 h-24 items-center justify-center mb-6">
+                <View className="absolute inset-0 bg-[#005147] opacity-10 rounded-full" style={{ transform: [{ scale: 1.3 }] }} />
+                <View className="absolute inset-2 bg-[#005147] opacity-20 rounded-full" />
+                <Ionicons name="checkmark-circle" size={72} color="#005147" style={{ zIndex: 10 }} />
               </View>
-            ))}
-          </View>
+              <Text className="text-[28px] font-bold text-[#1a1c1e] text-center mb-2">Order Placed!</Text>
+              <Text className="text-[16px] text-[#75797E] text-center mb-6 max-w-[280px]">
+                Thank you! Order #{order?.orderNumber || orderId} has been received.
+              </Text>
+            </Animated.View>
+
+            {/* Order Summary Card */}
+            <Animated.View entering={FadeInDown.duration(600).delay(200)} className="border border-[#E0E3DE] rounded-xl overflow-hidden mb-6 shadow-sm">
+              <View className="flex-row items-center gap-2 px-4 py-3 bg-[#F2F0F4] border-b border-[#E0E3DE]">
+                <MaterialIcons name="receipt" size={18} color="#75797E" />
+                <Text className="text-[20px] font-semibold text-[#1a1c1e]">Order Summary</Text>
+              </View>
+              <View className="px-4 py-4 gap-4">
+                {items.length === 0 ? (
+                  <Text className="text-[14px] text-[#75797E] text-center py-4">No items found</Text>
+                ) : items.map((item: any, i: number) => (
+                  <View key={i} className="flex-row items-center gap-4">
+                    <View className="w-16 h-16 rounded-lg bg-[#F2F0F4] border border-[#E0E3DE] items-center justify-center">
+                      <Ionicons name="cube" size={22} color="#75797E" />
+                    </View>
+                    <View className="flex-1 min-w-0">
+                      <Text className="text-[16px] font-medium text-[#1a1c1e]" numberOfLines={1}>{item.title || item.name}</Text>
+                      <Text className="text-[12px] text-[#75797E] mt-1">Qty: {item.quantity || item.qty}</Text>
+                    </View>
+                    <Text className="text-[16px] font-medium text-[#1a1c1e]">PKR {Number(item.totalPrice || item.price).toLocaleString()}</Text>
+                  </View>
+                ))}
+              </View>
           {/* Totals */}
           <View className="px-4 py-4 bg-[#F2F0F4] border-t border-[#E0E3DE] gap-2">
             <View className="flex-row justify-between">
@@ -87,6 +91,8 @@ export default function OrderConfirmationScreen() {
             </View>
           </View>
         </Animated.View>
+          </>
+        )}
       </ScrollView>
 
       {/* Bottom Actions */}

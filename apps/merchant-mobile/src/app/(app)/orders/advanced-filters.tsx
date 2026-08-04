@@ -9,6 +9,7 @@ export default function AdvancedFiltersScreen() {
   const router = useRouter();
   const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState<{ todaySales: number; newOrders: number }>({ todaySales: 0, newOrders: 0 });
 
   // Filter states
   const [statusFilter, setStatusFilter] = useState('All Orders');
@@ -18,8 +19,14 @@ export default function AdvancedFiltersScreen() {
   useEffect(() => {
     async function loadOrders() {
       try {
-        const data = await apiFetch('/orders');
+        const [data, statsData] = await Promise.all([
+          apiFetch('/orders').catch(() => []),
+          apiFetch('/merchant/stats').catch(() => null),
+        ]);
         setOrders(data || []);
+        if (statsData) {
+          setStats({ todaySales: statsData.sales || 0, newOrders: statsData.orders || 0 });
+        }
       } catch (err) {
         console.error(err);
       } finally {
@@ -29,34 +36,21 @@ export default function AdvancedFiltersScreen() {
     loadOrders();
   }, []);
 
-  const mockOrders = [
-    {
-      id: 'mock1',
-      orderNumber: '#ORD-001',
-      customerName: 'Aisha Khan',
-      total: '1500',
-      time: '10 mins ago',
-      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASUnVOcw6KXfVT1tRgQH9BdVS3_cqzd1GSWgA_jd-KrhSgNcg3qH2WdGoSGReKvc9huTRoA3FGxo02Cr_YUUKLMf6jaKCYGUz19Hx5Nc0GT2UkOj5pbXKxOeNYwKpNoGD8RNg_eca9wDJx11h5yQh70by85cnt0xVr3-uqJ1GXkb5tB4xuOY_4AglM2CHgbTbNssOSo00pmH2cMNM3plf9KYVmVE03vvwSHyQE-kVV4jaddWUx4D3kgdW_V5OPgkgdlgjF8GPGz_s'
-    },
-    {
-      id: 'mock2',
-      orderNumber: '#ORD-002',
-      customerName: 'Usman Saeed',
-      total: '4200',
-      time: '45 mins ago',
-      initials: 'US'
-    },
-    {
-      id: 'mock3',
-      orderNumber: '#ORD-003',
-      customerName: 'Fatima Ali',
-      total: '2850',
-      time: '2 hours ago',
-      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCuOqd7gwY1pVNPtfYgL4jgMUewt8oycpgN9Zdz811UWKLJwHzDYb37ON8OA9K2D-iVxHNzLgWzcKi54xVw-Hf2zmQVCbMWTfJ8juNkMpNiAM06jVtKSqooi9p4-zwx7mdV0gqGWAhXVFnYH_IzkbDEs9GfB5qxIe61VsOMIrjbQug4TLokyOPb_j1PDx2QCTW-vsuE_LaKG06jYjIfJlVPohM96iZW6M6nFgHbLSzIeyEV50VllG1HhmH3qBJa9gZNcinZqysfR2Y'
+  const filteredOrders = orders.filter((order: any) => {
+    if (statusFilter !== 'All Orders' && order.status?.toLowerCase() !== statusFilter.toLowerCase()) return false;
+    if (paymentFilter === 'COD' && (order.paymentMethod || 'cod').toLowerCase() !== 'cod') return false;
+    if (dateFilter === 'Today') {
+      const d = new Date(order.createdAt);
+      const now = new Date();
+      if (d.toDateString() !== now.toDateString()) return false;
+    } else if (dateFilter === 'This Week') {
+      const d = new Date(order.createdAt);
+      const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+      if (d.getTime() < weekAgo) return false;
     }
-  ];
+    return true;
+  });
 
-  const displayOrders = orders.length > 0 ? orders : mockOrders;
 
   const statuses = [
     { label: 'All Orders', color: null },
@@ -94,11 +88,11 @@ export default function AdvancedFiltersScreen() {
         <View className="flex-row flex-wrap gap-4 p-5">
           <View className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-surface-container-lowest border border-border-subtle shadow-sm">
             <Text className="text-on-surface-variant font-medium text-[16px]">Today's Sales</Text>
-            <Text className="text-growth-green text-[32px] font-bold">PKR 12,500</Text>
+            <Text className="text-growth-green text-[32px] font-bold">PKR {stats.todaySales.toLocaleString()}</Text>
           </View>
           <View className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-surface-container-lowest border border-border-subtle shadow-sm">
             <Text className="text-on-surface-variant font-medium text-[16px]">New Orders</Text>
-            <Text className="text-growth-green text-[32px] font-bold">8</Text>
+            <Text className="text-growth-green text-[32px] font-bold">{stats.newOrders || orders.length}</Text>
           </View>
         </View>
 
@@ -191,9 +185,19 @@ export default function AdvancedFiltersScreen() {
 
           {loading ? (
             <ActivityIndicator size="large" color="#006b5e" className="mt-10" />
+          ) : filteredOrders.length === 0 ? (
+            <View className="mt-16 items-center justify-center gap-4 px-5">
+              <View className="w-20 h-20 rounded-full bg-surface-container-high items-center justify-center">
+                <MaterialIcons name="receipt-long" size={40} color="#6e7976" />
+              </View>
+              <Text className="text-[18px] font-semibold text-on-surface">No orders match</Text>
+              <Text className="text-[14px] text-on-surface-variant text-center max-w-[220px] leading-5">
+                Try adjusting your filters.
+              </Text>
+            </View>
           ) : (
             <View className="flex-col gap-2 px-5">
-              {displayOrders.map((order, index) => (
+              {filteredOrders.map((order: any, index: number) => (
                 <Animated.View key={order.id || index} entering={FadeInDown.duration(400).delay(200 + index * 100).springify()}>
                   <TouchableOpacity 
                     activeOpacity={0.9}

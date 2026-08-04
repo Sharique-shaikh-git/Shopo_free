@@ -8,6 +8,7 @@ import { OrdersModule } from './orders/orders.module';
 import { PublicModule } from './public/public.module';
 import { StoresModule } from './stores/stores.module';
 import { MerchantModule } from './merchant/merchant.module';
+import { CustomersModule } from './customers/customers.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { MerchantModule } from './merchant/merchant.module';
     PublicModule,
     StoresModule,
     MerchantModule,
+    CustomersModule,
   ],
   controllers: [],
   providers: [

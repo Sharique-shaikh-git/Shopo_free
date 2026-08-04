@@ -55,3 +55,17 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
 
   return response.json();
 }
+
+/**
+ * apiFetchSafe — never throws; returns `fallback` when the request fails or
+ * there is no data. Use for non-critical UI reads so a missing/offline
+ * endpoint renders as an empty state instead of crashing the screen.
+ */
+export async function apiFetchSafe<T>(endpoint: string, fallback: T): Promise<T> {
+  try {
+    const data = await apiFetch(endpoint);
+    return (data ?? fallback) as T;
+  } catch {
+    return fallback;
+  }
+}

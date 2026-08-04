@@ -1,6 +1,7 @@
 import { Slot, useRouter, useSegments } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { useFonts } from 'expo-font';
 import { getToken } from '../lib/api';
 import { AnimatedSplashScreen } from '../components/AnimatedSplashScreen';
 import { ThemeProvider, useThemePreference } from '../context/ThemeContext';
@@ -32,8 +33,7 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
       setIsReady(true);
     }
 
-    const timeout = setTimeout(checkAuth, 2500);
-    return () => clearTimeout(timeout);
+    checkAuth();
   }, [segments, router]);
 
   if (!isReady) return <AnimatedSplashScreen />;
@@ -42,6 +42,17 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
 }
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    'Be Vietnam Pro': require('../../assets/fonts/BeVietnamPro-Regular.ttf'),
+    'BeVietnamPro-Medium': require('../../assets/fonts/BeVietnamPro-Medium.ttf'),
+    'BeVietnamPro-SemiBold': require('../../assets/fonts/BeVietnamPro-SemiBold.ttf'),
+    'BeVietnamPro-Bold': require('../../assets/fonts/BeVietnamPro-Bold.ttf'),
+  });
+
+  if (!fontsLoaded && !fontError) {
+    return <AnimatedSplashScreen />;
+  }
+
   return (
     <ThemeProvider>
       <ThemeWrapper>

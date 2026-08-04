@@ -58,10 +58,8 @@ export default function CreateProductScreen() {
 
     setLoading(true);
     try {
-      // In a real app, we would upload the image to a bucket and get a URL.
-      // For now, we'll use a placeholder or base64 if needed, but since it's an AI MVP:
-      const mockImageUrl = image || 'https://via.placeholder.com/400';
-
+      // Only attach an image if the merchant actually picked one.
+      // TODO: upload to storage bucket and use the returned public URL.
       await apiFetch('/products', {
         method: 'POST',
         body: JSON.stringify({
@@ -70,7 +68,7 @@ export default function CreateProductScreen() {
           description,
           price: parseFloat(price),
           stock: parseInt(stock, 10),
-          images: [mockImageUrl],
+          ...(image ? { images: [image] } : {}),
         }),
       });
       

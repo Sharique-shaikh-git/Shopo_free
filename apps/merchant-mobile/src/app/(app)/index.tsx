@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Platform, ActivityIndicator, Alert, Dimensions } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Platform, ActivityIndicator, Alert, Dimensions, Share } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn, useSharedValue, useAnimatedStyle, withRepeat, withTiming, withSequence, interpolate, Easing } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 import { apiFetch } from '../../lib/api';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 export default function DashboardScreen() {
+  const router = useRouter();
   const pulseOpacity = useSharedValue(0.7);
   const gradientShift = useSharedValue(0);
 
@@ -113,7 +115,7 @@ export default function DashboardScreen() {
         if (Array.isArray(storesRes) && storesRes.length > 0) {
           setStoreName(storesRes[0].name);
         } else {
-          setStoreName('My Store');
+          setStoreName('');
         }
       } catch (err) {
         Alert.alert('Error', 'Failed to load dashboard data');
@@ -148,8 +150,9 @@ export default function DashboardScreen() {
           <Text className="text-[16px] text-on-surface-variant">Assalam-o-Alaikum,</Text>
           <Text className="text-[24px] font-bold text-growth-green">{storeName}</Text>
         </View>
-        <TouchableOpacity 
+          <TouchableOpacity 
           activeOpacity={0.9} 
+          onPress={() => router.replace('/(app)/more' as any)}
           className="w-12 h-12 rounded-full bg-surface-container-low items-center justify-center relative"
         >
           <MaterialIcons name="notifications" size={24} color="#1a1c1e" />
@@ -245,9 +248,15 @@ export default function DashboardScreen() {
                   AI Store Insight
                 </Animated.Text>
                 <Text className="text-[16px] text-white/90 mb-4 leading-6">
-                  You sold 3 more products this week! Share your link to keep growing.
+                  {stats.orders > 0
+                    ? `You have ${stats.orders} order${stats.orders !== 1 ? 's' : ''} and PKR ${stats.sales.toLocaleString()} in sales. Keep it up!`
+                    : 'Add your first product and share your shop link to start getting orders!'}
                 </Text>
-                <TouchableOpacity activeOpacity={0.9} className="bg-white px-4 py-2 rounded-full flex-row items-center self-start gap-2">
+                <TouchableOpacity 
+                  activeOpacity={0.9} 
+                  className="bg-white px-4 py-2 rounded-full flex-row items-center self-start gap-2"
+                  onPress={() => Share.share({ message: `Shop at ${storeName}! ` + (storeName ? `Check us out.` : '') })}
+                >
                   <MaterialIcons name="share" size={18} color="#006B5E" />
                   <Text className="text-[14px] font-bold text-growth-green">Share Link</Text>
                 </TouchableOpacity>
@@ -262,7 +271,7 @@ export default function DashboardScreen() {
           <View className="flex-row flex-wrap justify-between gap-3">
             
             {/* Add Product */}
-            <TouchableOpacity activeOpacity={0.8} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/products/create' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
               <View className="w-12 h-12 rounded-full bg-primary-container items-center justify-center mb-3">
                 <MaterialIcons name="add" size={24} color="white" />
               </View>
@@ -270,7 +279,7 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* View Orders */}
-            <TouchableOpacity activeOpacity={0.8} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/orders' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="receipt-long" size={24} color="#1a1c1e" />
               </View>
@@ -278,7 +287,7 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* Share Shop */}
-            <TouchableOpacity activeOpacity={0.8} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/store/share' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="share" size={24} color="#25D366" />
               </View>
@@ -286,7 +295,7 @@ export default function DashboardScreen() {
             </TouchableOpacity>
 
             {/* Analytics */}
-            <TouchableOpacity activeOpacity={0.8} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
+            <TouchableOpacity activeOpacity={0.8} onPress={() => router.push('/(app)/analytics' as any)} className="w-[48%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm">
               <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
                 <MaterialIcons name="bar-chart" size={24} color="#1a1c1e" />
               </View>
@@ -300,7 +309,7 @@ export default function DashboardScreen() {
         <Animated.View entering={FadeInDown.duration(600).delay(600).springify()} className="mt-8">
           <View className="flex-row justify-between items-center mb-4">
             <Text className="text-[24px] font-bold text-on-surface">Recent Orders</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push('/(app)/orders' as any)}>
               <Text className="text-[14px] font-bold text-growth-green">See All</Text>
             </TouchableOpacity>
           </View>
@@ -314,7 +323,8 @@ export default function DashboardScreen() {
               recentOrders.map((order, i) => (
                 <TouchableOpacity 
                   key={order.id || i} 
-                  activeOpacity={0.8} 
+                  activeOpacity={0.8}
+                  onPress={() => router.push(`/(app)/orders/${order.id}` as any)}
                   className="bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-row justify-between items-center shadow-sm"
                 >
                   <View className="flex-row items-center gap-4">
