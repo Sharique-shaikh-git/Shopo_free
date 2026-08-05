@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Storefront | Apparel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .product-grid-asymmetric {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .ai-shimmer {
+            background: linear-gradient(90deg, #006B5E 0%, #83d5c5 50%, #006B5E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "status-pending": "#FEF7FF",
+                        "outline": "#6e7976",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "error-red": "#BA1A1A",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#83d5c5",
+                        "growth-green": "#006B5E",
+                        "whatsapp-green": "#25D366",
+                        "trust-blue": "#0055D4",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "tertiary-container": "#0055d4",
+                        "surface-variant": "#e2e2e5",
+                        "secondary-fixed": "#66ff8e",
+                        "error": "#ba1a1a",
+                        "primary-container": "#006b5e",
+                        "surface-dim": "#dadadc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f9f9fc",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-tertiary-fixed": "#001848",
+                        "status-shipped": "#F0FDF4",
+                        "inverse-surface": "#2f3133",
+                        "outline-variant": "#bec9c5",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-gray": "#F8F9FA",
+                        "on-primary-fixed-variant": "#005046",
+                        "tertiary": "#003fa3",
+                        "surface-tint": "#006b5e",
+                        "border-subtle": "#E1E3E5",
+                        "secondary-container": "#5dfd8a",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002109",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed": "#00201b",
+                        "background": "#f9f9fc",
+                        "on-surface": "#1a1c1e",
+                        "on-background": "#1a1c1e",
+                        "primary": "#005147",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f3f6",
+                        "secondary-fixed-dim": "#3de273",
+                        "secondary": "#006d2f",
+                        "on-primary-container": "#95e8d8",
+                        "on-secondary-container": "#007232"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "touch-target-min": "48px",
+                        "gutter-mobile": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen pb-32">
+<!-- Top Navigation Header -->
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center px-gutter-mobile py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high active:scale-95 duration-150">
+<span class="material-symbols-outlined text-growth-green">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Apparel</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high active:scale-95 duration-150">
+<span class="material-symbols-outlined text-growth-green">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined text-growth-green">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-error-red text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="px-margin-mobile">
+<!-- Filter & Sorting Chips -->
+<section class="flex gap-2 overflow-x-auto py-4 scrollbar-hide no-scrollbar -mx-margin-mobile px-margin-mobile">
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary-container text-on-primary-container border border-primary font-label-lg text-label-lg whitespace-nowrap active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                Filter
+            </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface border border-border-subtle font-label-lg text-label-lg whitespace-nowrap active:scale-95 duration-150">
+                Sort: Popular
+            </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface border border-border-subtle font-label-lg text-label-lg whitespace-nowrap active:scale-95 duration-150">
+                Men
+            </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface border border-border-subtle font-label-lg text-label-lg whitespace-nowrap active:scale-95 duration-150">
+                Women
+            </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface border border-border-subtle font-label-lg text-label-lg whitespace-nowrap active:scale-95 duration-150">
+                Kids
+            </button>
+</section>
+<!-- AI Recommendation Pulse -->
+<div class="mb-6 flex items-center gap-2 px-4 py-3 rounded-xl bg-surface-container-lowest border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-growth-green" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-lg text-label-lg ai-shimmer">AI Curating best matches for you...</span>
+</div>
+<!-- Product Grid (Asymmetric Layout for Modern Look) -->
+<div class="product-grid-asymmetric">
+<!-- Product Card 1 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-border-subtle active:scale-98 transition-transform duration-200">
+<div class="aspect-[4/5] relative bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio photography shot of a modern, minimal linen shirt in a soft sage green color. The lighting is bright and airy, casting soft shadows to emphasize the fabric texture. The aesthetic is clean, corporate, and premium, following a light-mode Pakistani boutique style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNIcBcQqqYq_Sooopxab-xHYPzVWqYZCY6HPxql2mOTIJcI0OgTTYpZw0ocSKco3YYcJBaKnD8LteUfkXQhau4y-JBrc2Oiiz1VDmZC7MKLyt7IPgEB3K7Z3k6jpSiuY6GN2lAK5sSo-oDfBERagkBQgsPs78frlCo57WjBFWcNYHGKnMRZa6Fo5fayViRmqUZbDG2QoO7RO5j1ZTE6CbCUDobGlGgHfRwMClKnlSoWbqMd9xQ07Qgza_Hh16moqywVf1JxTuZdMo"/>
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-growth-green shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 bg-status-shipped text-on-secondary-fixed-variant font-label-sm text-[10px] rounded uppercase font-bold">
+                        New Arrival
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Premium Linen Shirt</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Sage Green • Slim Fit</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-md text-label-lg text-growth-green font-bold">Rs. 4,500</span>
+<button class="w-8 h-8 rounded-full bg-growth-green text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-border-subtle active:scale-98 transition-transform duration-200">
+<div class="aspect-[4/5] relative bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant ethnic embroidery on a navy blue cotton kurta. Detailed close-up shot showing high-quality needlework. The background is a minimalist, modern interior with natural window light. The style is sophisticated and reliable, showcasing traditional Pakistani fashion in a contemporary digital storefront." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCum0T1PfqsXLXL4T2uEY9wwl5oFttTTH6IsLay7dXy7E5ohIdEKLWxbF1IeDV7MI-gPcJ7uwLu7IH_u2XEsdTAZUn3g3NcKrDoq6qnJkzb8qI_BFn3G5m62aNGIfBtEeXIALrfoivEY2HM9ZZmaL7L_FVjM2dhAmvg9FWMcNaN5yBuRcWmin70Ixhzd-BSS9QU_ywL4384DIOjccguUu3WDkWUZFZv5YbUTygh2JMgeI9f2OEv-1ulZCY3D8f_sGZ-IGTvYRxRgr8"/>
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-growth-green shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Embroidered Kurta</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Navy Blue • Festive</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-md text-label-lg text-growth-green font-bold">Rs. 7,200</span>
+<button class="w-8 h-8 rounded-full bg-growth-green text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-border-subtle active:scale-98 transition-transform duration-200">
+<div class="aspect-[4/5] relative bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist streetwear hoodie in a charcoal gray heavy cotton. Flat lay style on a clean white surface with sharp shadows. The design is modern and clean, targeting young professionals in an urban setting. Growth-green accents in the background reinforce the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1uaBnsXo1n5s-T0IAGfKL9xefAnr0L2AysqaSzUeR5Axu2xyTqBiW5uFVClT9uNcxxEiGsI8-dMeqp8hqUf4UXPOFeya3HwCZyRfuWOa-v5zfjFsSowLytB-CsewOTEMu39VBCAl2MlW5qg5ZUOTfIFYmj2EhXX-UV9lXzvoyiEDTVVdBx9O80A8yZothXgLYZLZ0g9hEJyCmQy_8lf2aqgeOQkILRsIpBwkBdyyJoiJBz648XXWPYNbKFw9hUAd-WY7aI15X65Q"/>
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-growth-green shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Essential Hoodie</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Charcoal • Oversized</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-error line-through">Rs. 3,500</span>
+<span class="font-headline-md text-label-lg text-growth-green font-bold">Rs. 2,800</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-growth-green text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-border-subtle active:scale-98 transition-transform duration-200">
+<div class="aspect-[4/5] relative bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of crisp white tailored trousers displayed on a high-end fashion mannequin. The lighting is warm and inviting, typical of a luxury retail space. The focus is on the clean lines and professional stitching. Minimalist aesthetic with a professional Karachi boutique feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSu7mMtZOXjnsFxYcl8P5zGoAJFlysYy6sD4r3PeXhI1DgIy8tGaPNNJVE8P7fuW7rlSgRsS9KFtsEl8lQs3CJ48Ozq6pfWXNud4fKlAi_NPDy_2CeyQmgJH2gBaZYYVyS04nme-Jzih2gS9IbmtFzChet8l2O1PlB9AxylOgImXxkA42kI5NNDdO8NLB6Jsn--94VGh2rEMDKj2iBaMa6T71uokz_XPflHliLA7RsTKEhM2Qco4Y4kRlzLY8xxfU8kmiJtUZ3Fl4"/>
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-growth-green shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Tailored Trousers</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Ivory • Relaxed Fit</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-md text-label-lg text-growth-green font-bold">Rs. 5,100</span>
+<button class="w-8 h-8 rounded-full bg-growth-green text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-8 flex flex-col items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">Showing 4 of 48 items</p>
+<button class="w-full py-4 border-2 border-growth-green text-growth-green rounded-xl font-label-lg text-label-lg hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+                Load More Products
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-on-background border-t border-border-subtle">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-label-sm text-label-sm">Upload</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Floating Action Button (Optional for contextual actions like Help) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-whatsapp-green text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 duration-200 z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+<script>
+        // Simple Micro-interaction for scroll shadow on header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.add('glass-effect');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('glass-effect');
+            }
+        });
+
+        // Toggle Favorite Heart fill
+        document.querySelectorAll('button .material-symbols-outlined').forEach(btn => {
+            if (btn.innerText === 'favorite') {
+                btn.parentElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isFilled = btn.style.fontVariationSettings.includes("'FILL' 1");
+                    btn.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    btn.classList.toggle('text-error-red', !isFilled);
+                    btn.classList.toggle('text-growth-green', isFilled);
+                });
+            }
+        });
+    </script>
+</body></html>

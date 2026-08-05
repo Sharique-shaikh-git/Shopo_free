@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#5dfd8a",
+                        "primary": "#005147",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-container": "#95e8d8",
+                        "surface-container-low": "#f3f3f6",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-fixed": "#dae2ff",
+                        "secondary-fixed": "#66ff8e",
+                        "tertiary-container": "#0055d4",
+                        "primary-container": "#006b5e",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1e",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container": "#eeeef0",
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046",
+                        "on-secondary-fixed": "#002109",
+                        "outline": "#6e7976",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-error": "#ffffff",
+                        "whatsapp-green": "#25D366",
+                        "on-secondary-container": "#007232",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "status-shipped": "#F0FDF4",
+                        "growth-green": "#006B5E",
+                        "trust-blue": "#0055D4",
+                        "on-secondary-fixed-variant": "#005322",
+                        "surface-dim": "#dadadc",
+                        "secondary": "#006d2f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#003fa3",
+                        "error-red": "#BA1A1A",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "surface-tint": "#006b5e",
+                        "inverse-surface": "#2f3133",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "surface-gray": "#F8F9FA",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-primary-fixed": "#00201b",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#83d5c5",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed-dim": "#3de273"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "3rem",
+                        "stack-md": "1rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Animated Checkmark */
+        .checkmark-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: dash 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Confetti Styles */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .checkmark-path {
+                stroke-dashoffset: 0;
+                animation: none;
+            }
+            .confetti {
+                display: none;
+            }
+            .animate-ping {
+                animation: none;
+            }
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Confetti Container -->
+<div class="fixed inset-0 pointer-events-none z-0" id="confetti-wrapper"></div>
+<!-- Main Container: Mobile-first, single column layout -->
+<main class="w-full max-w-md px-gutter-mobile py-stack-lg flex flex-col flex-grow relative z-10">
+<!-- Header / Success Animation Area -->
+<div class="flex flex-col items-center justify-center pt-stack-lg mb-stack-lg">
+<!-- Animated Checkmark Container -->
+<div class="relative w-32 h-32 flex items-center justify-center mb-stack-md">
+<!-- Pulse effect -->
+<div class="absolute inset-0 bg-secondary-container rounded-full animate-ping opacity-40"></div>
+<!-- Solid Circle -->
+<div class="relative w-24 h-24 bg-growth-green rounded-full flex items-center justify-center z-10 shadow-sm border-4 border-surface-container-lowest">
+<!-- SVG Checkmark for animation -->
+<svg class="w-14 h-14" fill="none" viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<path class="checkmark-path" d="M14 27L22 35L38 19" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path>
+</svg>
+</div>
+</div>
+<!-- Title & Order Info -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary text-center mb-stack-sm tracking-tight">
+                Order Placed Successfully!
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-center">
+                Order #ORD-98765
+            </p>
+</div>
+<!-- Details Card (Shadow-less, subtle border) -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md mb-stack-md flex flex-col gap-stack-sm">
+<!-- Estimated Delivery -->
+<div class="flex justify-between items-start">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                    Estimated delivery
+                </span>
+<span class="font-label-lg text-label-lg text-on-surface text-right">2-3 business days</span>
+</div>
+<hr class="border-t border-border-subtle my-1"/>
+<!-- Payment Method -->
+<div class="flex justify-between items-start">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+                    Method
+                </span>
+<span class="font-label-lg text-label-lg text-on-surface text-right">COD</span>
+</div>
+<hr class="border-t border-border-subtle my-1"/>
+<!-- Total -->
+<div class="flex justify-between items-end mt-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Total</span>
+<span class="font-headline-md text-headline-md text-primary">PKR 2,050</span>
+</div>
+</div>
+<!-- What's Next Indicator -->
+<div class="bg-status-shipped border border-secondary-fixed-dim rounded-lg p-stack-sm flex items-start gap-3 mb-auto">
+<span class="material-symbols-outlined text-whatsapp-green mt-0.5" style="font-variation-settings: 'FILL' 1;">forum</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                You will receive a confirmation on WhatsApp shortly.
+            </p>
+</div>
+<!-- Thumb Zone Actions -->
+<div class="mt-stack-lg flex flex-col gap-stack-sm w-full pb-stack-md">
+<!-- Primary Button -->
+<button class="w-full h-[56px] bg-growth-green text-on-primary font-label-lg text-label-lg rounded-full flex items-center justify-center transition-colors hover:bg-primary-container active:scale-[0.98]">
+                Track Order
+            </button>
+<!-- Secondary Button -->
+<button class="w-full h-[56px] border-2 border-trust-blue text-trust-blue bg-transparent font-label-lg text-label-lg rounded-full flex items-center justify-center transition-colors hover:bg-surface-container-low active:scale-[0.98]">
+                Continue Shopping
+            </button>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check for reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+            const wrapper = document.getElementById('confetti-wrapper');
+            const colors = ['#006B5E', '#25D366', '#0055D4', '#5dfd8a', '#9ff2e1'];
+            const confettiCount = 60;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random properties
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const size = Math.random() * 8 + 4;
+                const duration = Math.random() * 2 + 2;
+                const delay = Math.random() * 0.5;
+                const shape = Math.random() > 0.5 ? '50%' : '2px'; // Circles and squares
+
+                confetti.style.left = `${left}vw`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = shape;
+                confetti.style.animation = `confetti-fall ${duration}s ease-out ${delay}s forwards`;
+                
+                wrapper.appendChild(confetti);
+
+                // Clean up DOM after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        });
+    </script>
+</body></html>

@@ -4,6 +4,9 @@ import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import { StatusBar } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 interface Lang {
   key: string;
   native: string;
@@ -22,20 +25,27 @@ const LANGUAGES: Lang[] = [
 
 export default function LanguageScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [current, setCurrent] = useState('en');
 
   const apply = () => {
     Alert.alert('Language updated', 'Interface language will change on next reload.', [{ text: 'OK' }]);
   };
 
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
+
   return (
     <SafeAreaView className="flex-1 bg-surface">
-      <Animated.View entering={FadeInDown.duration(400).springify()} className="flex-row items-center justify-between px-gutter-mobile py-4 border-b border-border-subtle">
-        <TouchableOpacity onPress={() => router.back()} className="w-touch-target-min h-touch-target-min justify-center">
+      <Animated.View 
+        entering={FadeInDown.duration(400).springify()} 
+        style={{ paddingTop: headerPadding }}
+        className="flex-row items-center justify-between px-5 pb-3 border-b border-border-subtle bg-surface"
+      >
+        <TouchableOpacity onPress={() => router.back()} className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low">
           <MaterialIcons name="arrow-back" size={24} color="#1a1c1e" />
         </TouchableOpacity>
-        <Text className="font-headline-md text-headline-md font-bold text-growth-green">Language</Text>
-        <View className="w-touch-target-min h-touch-target-min" />
+        <Text className="text-[20px] font-bold text-growth-green">Language</Text>
+        <View className="w-10 h-10" />
       </Animated.View>
 
       <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 60 }} showsVerticalScrollIndicator={false}>

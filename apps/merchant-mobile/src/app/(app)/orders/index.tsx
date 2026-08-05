@@ -5,7 +5,12 @@ import { apiFetch } from '../../../lib/api';
 import { useRouter } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { StatusBar } from 'react-native';
+
 export default function OrdersScreen() {
+  const insets = useSafeAreaInsets();
   const router = useRouter();
   const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,12 +36,16 @@ export default function OrdersScreen() {
     loadOrders();
   }, []);
 
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
 
   return (
     <SafeAreaView className="flex-1 bg-background font-body-md">
-      {/* TopAppBar */}
-      <View className="flex-row items-center bg-surface-container-lowest p-4 pb-2 justify-center border-b border-border-subtle z-10">
-        <Text className="text-on-background text-[24px] font-bold">My Shop</Text>
+      {/* TopAppBar — with safe area padding */}
+      <View 
+        style={{ paddingTop: headerPadding }}
+        className="flex-row items-center bg-surface-container-lowest px-4 pb-3 justify-center border-b border-border-subtle z-10"
+      >
+        <Text className="text-growth-green text-[24px] font-bold">Orders</Text>
       </View>
       
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>

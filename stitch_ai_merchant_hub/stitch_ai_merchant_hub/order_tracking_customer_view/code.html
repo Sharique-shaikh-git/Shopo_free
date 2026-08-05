@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Order Tracking</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#5dfd8a",
+                      "primary": "#005147",
+                      "surface-container-high": "#e8e8ea",
+                      "on-primary-container": "#95e8d8",
+                      "surface-container-low": "#f3f3f6",
+                      "inverse-on-surface": "#f0f0f3",
+                      "tertiary-fixed": "#dae2ff",
+                      "secondary-fixed": "#66ff8e",
+                      "tertiary-container": "#0055d4",
+                      "primary-container": "#006b5e",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1e",
+                      "on-surface-variant": "#3e4946",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container": "#eeeef0",
+                      "surface": "#f9f9fc",
+                      "on-primary-fixed-variant": "#005046",
+                      "on-secondary-fixed": "#002109",
+                      "outline": "#6e7976",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-error": "#ffffff",
+                      "whatsapp-green": "#25D366",
+                      "on-secondary-container": "#007232",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "status-shipped": "#F0FDF4",
+                      "growth-green": "#006B5E",
+                      "trust-blue": "#0055D4",
+                      "on-secondary-fixed-variant": "#005322",
+                      "surface-dim": "#dadadc",
+                      "secondary": "#006d2f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#003fa3",
+                      "error-red": "#BA1A1A",
+                      "outline-variant": "#bec9c5",
+                      "status-pending": "#FEF7FF",
+                      "surface-tint": "#006b5e",
+                      "inverse-surface": "#2f3133",
+                      "surface-bright": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-background": "#1a1c1e",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "border-subtle": "#E1E3E5",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-primary-fixed": "#00201b",
+                      "primary-fixed-dim": "#83d5c5",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#83d5c5",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed-dim": "#3de273"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target-min": "3rem",
+                      "stack-md": "1rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Be Vietnam Pro"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col md:hidden">
+<!-- TopAppBar Semantic Shell: Transactional/Task - No BottomNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-subtle flat no shadows transition-colors duration-200 h-touch-target-min flex items-center justify-between px-gutter-mobile">
+<button aria-label="Go Back" class="h-10 w-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary font-bold">Track Order</h1>
+<div class="h-10 w-10"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[calc(3rem+1rem)] px-gutter-mobile pb-[calc(3rem+2rem)] flex flex-col gap-stack-lg">
+<!-- Order Header Card -->
+<section class="bg-surface-container-lowest border border-subtle rounded-xl p-stack-md flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Order Number</p>
+<h2 class="font-headline-md text-headline-md text-on-surface">#ORD-98765</h2>
+</div>
+<div class="bg-status-shipped text-growth-green px-3 py-1 rounded-full border border-growth-green/20">
+<span class="font-label-sm text-label-sm">Shipped</span>
+</div>
+</div>
+<div class="h-px bg-border-subtle w-full my-1"></div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="schedule">schedule</span>
+<p class="font-body-md text-body-md">Expected by Today, 5:00 PM</p>
+</div>
+</section>
+<!-- Status Timeline -->
+<section class="bg-surface-container-lowest border border-subtle rounded-xl p-stack-md">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-stack-md">Delivery Status</h3>
+<div class="relative pl-6">
+<!-- Vertical Line connecting nodes -->
+<div class="absolute left-[11px] top-4 bottom-8 w-0.5 bg-border-subtle z-0"></div>
+<!-- Active Line portion -->
+<div class="absolute left-[11px] top-4 h-[calc(100%-4rem)] w-0.5 bg-growth-green z-0"></div>
+<!-- Node 1: Order Placed (Done) -->
+<div class="relative z-10 flex items-start gap-4 mb-stack-lg">
+<div class="w-6 h-6 rounded-full bg-growth-green text-on-primary flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px]" data-icon="check" data-weight="fill">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Order Placed</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Today, 10:30 AM</p>
+</div>
+</div>
+<!-- Node 2: Confirmed (Done) -->
+<div class="relative z-10 flex items-start gap-4 mb-stack-lg">
+<div class="w-6 h-6 rounded-full bg-growth-green text-on-primary flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px]" data-icon="check" data-weight="fill">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Confirmed</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Today, 11:15 AM</p>
+</div>
+</div>
+<!-- Node 3: Shipped (Current) -->
+<div class="relative z-10 flex items-start gap-4 mb-stack-lg">
+<div class="w-6 h-6 rounded-full bg-growth-green text-on-primary flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-growth-green/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_shipping" data-weight="fill">local_shipping</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-growth-green">Shipped</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Out for delivery</p>
+</div>
+</div>
+<!-- Node 4: Delivered (Pending) -->
+<div class="relative z-10 flex items-start gap-4">
+<div class="w-6 h-6 rounded-full bg-surface-variant border-2 border-border-subtle flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface-container-lowest">
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Delivered</p>
+<p class="font-label-sm text-label-sm text-outline-variant">Pending</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Package Details Summary -->
+<section class="bg-surface-container-lowest border border-subtle rounded-xl p-stack-md flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Package Details</p>
+<p class="font-body-md text-body-md text-on-surface">3 Items (Clothes &amp; Accessories)</p>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 w-full z-40 bg-surface-container-lowest border-t border-subtle p-gutter-mobile shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<button class="w-full h-[56px] rounded-lg bg-whatsapp-green text-white font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="chat" data-weight="fill">chat</span>
+            Chat on WhatsApp
+        </button>
+</footer>
+</body></html>

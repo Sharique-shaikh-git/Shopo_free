@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Privacy Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#0055d4",
+                        "secondary-fixed-dim": "#3de273",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "inverse-surface": "#2f3133",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bec9c5",
+                        "on-background": "#1a1c1e",
+                        "surface-tint": "#006b5e",
+                        "surface-container-low": "#f3f3f6",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-secondary-container": "#007232",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "status-shipped": "#F0FDF4",
+                        "primary": "#005147",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-dim": "#dadadc",
+                        "growth-green": "#006B5E",
+                        "status-pending": "#FEF7FF",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary-container": "#95e8d8",
+                        "outline": "#6e7976",
+                        "secondary-fixed": "#66ff8e",
+                        "on-tertiary-fixed": "#001848",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary": "#006d2f",
+                        "tertiary": "#003fa3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#3e4946",
+                        "surface-gray": "#F8F9FA",
+                        "on-secondary-fixed": "#002109",
+                        "whatsapp-green": "#25D366",
+                        "surface": "#f9f9fc",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-primary": "#83d5c5",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#5dfd8a",
+                        "error-red": "#BA1A1A",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "trust-blue": "#0055D4",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "primary-container": "#006b5e",
+                        "tertiary-fixed": "#dae2ff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-container": "#eeeef0",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target-min": "3rem",
+                        "gutter-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro", "sans-serif"],
+                        "label-sm": ["Be Vietnam Pro", "sans-serif"],
+                        "label-lg": ["Be Vietnam Pro", "sans-serif"],
+                        "headline-lg-mobile": ["Be Vietnam Pro", "sans-serif"],
+                        "body-lg": ["Be Vietnam Pro", "sans-serif"],
+                        "headline-lg": ["Be Vietnam Pro", "sans-serif"],
+                        "body-md": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation AppBar (Transactional/Sub-page logic applied) -->
+<header class="w-full top-0 sticky bg-surface flex justify-between items-center px-gutter-mobile py-4 z-20">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-on-surface">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface absolute left-1/2 -translate-x-1/2">Privacy</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for perfect centering -->
+</header>
+<!-- Main Scrollable Content Canvas -->
+<main class="flex-1 overflow-y-auto px-gutter-mobile pb-32 pt-2 flex flex-col gap-stack-lg">
+<!-- Profile Visibility Section -->
+<section>
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-stack-sm px-2">Profile Visibility</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden shadow-sm">
+<!-- Toggle Item: Show Profile to Customers (ON) -->
+<div class="flex items-center justify-between p-stack-md border-b border-border-subtle bg-surface-container-lowest">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Show Profile to Customers</span>
+<button aria-checked="true" class="w-14 h-8 bg-growth-green rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-surface" role="switch">
+<span class="w-6 h-6 bg-white rounded-full absolute right-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+<!-- Toggle Item: Show Phone Number (OFF) -->
+<div class="flex items-center justify-between p-stack-md border-b border-border-subtle bg-surface-container-lowest">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Show Phone Number</span>
+<button aria-checked="false" class="w-14 h-8 bg-surface-variant border border-outline-variant rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-outline focus:ring-offset-2 focus:ring-offset-surface" role="switch">
+<span class="w-6 h-6 bg-outline rounded-full absolute left-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+<!-- Toggle Item: Show Email (OFF) -->
+<div class="flex items-center justify-between p-stack-md bg-surface-container-lowest">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Show Email</span>
+<button aria-checked="false" class="w-14 h-8 bg-surface-variant border border-outline-variant rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-outline focus:ring-offset-2 focus:ring-offset-surface" role="switch">
+<span class="w-6 h-6 bg-outline rounded-full absolute left-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Data Section -->
+<section>
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-stack-sm px-2">Data Management</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden shadow-sm">
+<!-- Toggle Item: Share Analytics Data (ON) -->
+<div class="flex items-center justify-between p-stack-md border-b border-border-subtle bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Share Analytics Data</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Help us improve the app experience</span>
+</div>
+<button aria-checked="true" class="w-14 h-8 bg-growth-green rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-surface shrink-0 ml-4" role="switch">
+<span class="w-6 h-6 bg-white rounded-full absolute right-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+<!-- Toggle Item: Personalized Recommendations (ON) -->
+<div class="flex items-center justify-between p-stack-md bg-surface-container-lowest">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Personalized Recommendations</span>
+<button aria-checked="true" class="w-14 h-8 bg-growth-green rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-surface shrink-0 ml-4" role="switch">
+<span class="w-6 h-6 bg-white rounded-full absolute right-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Account Security Section -->
+<section>
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-stack-sm px-2">Account Security</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden shadow-sm">
+<!-- Toggle Item: Two-Factor Authentication (OFF) -->
+<div class="flex items-center justify-between p-stack-md border-b border-border-subtle bg-surface-container-lowest">
+<span class="font-body-lg text-body-lg text-on-surface select-none">Two-Factor Authentication</span>
+<button aria-checked="false" class="w-14 h-8 bg-surface-variant border border-outline-variant rounded-full relative flex items-center px-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-outline focus:ring-offset-2 focus:ring-offset-surface" role="switch">
+<span class="w-6 h-6 bg-outline rounded-full absolute left-1 shadow-sm transition-transform duration-300"></span>
+</button>
+</div>
+<!-- Link Item: Login Activity -->
+<button class="w-full flex items-center justify-between p-stack-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors active:bg-surface-container-high text-left">
+<span class="font-body-lg text-body-lg text-on-surface">Login Activity</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Fixed to thumb zone) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle px-gutter-mobile py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] z-50">
+<button class="w-full min-h-[56px] bg-growth-green text-on-primary font-label-lg text-label-lg rounded-lg flex items-center justify-center active:scale-95 transition-transform duration-200 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-surface uppercase tracking-wider">
+            Save Preferences
+        </button>
+</div>
+</body></html>

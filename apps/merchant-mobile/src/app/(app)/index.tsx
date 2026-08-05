@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Platform, ActivityIndicator, Alert, Dimensions, Share } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Platform, ActivityIndicator, Alert, Dimensions, Share, StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn, useSharedValue, useAnimatedStyle, withRepeat, withTiming, withSequence, interpolate, Easing } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -8,7 +8,10 @@ import { apiFetch } from '../../lib/api';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 export default function DashboardScreen() {
+  const insets = useSafeAreaInsets();
   const router = useRouter();
   const pulseOpacity = useSharedValue(0.7);
   const gradientShift = useSharedValue(0);
@@ -139,20 +142,23 @@ export default function DashboardScreen() {
     );
   }
 
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
+
   return (
     <SafeAreaView className="flex-1 bg-surface">
-      {/* Header — sticky with backdrop blur */}
+      {/* Header — sticky with safe area padding for notch/camera */}
       <Animated.View 
         entering={FadeInDown.duration(600).springify()} 
-        className="flex-row justify-between items-center px-5 pt-6 pb-4 bg-surface/90 z-40"
+        style={{ paddingTop: headerPadding }}
+        className="flex-row justify-between items-center px-5 pb-4 bg-surface/90 z-40 border-b border-border-subtle"
       >
         <View>
           <Text className="text-[16px] text-on-surface-variant">Assalam-o-Alaikum,</Text>
-          <Text className="text-[24px] font-bold text-growth-green">{storeName}</Text>
+          <Text className="text-[24px] font-bold text-growth-green">{storeName || 'Shop Builder'}</Text>
         </View>
-          <TouchableOpacity 
+        <TouchableOpacity 
           activeOpacity={0.9} 
-          onPress={() => router.replace('/(app)/more' as any)}
+          onPress={() => router.push('/(app)/(stack)/settings/notifications-inbox' as any)}
           className="w-12 h-12 rounded-full bg-surface-container-low items-center justify-center relative"
         >
           <MaterialIcons name="notifications" size={24} color="#1a1c1e" />
@@ -224,6 +230,32 @@ export default function DashboardScreen() {
           </Animated.View>
         </ScrollView>
 
+        {/* Create Store Prompt Banner if no store exists */}
+        {!storeName && (
+          <Animated.View 
+            entering={FadeInDown.duration(600).delay(50).springify()}
+            className="mt-6 bg-primary-container p-5 rounded-2xl shadow-md border border-primary/20"
+          >
+            <View className="flex-row items-center gap-4">
+              <View className="w-12 h-12 rounded-xl bg-white/20 items-center justify-center">
+                <MaterialIcons name="add-business" size={28} color="white" />
+              </View>
+              <View className="flex-1">
+                <Text className="text-[18px] font-bold text-white mb-1">Create Your Online Store</Text>
+                <Text className="text-[13px] text-white/90 leading-5">Set up your shop name and link in under 2 minutes.</Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              activeOpacity={0.9}
+              onPress={() => router.push('/(app)/(stack)/store/create' as any)}
+              className="mt-4 bg-white py-3 px-5 rounded-xl items-center justify-center flex-row gap-2 shadow-sm"
+            >
+              <MaterialIcons name="storefront" size={20} color="#006B5E" />
+              <Text className="font-bold text-[15px] text-growth-green">Create Store Now</Text>
+            </TouchableOpacity>
+          </Animated.View>
+        )}
+
         {/* AI Insight Card — with animated gradient */}
         <Animated.View 
           entering={FadeInDown.duration(600).delay(400).springify()} 
@@ -265,59 +297,63 @@ export default function DashboardScreen() {
           </LinearGradient>
         </Animated.View>
 
-        {/* Quick Actions Grid — 2-col, works in NativeWind (flex-wrap breaks w-[48%] on RN) */}
+        {/* Quick Actions Grid — 2-col 2x2 grid via explicit rows for RN flexbox reliability */}
         <Animated.View entering={FadeInDown.duration(600).delay(500).springify()} className="mt-8">
           <Text className="text-[24px] font-bold text-on-surface mb-4">Quick Actions</Text>
-          <View className="flex-row flex-wrap gap-3">
+          <View className="gap-3">
+            {/* Row 1 */}
+            <View className="flex-row gap-3">
+              {/* Add Product */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => router.push('/(app)/products/create' as any)}
+                className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+              >
+                <View className="w-12 h-12 rounded-full bg-primary-container items-center justify-center mb-3">
+                  <MaterialIcons name="add" size={24} color="white" />
+                </View>
+                <Text className="text-[14px] font-semibold text-on-surface">Add Product</Text>
+              </TouchableOpacity>
 
-            {/* Add Product */}
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => router.push('/(app)/products/create' as any)}
-              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
-            >
-              <View className="w-12 h-12 rounded-full bg-primary-container items-center justify-center mb-3">
-                <MaterialIcons name="add" size={24} color="white" />
-              </View>
-              <Text className="text-[14px] font-semibold text-on-surface">Add Product</Text>
-            </TouchableOpacity>
+              {/* View Orders */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => router.push('/(app)/orders' as any)}
+                className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+              >
+                <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
+                  <MaterialIcons name="receipt-long" size={24} color="#1a1c1e" />
+                </View>
+                <Text className="text-[14px] font-semibold text-on-surface">View Orders</Text>
+              </TouchableOpacity>
+            </View>
 
-            {/* View Orders */}
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => router.push('/(app)/orders' as any)}
-              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
-            >
-              <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
-                <MaterialIcons name="receipt-long" size={24} color="#1a1c1e" />
-              </View>
-              <Text className="text-[14px] font-semibold text-on-surface">View Orders</Text>
-            </TouchableOpacity>
+            {/* Row 2 */}
+            <View className="flex-row gap-3">
+              {/* Share Shop */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => router.push('/(app)/(stack)/store/share' as any)}
+                className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+              >
+                <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
+                  <MaterialIcons name="share" size={24} color="#25D366" />
+                </View>
+                <Text className="text-[14px] font-semibold text-on-surface">Share Shop</Text>
+              </TouchableOpacity>
 
-            {/* Share Shop */}
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => router.push('/(app)/(stack)/store/share' as any)}
-              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
-            >
-              <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
-                <MaterialIcons name="share" size={24} color="#25D366" />
-              </View>
-              <Text className="text-[14px] font-semibold text-on-surface">Share Shop</Text>
-            </TouchableOpacity>
-
-            {/* Analytics */}
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => router.push('/(app)/(stack)/analytics' as any)}
-              className="flex-1 min-w-[47%] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
-            >
-              <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
-                <MaterialIcons name="bar-chart" size={24} color="#1a1c1e" />
-              </View>
-              <Text className="text-[14px] font-semibold text-on-surface">Analytics</Text>
-            </TouchableOpacity>
-
+              {/* Analytics */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => router.push('/(app)/(stack)/analytics' as any)}
+                className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-4 flex-col items-center justify-center min-h-[100px] shadow-sm"
+              >
+                <View className="w-12 h-12 rounded-full bg-surface-container-high items-center justify-center mb-3">
+                  <MaterialIcons name="bar-chart" size={24} color="#1a1c1e" />
+                </View>
+                <Text className="text-[14px] font-semibold text-on-surface">Analytics</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </Animated.View>
 

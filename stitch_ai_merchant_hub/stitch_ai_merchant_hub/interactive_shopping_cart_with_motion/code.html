@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#5dfd8a",
+                      "primary": "#005147",
+                      "surface-container-high": "#e8e8ea",
+                      "on-primary-container": "#95e8d8",
+                      "surface-container-low": "#f3f3f6",
+                      "inverse-on-surface": "#f0f0f3",
+                      "tertiary-fixed": "#dae2ff",
+                      "secondary-fixed": "#66ff8e",
+                      "tertiary-container": "#0055d4",
+                      "primary-container": "#006b5e",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1e",
+                      "on-surface-variant": "#3e4946",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container": "#eeeef0",
+                      "surface": "#f9f9fc",
+                      "on-primary-fixed-variant": "#005046",
+                      "on-secondary-fixed": "#002109",
+                      "outline": "#6e7976",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-error": "#ffffff",
+                      "whatsapp-green": "#25D366",
+                      "on-secondary-container": "#007232",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "status-shipped": "#F0FDF4",
+                      "growth-green": "#006B5E",
+                      "trust-blue": "#0055D4",
+                      "on-secondary-fixed-variant": "#005322",
+                      "surface-dim": "#dadadc",
+                      "secondary": "#006d2f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#003fa3",
+                      "error-red": "#BA1A1A",
+                      "outline-variant": "#bec9c5",
+                      "status-pending": "#FEF7FF",
+                      "surface-tint": "#006b5e",
+                      "inverse-surface": "#2f3133",
+                      "surface-bright": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-background": "#1a1c1e",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "border-subtle": "#E1E3E5",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-primary-fixed": "#00201b",
+                      "primary-fixed-dim": "#83d5c5",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#83d5c5",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed-dim": "#3de273"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target-min": "3rem",
+                      "stack-md": "1rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    
+    @keyframes slideUpIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideLeftOut {
+        from { opacity: 1; transform: translateX(0); height: auto; margin-bottom: 1rem; padding: 1rem; border-width: 1px; }
+        to { opacity: 0; transform: translateX(-100%); height: 0; margin-bottom: 0; padding: 0; border-width: 0; overflow: hidden; }
+    }
+    
+    @keyframes pulseScale {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .animate-slide-up {
+        animation: slideUpIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+    
+    .animate-slide-up-fab {
+        animation: slideUpIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+
+    .animate-slide-left-out {
+        animation: slideLeftOut 0.4s ease-in forwards;
+        will-change: transform, opacity, height, margin, padding;
+    }
+    
+    .animate-pulse-scale {
+        animation: pulseScale 0.3s ease-out;
+        will-change: transform;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top App Bar (Transactional intent: back button, no bottom nav) -->
+<header class="fixed top-0 w-full z-50 bg-surface flex items-center justify-between px-gutter-mobile h-touch-target-min border-b border-subtle">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container-high transition-transform duration-200 active:scale-95 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="font-headline-md text-headline-md text-primary">My Cart</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 Items</span>
+</div>
+<div class="w-10"></div> <!-- Placeholder for alignment -->
+</header>
+<main class="pt-20 px-gutter-mobile space-y-stack-lg max-w-2xl mx-auto">
+<!-- Cart Items List -->
+<section aria-label="Cart Items" class="space-y-stack-md">
+<!-- Item 1 -->
+<article class="animate-slide-up flex items-start gap-4 p-stack-md border border-subtle bg-surface-container-lowest rounded-lg overflow-hidden" style="animation-delay: 0.1s;">
+<img alt="Minimalist Ceramic Mug" class="w-20 h-20 object-cover rounded-md flex-shrink-0" data-alt="A clean, minimalist product shot of a beautifully crafted white ceramic mug sitting on a light gray surface. The lighting is soft and natural, emphasizing the smooth texture and simple design of the mug. The overall aesthetic is modern, calm, and highly professional, fitting a high-end storefront." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTDzEHeTrSloQxUckInqY5QhimAL1M3GlXcF5J6M5UPVdDnpgex4yoZmWskKZjhBtu_Ippf0c8KLc0M36WncCelWFyTkmvhvWh-8SI2YPk-K0j_gRyD47QXU17CQej1TPSiKyeX_Lh0XTW1py_AlmbS8GzpMV6cWac79qJ9zSOAx6GiSJxCkS9awqaBbLABf6n4p76siNPdZRPXZo722w8hFjEplRJEuzd_ndnCIbImViDCrY5q8giTMsmDHE3N6fDrjdDuxkihNE"/>
+<div class="flex-1 flex flex-col justify-between min-h-[5rem]">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-body-md text-body-md font-semibold text-on-surface">Minimalist Ceramic Mug</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">PKR 850</p>
+</div>
+<button aria-label="Remove item" class="delete-btn text-error hover:bg-error-container p-2 rounded-full transition-all active:scale-90 flex items-center justify-center">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center border border-subtle rounded-md">
+<button aria-label="Decrease quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-transform active:scale-90 rounded-l-md">
+<span class="material-symbols-outlined text-sm pointer-events-none">remove</span>
+</button>
+<span class="qty-val font-body-md text-body-md px-3 inline-block origin-center">1</span>
+<button aria-label="Increase quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-transform active:scale-90 rounded-r-md">
+<span class="material-symbols-outlined text-sm pointer-events-none">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="animate-slide-up flex items-start gap-4 p-stack-md border border-subtle bg-surface-container-lowest rounded-lg overflow-hidden" style="animation-delay: 0.2s;">
+<img alt="Cotton Tote Bag" class="w-20 h-20 object-cover rounded-md flex-shrink-0" data-alt="A stylish flat lay image of a natural unbleached cotton tote bag with subtle texture. The bag is placed on a pristine white background with very soft, diffused shadows. The lighting highlights the organic material and premium feel of the product, creating a modern, minimalist e-commerce presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMewx5FEarghRUr92bWW6qQIkrPE2AT4nO3mxwup4v7e7V_9MIjYGoE5JUrPM_80WoxfEL2xehXIes9SkzBiTgcynAHw0i3Wi18PoANB2pVaxxuXw5IJUqxu4bfRBCx7Y7MmXBt1pyomNR1ZK65ttlQGwy6aaxBTPYwPJMrc0katO9YB6jWZQ2s9mrv4qqHmh1a9PGuqRWaS7GbdDV6y2gD9kN5BdX60BT7qw-wtk39VcU6ufXGaxziRu8aaPhJu_KWbK-rWCq1tc"/>
+<div class="flex-1 flex flex-col justify-between min-h-[5rem]">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-body-md text-body-md font-semibold text-on-surface">Cotton Tote Bag</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">PKR 1,200</p>
+</div>
+<button aria-label="Remove item" class="delete-btn text-error hover:bg-error-container p-2 rounded-full transition-all active:scale-90 flex items-center justify-center">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center border border-subtle rounded-md">
+<button aria-label="Decrease quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-transform active:scale-90 rounded-l-md">
+<span class="material-symbols-outlined text-sm pointer-events-none">remove</span>
+</button>
+<span class="qty-val font-body-md text-body-md px-3 inline-block origin-center">1</span>
+<button aria-label="Increase quantity" class="qty-btn w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-transform active:scale-90 rounded-r-md">
+<span class="material-symbols-outlined text-sm pointer-events-none">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Promo Code Section -->
+<section aria-label="Promo Code" class="animate-slide-up bg-surface-container-lowest border border-subtle rounded-lg p-stack-md" style="animation-delay: 0.3s;">
+<label class="sr-only" for="promo_code">Enter promo code</label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full h-12 px-4 bg-surface rounded-md border border-subtle focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-body-md text-on-surface placeholder-on-surface-variant transition-colors" id="promo_code" placeholder="Promo code" type="text"/>
+</div>
+<button class="h-12 px-6 bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-md hover:bg-surface-variant transition-all active:scale-95 flex items-center justify-center whitespace-nowrap border border-subtle">
+                    Apply
+                </button>
+</div>
+</section>
+<!-- Delivery Address -->
+<section aria-label="Delivery Address" class="animate-slide-up bg-surface-container-lowest border border-subtle rounded-lg p-stack-md flex justify-between items-center" style="animation-delay: 0.4s;">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-1">Deliver to</h3>
+<p class="font-body-md text-body-md text-on-surface">House 123, Street 4, Islamabad</p>
+</div>
+</div>
+<button class="text-trust-blue font-label-lg text-label-lg hover:underline underline-offset-4 px-2 py-1 transition-transform active:scale-95">
+                Edit
+            </button>
+</section>
+<!-- Order Summary -->
+<section aria-label="Order Summary" class="animate-slide-up bg-surface-container-lowest border border-subtle rounded-lg p-stack-md space-y-3" style="animation-delay: 0.5s;">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">PKR 2,050</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Delivery</span>
+<span class="font-body-md text-body-md text-growth-green">Free</span>
+</div>
+<hr class="border-subtle my-2"/>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-on-surface">Total</span>
+<span class="font-headline-md text-headline-md text-on-surface">PKR 2,050</span>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Checkout) -->
+<div class="animate-slide-up-fab fixed bottom-0 w-full z-40 bg-surface border-t border-subtle p-gutter-mobile">
+<div class="max-w-2xl mx-auto">
+<button class="w-full min-h-[56px] bg-growth-green text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm hover:bg-primary-container transition-all active:scale-[0.98] flex items-center justify-center gap-2 origin-center" id="checkout-btn">
+                Proceed to Checkout
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const triggerAnimation = (el, animationClass) => {
+            el.classList.remove(animationClass);
+            void el.offsetWidth; // trigger reflow
+            el.classList.add(animationClass);
+        };
+
+        // Quantity Buttons
+        const qtyBtns = document.querySelectorAll('.qty-btn');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        qtyBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const qtyVal = e.target.closest('.border-subtle').querySelector('.qty-val');
+                
+                // Add pulse scale to quantity number
+                if (qtyVal) triggerAnimation(qtyVal, 'animate-pulse-scale');
+                
+                // Add pulse scale to checkout button
+                if (checkoutBtn) triggerAnimation(checkoutBtn, 'animate-pulse-scale');
+            });
+        });
+
+        // Delete Buttons
+        const deleteBtns = document.querySelectorAll('.delete-btn');
+        deleteBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const article = e.target.closest('article');
+                if (article) {
+                    article.classList.add('animate-slide-left-out');
+                    setTimeout(() => {
+                        article.remove();
+                    }, 400); // Wait for animation to finish
+                }
+            });
+        });
+    });
+</script>
+</body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Contact Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#0055d4",
+                        "secondary-fixed-dim": "#3de273",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "inverse-surface": "#2f3133",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bec9c5",
+                        "on-background": "#1a1c1e",
+                        "surface-tint": "#006b5e",
+                        "surface-container-low": "#f3f3f6",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-secondary-container": "#007232",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "status-shipped": "#F0FDF4",
+                        "primary": "#005147",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-dim": "#dadadc",
+                        "growth-green": "#006B5E",
+                        "status-pending": "#FEF7FF",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary-container": "#95e8d8",
+                        "outline": "#6e7976",
+                        "secondary-fixed": "#66ff8e",
+                        "on-tertiary-fixed": "#001848",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary": "#006d2f",
+                        "tertiary": "#003fa3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#3e4946",
+                        "surface-gray": "#F8F9FA",
+                        "on-secondary-fixed": "#002109",
+                        "whatsapp-green": "#25D366",
+                        "surface": "#f9f9fc",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-primary": "#83d5c5",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#5dfd8a",
+                        "error-red": "#BA1A1A",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "trust-blue": "#0055D4",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "primary-container": "#006b5e",
+                        "tertiary-fixed": "#dae2ff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-container": "#eeeef0",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target-min": "3rem",
+                        "gutter-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f9f9fc;
+            color: #1a1c1e;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Floating Label Styles */
+        .floating-input:focus ~ .floating-label,
+        .floating-input:not(:placeholder-shown) ~ .floating-label,
+        .floating-select:focus ~ .floating-label,
+        .floating-select:not([value=""]) ~ .floating-label {
+            transform: translateY(-50%) scale(0.85);
+            top: 0;
+            background-color: #ffffff;
+            padding: 0 4px;
+            color: #005147;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen pb-safe antialiased md:max-w-md md:mx-auto md:shadow-xl md:my-8 md:rounded-3xl relative overflow-hidden">
+<!-- Top Navigation (Task-focused, suppressed shell) -->
+<header class="bg-surface sticky top-0 z-40 w-full flex justify-between items-center px-gutter-mobile py-4 border-b border-border-subtle md:rounded-t-3xl">
+<button class="w-12 h-12 flex items-center justify-start text-on-surface hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Contact Us</h1>
+<div class="w-12"></div> <!-- Spacer for centering -->
+</header>
+<main class="px-gutter-mobile pt-stack-md pb-stack-lg flex flex-col gap-stack-lg">
+<!-- Header Text -->
+<section class="text-center mt-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">We're here to help</h2>
+<p class="font-body-md text-body-md text-on-surface-variant px-4">Choose a method below or send us a message directly.</p>
+</section>
+<!-- Support Options Grid -->
+<section class="grid grid-cols-1 gap-stack-md">
+<!-- WhatsApp Card -->
+<button class="flex items-center p-stack-md bg-surface-container-lowest border border-whatsapp-green rounded-xl active:scale-[0.98] transition-transform text-left group hover:bg-status-shipped">
+<div class="w-12 h-12 rounded-full bg-whatsapp-green/10 flex items-center justify-center mr-4 group-hover:bg-whatsapp-green/20 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-whatsapp-green fill">chat</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-1">WhatsApp Chat</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fastest response</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<!-- Phone Card -->
+<button class="flex items-center p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl active:scale-[0.98] transition-transform text-left group hover:border-trust-blue hover:bg-surface-gray">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mr-4 group-hover:bg-trust-blue/10 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-trust-blue">call</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-1">Call Us</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mon-Sat, 9am-6pm</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<!-- Email Card -->
+<button class="flex items-center p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl active:scale-[0.98] transition-transform text-left group hover:border-primary hover:bg-surface-gray">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mr-4 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-primary">mail</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-1">Email</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Usually replies in 24h</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</section>
+<div class="flex items-center justify-center space-x-4 py-2">
+<div class="h-px bg-border-subtle flex-1"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Or</span>
+<div class="h-px bg-border-subtle flex-1"></div>
+</div>
+<!-- Contact Form -->
+<section class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-stack-md">Send a Message</h3>
+<form class="flex flex-col gap-stack-md">
+<!-- Name Input -->
+<div class="relative mt-2">
+<input class="floating-input w-full px-4 py-4 border border-outline-variant rounded-lg bg-transparent text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md peer" id="name" placeholder=" " type="text"/>
+<label class="floating-label absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md transition-all duration-200 pointer-events-none bg-surface-container-lowest px-1" for="name">Your Name</label>
+</div>
+<!-- Issue Dropdown -->
+<div class="relative mt-2">
+<select class="floating-select w-full px-4 py-4 border border-outline-variant rounded-lg bg-transparent text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md appearance-none" id="issue">
+<option disabled="" hidden="" selected="" value=""></option>
+<option value="order">Order Tracking</option>
+<option value="payment">Payment Issue</option>
+<option value="account">Account Support</option>
+<option value="other">Other</option>
+</select>
+<label class="floating-label absolute left-4 top-0 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md transition-all duration-200 pointer-events-none bg-surface-container-lowest px-1 scale-85" for="issue">Issue Type</label>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Message Multiline -->
+<div class="relative mt-2">
+<textarea class="floating-input w-full px-4 py-4 border border-outline-variant rounded-lg bg-transparent text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md resize-none peer" id="message" placeholder=" " rows="4"></textarea>
+<label class="floating-label absolute left-4 top-6 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md transition-all duration-200 pointer-events-none bg-surface-container-lowest px-1" for="message">How can we help?</label>
+</div>
+</form>
+</section>
+<!-- Support Hours Info -->
+<section class="flex items-start gap-3 bg-surface-gray p-4 rounded-lg border border-border-subtle">
+<span class="material-symbols-outlined text-outline mt-0.5">info</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Support Hours</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Our team is available Monday to Saturday, from 9:00 AM to 6:00 PM (PKT). Messages sent outside these hours will be addressed the next business day.</p>
+</div>
+</section>
+<!-- Bottom Spacing for Fixed Action Bar -->
+<div class="h-20"></div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-border-subtle p-4 md:absolute md:rounded-b-3xl md:w-full md:left-auto">
+<button class="w-full h-[56px] bg-growth-green text-on-primary font-label-lg text-label-lg rounded-full flex items-center justify-center active:scale-95 transition-transform shadow-sm">
+<span>Send Message</span>
+<span class="material-symbols-outlined ml-2 text-[20px]">send</span>
+</button>
+</div>
+<script>
+        // Simple script to handle select floating label logic correctly when value changes
+        document.getElementById('issue').addEventListener('change', function() {
+            if(this.value) {
+                this.setAttribute('value', this.value);
+            }
+        });
+    </script>
+</body></html>

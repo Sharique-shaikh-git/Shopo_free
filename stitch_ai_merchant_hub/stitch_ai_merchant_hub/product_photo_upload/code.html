@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Shop Builder - Add New Product</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f0f3",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-red": "#BA1A1A",
+                        "on-tertiary-fixed": "#001848",
+                        "on-primary-fixed": "#00201b",
+                        "surface-tint": "#006b5e",
+                        "primary-fixed": "#9ff2e1",
+                        "on-secondary-fixed": "#002109",
+                        "surface-container-low": "#f3f3f6",
+                        "surface-dim": "#dadadc",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e5",
+                        "surface-container-high": "#e8e8ea",
+                        "inverse-surface": "#2f3133",
+                        "secondary-fixed-dim": "#3de273",
+                        "error": "#ba1a1a",
+                        "border-subtle": "#E1E3E5",
+                        "surface": "#f9f9fc",
+                        "trust-blue": "#0055D4",
+                        "primary-container": "#006b5e",
+                        "whatsapp-green": "#25D366",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-secondary-container": "#007232",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "on-primary-container": "#95e8d8",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ccd8ff",
+                        "growth-green": "#006B5E",
+                        "status-shipped": "#F0FDF4",
+                        "on-primary-fixed-variant": "#005046",
+                        "primary": "#005147",
+                        "surface-variant": "#e2e2e5",
+                        "tertiary": "#003fa3",
+                        "outline": "#6e7976",
+                        "tertiary-container": "#0055d4",
+                        "inverse-primary": "#83d5c5",
+                        "secondary": "#006d2f",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "on-background": "#1a1c1e",
+                        "secondary-fixed": "#66ff8e",
+                        "surface-bright": "#f9f9fc",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "on-surface": "#1a1c1e",
+                        "secondary-container": "#5dfd8a",
+                        "on-surface-variant": "#3e4946",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeef0",
+                        "surface-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9fc",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "gutter-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "touch-target-min": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            80%, 100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky z-40 bg-surface-gray flex justify-between items-center px-gutter-mobile py-4 w-full flat no shadows">
+<button class="text-growth-green hover:bg-surface-container-high transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center min-h-[48px] min-w-[48px]">
+<span class="material-symbols-outlined text-2xl" data-icon="storefront">storefront</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green text-center flex-1">Shop Builder</h1>
+<button class="text-growth-green hover:bg-surface-container-high transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center min-h-[48px] min-w-[48px]">
+<span class="material-symbols-outlined text-2xl" data-icon="language">language</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col relative w-full max-w-md mx-auto">
+<!-- Header Section -->
+<div class="px-gutter-mobile pt-stack-lg pb-stack-md text-center z-10 relative">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">Add New Product</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Snap a photo to list your product.</p>
+</div>
+<!-- Viewfinder/Illustration Area -->
+<div class="flex-1 flex items-center justify-center p-gutter-mobile relative z-10">
+<div class="relative w-full max-w-sm aspect-[3/4] bg-surface-container-low rounded-[32px] border border-border-subtle flex flex-col items-center justify-center overflow-hidden">
+<!-- Corner Brackets for Viewfinder effect -->
+<div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-growth-green opacity-50 rounded-tl-lg"></div>
+<div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-growth-green opacity-50 rounded-tr-lg"></div>
+<div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-growth-green opacity-50 rounded-bl-lg"></div>
+<div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-growth-green opacity-50 rounded-br-lg"></div>
+<!-- Central Illustration/Icon -->
+<div class="relative flex flex-col items-center justify-center">
+<div class="w-32 h-32 bg-primary-fixed rounded-full flex items-center justify-center mb-6 relative">
+<div class="absolute inset-0 bg-primary-fixed rounded-full pulse-ring"></div>
+<span class="material-symbols-outlined text-[64px] text-primary" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<p class="font-label-lg text-label-lg text-primary text-center px-8">
+                        Position product within frame
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bottom Action Area (Thumb Zone) -->
+<div class="px-gutter-mobile pb-[100px] pt-stack-md flex flex-col gap-4 z-10 relative bg-gradient-to-t from-background via-background to-transparent">
+<button class="w-full bg-growth-green text-on-primary font-label-lg text-label-lg rounded-full min-h-[56px] flex items-center justify-center gap-2 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+                Take a Photo
+            </button>
+<button class="w-full bg-transparent border-2 border-border-subtle text-on-surface-variant font-label-lg text-label-lg rounded-full min-h-[56px] flex items-center justify-center gap-2 active:scale-95 transition-transform duration-200 hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
+                Choose from Gallery
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe border-t border-border-subtle md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200 w-[64px]" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<!-- Active State: Upload -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200 w-[64px]" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="add_a_photo" data-weight="fill">add_a_photo</span>
+<span class="font-label-sm text-label-sm font-bold">Upload</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200 w-[64px]" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200 w-[64px]" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "status-pending": "#FEF7FF",
+                    "outline": "#6e7976",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f0f0f3",
+                    "error-red": "#BA1A1A",
+                    "tertiary-fixed": "#dae2ff",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#83d5c5",
+                    "growth-green": "#006B5E",
+                    "whatsapp-green": "#25D366",
+                    "trust-blue": "#0055D4",
+                    "on-surface-variant": "#3e4946",
+                    "primary-fixed": "#9ff2e1",
+                    "tertiary-container": "#0055d4",
+                    "surface-variant": "#e2e2e5",
+                    "secondary-fixed": "#66ff8e",
+                    "error": "#ba1a1a",
+                    "primary-container": "#006b5e",
+                    "surface-dim": "#dadadc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ccd8ff",
+                    "on-secondary-fixed-variant": "#005322",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9f9fc",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container": "#eeeef0",
+                    "surface-container-highest": "#e2e2e5",
+                    "on-tertiary-fixed": "#001848",
+                    "status-shipped": "#F0FDF4",
+                    "inverse-surface": "#2f3133",
+                    "outline-variant": "#bec9c5",
+                    "primary-fixed-dim": "#83d5c5",
+                    "surface-gray": "#F8F9FA",
+                    "on-primary-fixed-variant": "#005046",
+                    "tertiary": "#003fa3",
+                    "surface-tint": "#006b5e",
+                    "border-subtle": "#E1E3E5",
+                    "secondary-container": "#5dfd8a",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002109",
+                    "surface-container-high": "#e8e8ea",
+                    "on-primary-fixed": "#00201b",
+                    "background": "#f9f9fc",
+                    "on-surface": "#1a1c1e",
+                    "on-background": "#1a1c1e",
+                    "primary": "#005147",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f3f3f6",
+                    "secondary-fixed-dim": "#3de273",
+                    "secondary": "#006d2f",
+                    "on-primary-container": "#95e8d8",
+                    "on-secondary-container": "#007232"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1rem",
+                    "stack-lg": "2rem",
+                    "touch-target-min": "3rem",
+                    "gutter-mobile": "1rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .ai-pulse-text {
+            animation: pulse-opacity 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .input-focus-ring:focus-within {
+            border-color: #006B5E;
+            box-shadow: 0 0 0 2px rgba(0, 107, 94, 0.1);
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f9f9fc;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- Top App Bar (Shared Component Logic) -->
+<header class="bg-surface dark:bg-on-background w-full top-0 sticky z-40 flex justify-between items-center px-gutter-mobile py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-growth-green dark:text-primary-fixed-dim" data-icon="storefront">storefront</span>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Shop Builder</h1>
+</div>
+<button class="material-symbols-outlined text-growth-green dark:text-primary-fixed-dim p-2 hover:bg-surface-container-high transition-colors active:scale-95 duration-150" data-icon="language">language</button>
+</header>
+<main class="flex-grow px-gutter-mobile py-stack-lg max-w-md mx-auto w-full">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Shop Settings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Configure how your customers experience your store, from currency to shipping.</p>
+</section>
+<!-- AI Assistance Micro-interaction -->
+<div class="bg-surface-container-low border border-border-subtle rounded-xl p-4 mb-stack-lg flex items-start gap-4">
+<div class="bg-growth-green rounded-full p-2 text-white shrink-0">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-growth-green mb-1">AI Smart Tip</p>
+<p class="font-body-md text-body-md text-on-surface ai-pulse-text">Flat rates are proven to increase conversion for local merchants by 15%.</p>
+</div>
+</div>
+<!-- Form Sections (Stack Layout) -->
+<div class="space-y-stack-lg">
+<!-- Currency Section -->
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Shop Currency</label>
+<div class="relative group">
+<select class="w-full h-[56px] px-4 bg-white border border-border-subtle rounded-xl font-body-md text-body-md appearance-none focus:outline-none focus:border-growth-green transition-all border-2">
+<option value="PKR">PKR - Pakistani Rupee</option>
+<option value="USD">USD - US Dollar</option>
+<option value="AED">AED - UAE Dirham</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Shipping Section -->
+<div class="p-stack-md border border-border-subtle rounded-xl bg-white space-y-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-trust-blue" data-icon="local_shipping">local_shipping</span>
+<h3 class="font-headline-md text-headline-md">Shipping &amp; Delivery</h3>
+</div>
+<span class="px-3 py-1 rounded-full bg-status-shipped text-secondary font-label-sm text-label-sm">Active</span>
+</div>
+<div class="space-y-stack-md pt-4">
+<!-- Flat Rate Input -->
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Flat Shipping Fee</label>
+<div class="relative flex items-center h-[56px] bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden focus-within:border-growth-green transition-all border-2">
+<span class="px-4 font-body-md text-on-surface-variant border-r border-border-subtle">Rs.</span>
+<input class="flex-grow px-4 h-full outline-none font-body-md text-body-md bg-transparent" placeholder="250" type="number"/>
+</div>
+</div>
+<!-- Delivery Time -->
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Estimated Delivery Time</label>
+<div class="grid grid-cols-2 gap-stack-sm">
+<button class="flex items-center justify-center h-[56px] border-2 border-growth-green bg-primary-container/10 rounded-xl px-2 gap-2 text-growth-green">
+<span class="material-symbols-outlined" data-icon="schedule" data-weight="fill" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-label-lg text-label-lg">2-3 Days</span>
+</button>
+<button class="flex items-center justify-center h-[56px] border border-border-subtle bg-white rounded-xl px-2 gap-2 text-on-surface-variant hover:border-growth-green/50 transition-colors">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-label-lg text-label-lg">5-7 Days</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Visualization Card (Bento-style) -->
+<div class="bg-surface-gray rounded-2xl overflow-hidden border border-border-subtle flex flex-col sm:flex-row">
+<div class="sm:w-1/2 h-48 sm:h-auto overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="A modern, minimalist warehouse interior in Karachi, Pakistan, with soft daylight filtering through high windows. The scene shows neatly organized logistics with a focus on trust and efficiency, featuring a clean teal and white aesthetic. High-quality professional photography with a wide depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2cQZh9iU_4zB0cAcGQNF1roSQ2UQso-nrQ0LbwXqe4yclU8cEmM98v1-qNcB78b7Lt9-na5J1_4Uap2Us1ZkYspBx4vyeZdRVuatf-vBuxen98tU-3XL9hEHHgXoNnHHj_2yFQgaupmmeuxbRZYnXsbWmvSaaPXJ7Mad9pBC275iLSvKwgWHeotNeSPq3wqsWtXno2QDNYqSHsWzm8oPTXi1krTflsE2Lne0ui2Szw510khjIFIDzyyCq83Q7q5tQfvDPeA9a3AY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white font-label-sm text-label-sm">Logistics Partner: Leopards Courier</p>
+</div>
+</div>
+<div class="sm:w-1/2 p-stack-md flex flex-col justify-center">
+<h4 class="font-label-lg text-label-lg text-on-surface mb-2">Coverage Area</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">You are currently shipping nationwide across Pakistan.</p>
+<div class="flex items-center gap-2 text-trust-blue cursor-pointer group">
+<span class="font-label-lg text-label-lg group-hover:underline">Edit Regions</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="sticky bottom-[64px] left-0 w-full bg-white px-gutter-mobile py-4 border-t border-border-subtle z-30">
+<button class="w-full h-[56px] bg-growth-green text-white rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            Save Shop Settings
+        </button>
+</div>
+<!-- Bottom Navigation Bar (Shared Component Logic) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface border-t border-border-subtle dark:border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-label-sm text-label-sm">Upload</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the delivery time buttons
+        document.querySelectorAll('.grid button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Reset others
+                this.parentElement.querySelectorAll('button').forEach(b => {
+                    b.classList.remove('border-growth-green', 'bg-primary-container/10', 'text-growth-green');
+                    b.classList.add('border-border-subtle', 'bg-white', 'text-on-surface-variant');
+                    const icon = b.querySelector('.material-symbols-outlined');
+                    if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                // Highlight this
+                this.classList.add('border-growth-green', 'bg-primary-container/10', 'text-growth-green');
+                this.classList.remove('border-border-subtle', 'bg-white', 'text-on-surface-variant');
+                const activeIcon = this.querySelector('.material-symbols-outlined');
+                if(activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+    </script>
+</body></html>

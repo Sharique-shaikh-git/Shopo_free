@@ -11,6 +11,7 @@ import {
   Alert,
   ActivityIndicator,
   Image,
+  StatusBar,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -18,8 +19,11 @@ import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import * as ImagePicker from 'expo-image-picker';
 import { apiFetch } from '../../../../lib/api';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 export default function StoreCreationScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [storeName, setStoreName] = useState('');
   const [description, setDescription] = useState('');
   const [logoUri, setLogoUri] = useState<string | null>(null);
@@ -57,6 +61,8 @@ export default function StoreCreationScreen() {
     }
   };
 
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 16);
+
   return (
     <SafeAreaView className="flex-1 bg-surface">
       <KeyboardAvoidingView
@@ -71,7 +77,8 @@ export default function StoreCreationScreen() {
           {/* Header */}
           <Animated.View
             entering={FadeInDown.duration(600).springify()}
-            className="pt-8 pb-4 px-5 items-center"
+            style={{ paddingTop: headerPadding }}
+            className="pb-4 px-5 items-center"
           >
             <Text className="text-[28px] font-bold text-growth-green text-center">
               Create Your Shop
@@ -184,12 +191,12 @@ export default function StoreCreationScreen() {
             {isLoading ? (
               <ActivityIndicator size="small" color="white" />
             ) : (
-              <>
+              <View className="flex-row items-center justify-center gap-2">
                 <MaterialIcons name="storefront" size={20} color="white" />
                 <Text className="text-white font-semibold text-[15px] tracking-wide">
                   Create My Shop
                 </Text>
-              </>
+              </View>
             )}
           </TouchableOpacity>
         </Animated.View>

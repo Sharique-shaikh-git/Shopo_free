@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Shop Builder - Launching</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3e4946",
+                    "tertiary-container": "#0055d4",
+                    "surface-variant": "#e2e2e5",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#dae2ff",
+                    "on-secondary-fixed-variant": "#005322",
+                    "on-secondary-container": "#007232",
+                    "inverse-surface": "#2f3133",
+                    "inverse-on-surface": "#f0f0f3",
+                    "error-red": "#BA1A1A",
+                    "primary": "#005147",
+                    "trust-blue": "#0055D4",
+                    "on-surface": "#1a1c1e",
+                    "on-primary-fixed": "#00201b",
+                    "on-primary-fixed-variant": "#005046",
+                    "surface-container-low": "#f3f3f6",
+                    "surface-dim": "#dadadc",
+                    "on-tertiary-container": "#ccd8ff",
+                    "on-tertiary-fixed": "#001848",
+                    "on-primary-container": "#95e8d8",
+                    "error": "#ba1a1a",
+                    "surface-gray": "#F8F9FA",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#006b5e",
+                    "on-background": "#1a1c1e",
+                    "surface": "#f9f9fc",
+                    "whatsapp-green": "#25D366",
+                    "secondary-container": "#5dfd8a",
+                    "outline-variant": "#bec9c5",
+                    "outline": "#6e7976",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#003fa3",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "secondary-fixed": "#66ff8e",
+                    "primary-fixed-dim": "#83d5c5",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container-high": "#e8e8ea",
+                    "growth-green": "#006B5E",
+                    "surface-container-highest": "#e2e2e5",
+                    "secondary": "#006d2f",
+                    "primary-fixed": "#9ff2e1",
+                    "on-error-container": "#93000a",
+                    "status-pending": "#FEF7FF",
+                    "on-secondary-fixed": "#002109",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#006b5e",
+                    "border-subtle": "#E1E3E5",
+                    "inverse-primary": "#83d5c5",
+                    "background": "#f9f9fc",
+                    "status-shipped": "#F0FDF4",
+                    "secondary-fixed-dim": "#3de273",
+                    "surface-container": "#eeeef0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "48px",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem",
+                    "gutter-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f9f9fc;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        /* Subtle Entrance Animations */
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scale-in {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .animate-fade-up { animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-scale-in { animation: scale-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-pulse-slow { animation: pulse-subtle 3s ease-in-out infinite; }
+
+        /* Hidden initially for animation stagger */
+        .reveal-delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .reveal-delay-2 { animation-delay: 0.4s; opacity: 0; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col items-center justify-center min-h-screen p-gutter-mobile">
+<!-- Top Glow Ornament (Subtle AI/Growth Hint) -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-64 bg-gradient-to-b from-primary-fixed/20 to-transparent blur-3xl pointer-events-none opacity-50"></div>
+<!-- Main Branding Content -->
+<main class="relative flex flex-col items-center text-center space-y-stack-md z-10">
+<!-- App Logo Container -->
+<div class="animate-scale-in flex items-center justify-center w-24 h-24 rounded-3xl bg-surface-container-lowest border border-border-subtle shadow-sm mb-stack-sm">
+<span class="material-symbols-outlined text-[48px] text-growth-green" data-icon="storefront">storefront</span>
+</div>
+<!-- App Name -->
+<div class="animate-fade-up reveal-delay-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-growth-green tracking-tight">
+                Shop Builder
+            </h1>
+</div>
+</main>
+<!-- Bottom Content (Subtitle & Status) -->
+<footer class="absolute bottom-16 w-full px-gutter-mobile text-center flex flex-col items-center space-y-4">
+<!-- Tagline -->
+<p class="animate-fade-up reveal-delay-2 font-body-md text-body-md text-on-surface-variant max-w-[280px]">
+            Build your online business in seconds.
+        </p>
+<!-- Loading Indicator -->
+<div class="animate-fade-up reveal-delay-2 pt-4 flex flex-col items-center gap-3">
+<div class="flex space-x-1.5">
+<div class="w-2 h-2 rounded-full bg-growth-green/20 animate-bounce" style="animation-delay: 0.1s"></div>
+<div class="w-2 h-2 rounded-full bg-growth-green/40 animate-bounce" style="animation-delay: 0.2s"></div>
+<div class="w-2 h-2 rounded-full bg-growth-green/60 animate-bounce" style="animation-delay: 0.3s"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline animate-pulse-slow uppercase tracking-widest">Initialising</span>
+</div>
+</footer>
+<!-- Background Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] z-0 overflow-hidden" style="background-image: radial-gradient(#006B5E 0.5px, transparent 0.5px); background-size: 24px 24px;">
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Optional: Simulate transition to home screen after delay
+            // setTimeout(() => {
+            //     window.location.href = '/home';
+            // }, 3000);
+
+            // Subtle parallax effect on logo
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) / 50;
+                const moveY = (e.clientY - window.innerHeight / 2) / 50;
+                const logo = document.querySelector('.animate-scale-in');
+                if(logo) {
+                    logo.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Share Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3e4946",
+                        "tertiary-container": "#0055d4",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#007232",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "error-red": "#BA1A1A",
+                        "trust-blue": "#0055D4",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "primary": "#005147",
+                        "surface-container-low": "#f3f3f6",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-dim": "#dadadc",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-primary-container": "#95e8d8",
+                        "error": "#ba1a1a",
+                        "surface-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#006b5e",
+                        "on-background": "#1a1c1e",
+                        "whatsapp-green": "#25D366",
+                        "secondary-container": "#5dfd8a",
+                        "surface": "#f9f9fc",
+                        "outline-variant": "#bec9c5",
+                        "outline": "#6e7976",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#003fa3",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed": "#66ff8e",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container-high": "#e8e8ea",
+                        "growth-green": "#006B5E",
+                        "secondary": "#006d2f",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "status-pending": "#FEF7FF",
+                        "on-secondary-fixed": "#002109",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#006b5e",
+                        "border-subtle": "#E1E3E5",
+                        "inverse-primary": "#83d5c5",
+                        "background": "#f9f9fc",
+                        "status-shipped": "#F0FDF4",
+                        "secondary-fixed-dim": "#3de273",
+                        "surface-container": "#eeeef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "touch-target-min": "3rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1.25rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background bg-surface-gray dark:bg-surface-dim flat no shadows flex justify-between items-center px-gutter-mobile py-4 w-full z-40">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green dark:text-primary-fixed-dim">Share Shop</h1>
+<div class="w-touch-target-min h-touch-target-min"></div> <!-- Spacer for centering -->
+</header>
+<main class="px-gutter-mobile py-stack-md flex flex-col gap-stack-lg max-w-md mx-auto">
+<!-- Shop Preview Card -->
+<section class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex items-center gap-stack-md">
+<div class="w-16 h-16 rounded-full bg-surface-container flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, modern logo design for a digital storefront named 'Kinetic Growth'. The logo features geometric shapes and a vibrant emerald green color palette against a pure white background. The style is minimalist and corporate, suitable for a trusted e-commerce platform in Pakistan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPLMDmlXqxwFbKVniVZjOTJCwXn_F-mIYjhbxcHnaKGDkP1JSOfuxex806m0TuzAqwMxFzrqMKaJf8TKMxlAVumdnnIdHzKtm-tD3afdrqxFLnEM0kmOiZVU1Ec6sN9tV96C6K6Dus3XlmgJ5li7srOFDbhyVNje2cBEp1xzbsZ-LIhOf77yv_OvP0uWF_cn0VgvlYzxdGbsztYffx-C5_3mX1rJkoVOUMgNSFryUZaWXhPfGjJvaU6b2seq56BqHcCYocwYoZ0DU"/>
+</div>
+<div class="flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface">Kinetic Growth</h2>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+<span>24 Products</span>
+<span class="text-outline mx-1">•</span>
+<span class="material-symbols-outlined text-[18px] text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9 Rating</span>
+</div>
+</div>
+</section>
+<!-- Shop Link Box -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Your Shop Link</label>
+<div class="flex items-center bg-surface-container-lowest border border-border-subtle rounded-lg p-2 focus-within:border-primary focus-within:border-2 transition-all">
+<input class="bg-transparent border-none flex-grow font-body-lg text-body-lg text-on-surface focus:ring-0 px-2 outline-none" readonly="" type="text" value="kinetic.digitaldukaan.pk"/>
+<button class="bg-growth-green text-on-primary w-touch-target-min h-touch-target-min rounded-lg flex items-center justify-center hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</section>
+<!-- Share Buttons Row -->
+<section class="flex justify-around items-center py-stack-md">
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+<!-- Standard material icon for demo, normally would use brand icon -->
+<span class="material-symbols-outlined text-3xl">chat</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">WhatsApp</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-[#1877F2] text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">thumb_up</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Facebook</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instagram</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">more_horiz</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">More</span>
+</button>
+</section>
+<!-- QR Code Section -->
+<section class="flex flex-col items-center justify-center bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-lg gap-stack-md">
+<div class="w-48 h-48 bg-white border border-border-subtle rounded-lg p-2 flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="A high-contrast, crisp black and white QR code. The QR code is perfectly square and optimized for scanning, set against a stark white background to ensure maximum legibility. The style is functional and modern, fitting seamlessly into a clean digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwyE7YEl6rvDj9yTJHEUYsFmjmSCL3I2W4ZJgToIVe_hp8FcrGY0clQTR2HPWd_XO2nqUFouPdYJqeE02Or1-wx8Stz5l7T9pI4Gq9dQ_SaOO4qNPvnhTpLOy4lMLOggYAiMn9HboJ9PiUr7cdWHntBmV6qjVLvNXrBEP53ygCuP60qXYXwEYfs-hky-6K93372nECGwPzpK2UytbKIV1P-sbaONZOc7vomont10Q8aXm-Pc-WQo8g-cib6ardavHavhPsX_8w-QE"/>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-medium">Scan to visit my shop</p>
+</section>
+</main>
+<!-- Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full p-gutter-mobile bg-surface-container-lowest border-t border-border-subtle z-40">
+<button class="w-full h-14 border-2 border-trust-blue text-trust-blue rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined">share</span>
+            More Sharing Options
+        </button>
+</div>
+</body></html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3e4946",
+                        "tertiary-container": "#0055d4",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#007232",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "error-red": "#BA1A1A",
+                        "trust-blue": "#0055D4",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "primary": "#005147",
+                        "surface-container-low": "#f3f3f6",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-dim": "#dadadc",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-primary-container": "#95e8d8",
+                        "error": "#ba1a1a",
+                        "surface-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#006b5e",
+                        "on-background": "#1a1c1e",
+                        "whatsapp-green": "#25D366",
+                        "secondary-container": "#5dfd8a",
+                        "surface": "#f9f9fc",
+                        "outline-variant": "#bec9c5",
+                        "outline": "#6e7976",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#003fa3",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed": "#66ff8e",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container-high": "#e8e8ea",
+                        "growth-green": "#006B5E",
+                        "secondary": "#006d2f",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "status-pending": "#FEF7FF",
+                        "on-secondary-fixed": "#002109",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#006b5e",
+                        "border-subtle": "#E1E3E5",
+                        "inverse-primary": "#83d5c5",
+                        "background": "#f9f9fc",
+                        "status-shipped": "#F0FDF4",
+                        "secondary-fixed-dim": "#3de273",
+                        "surface-container": "#eeeef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "touch-target-min": "3rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1.25rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #006B5E;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #006B5E;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen pb-24 md:hidden">
+<!-- TopAppBar (Transactional) -->
+<header class="bg-surface w-full top-0 sticky flex justify-between items-center px-gutter-mobile py-4 z-40 border-b border-border-subtle">
+<button class="w-touch-target-min h-touch-target-min flex items-center justify-center -ml-2 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md flex-1 text-center font-bold">Notifications</h1>
+<div class="w-touch-target-min h-touch-target-min"></div> <!-- Spacer for centering -->
+</header>
+<main class="px-margin-mobile py-stack-md flex flex-col gap-stack-lg">
+<!-- Push Notifications -->
+<section class="flex flex-col gap-stack-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider mb-2">Push Notifications</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex justify-between items-center">
+<div>
+<h3 class="font-body-md text-body-md font-medium">New Orders</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Get alerts for new customer orders.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out translate-x-6 border-growth-green" id="toggle-orders" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer bg-growth-green" for="toggle-orders"></label>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex justify-between items-center">
+<div>
+<h3 class="font-body-md text-body-md font-medium">Order Updates</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Status changes and tracking.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out translate-x-6 border-growth-green" id="toggle-updates" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer bg-growth-green" for="toggle-updates"></label>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex justify-between items-center">
+<div>
+<h3 class="font-body-md text-body-md font-medium">Promotional Messages</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Tips, offers, and new features.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out" id="toggle-promo" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-promo"></label>
+</div>
+</div>
+</section>
+<!-- Email Notifications -->
+<section class="flex flex-col gap-stack-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider mb-2">Email Notifications</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex justify-between items-center">
+<div>
+<h3 class="font-body-md text-body-md font-medium">Weekly Report</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Summary of your shop's performance.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out translate-x-6 border-growth-green" id="toggle-report" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer bg-growth-green" for="toggle-report"></label>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex justify-between items-center">
+<div>
+<h3 class="font-body-md text-body-md font-medium">Marketing Emails</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Newsletters and special offers.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out" id="toggle-marketing" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-marketing"></label>
+</div>
+</div>
+</section>
+<!-- Quiet Hours -->
+<section class="flex flex-col gap-stack-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider mb-2">Quiet Hours</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden">
+<div class="p-stack-md flex justify-between items-center border-b border-border-subtle">
+<div>
+<h3 class="font-body-md text-body-md font-medium">Enable Quiet Hours</h3>
+<p class="font-label-sm text-label-sm text-outline mt-1">Pause notifications during sleep.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant z-10 transition-transform duration-200 ease-in-out" id="toggle-quiet" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-quiet"></label>
+</div>
+</div>
+<div class="p-stack-md flex gap-4 bg-surface-gray opacity-50 pointer-events-none transition-opacity duration-200" id="quiet-hours-controls">
+<div class="flex-1">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2">Start Time</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>10:00 PM</option>
+<option>11:00 PM</option>
+<option>12:00 AM</option>
+</select>
+</div>
+<div class="flex-1">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2">End Time</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>6:00 AM</option>
+<option selected="">7:00 AM</option>
+<option>8:00 AM</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle p-margin-mobile z-50">
+<button class="w-full bg-growth-green text-on-primary font-body-lg text-body-lg font-medium rounded-xl h-[56px] flex items-center justify-center active:scale-95 transition-transform duration-150 shadow-sm">
+            Save Preferences
+        </button>
+</div>
+<script>
+        // Simple toggle logic for checkboxes visually (Tailwind handles checked state partially via CSS above, this is for the translate visual)
+        document.querySelectorAll('.toggle-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if(this.checked) {
+                    this.classList.add('translate-x-6', 'border-growth-green');
+                    this.classList.remove('border-outline-variant');
+                    this.nextElementSibling.classList.add('bg-growth-green');
+                    this.nextElementSibling.classList.remove('bg-outline-variant');
+                } else {
+                    this.classList.remove('translate-x-6', 'border-growth-green');
+                    this.classList.add('border-outline-variant');
+                    this.nextElementSibling.classList.remove('bg-growth-green');
+                    this.nextElementSibling.classList.add('bg-outline-variant');
+                }
+            });
+        });
+
+        // Quiet Hours logic
+        const quietToggle = document.getElementById('toggle-quiet');
+        const quietControls = document.getElementById('quiet-hours-controls');
+        
+        quietToggle.addEventListener('change', function() {
+            if(this.checked) {
+                quietControls.classList.remove('opacity-50', 'pointer-events-none');
+            } else {
+                quietControls.classList.add('opacity-50', 'pointer-events-none');
+            }
+        });
+    </script>
+</body></html>

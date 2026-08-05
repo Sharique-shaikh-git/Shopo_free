@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Report a Problem</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#0055d4",
+                        "secondary-fixed-dim": "#3de273",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "inverse-surface": "#2f3133",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#bec9c5",
+                        "on-background": "#1a1c1e",
+                        "surface-tint": "#006b5e",
+                        "surface-container-low": "#f3f3f6",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-secondary-container": "#007232",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "status-shipped": "#F0FDF4",
+                        "primary": "#005147",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-dim": "#dadadc",
+                        "growth-green": "#006B5E",
+                        "status-pending": "#FEF7FF",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary-container": "#95e8d8",
+                        "outline": "#6e7976",
+                        "secondary-fixed": "#66ff8e",
+                        "on-tertiary-fixed": "#001848",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary": "#006d2f",
+                        "tertiary": "#003fa3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#3e4946",
+                        "surface-gray": "#F8F9FA",
+                        "on-secondary-fixed": "#002109",
+                        "whatsapp-green": "#25D366",
+                        "surface": "#f9f9fc",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-primary": "#83d5c5",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#5dfd8a",
+                        "error-red": "#BA1A1A",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "trust-blue": "#0055D4",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "primary-container": "#006b5e",
+                        "tertiary-fixed": "#dae2ff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-container": "#eeeef0",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target-min": "3rem",
+                        "gutter-mobile": "1rem",
+                        "pb-safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- Top Navigation (Transactional/Task-focused, suppressing global nav) -->
+<header class="w-full sticky top-0 z-10 bg-surface bg-opacity-95 backdrop-blur-sm border-b border-border-subtle flex justify-between items-center px-gutter-mobile py-4">
+<button aria-label="Go back" class="w-12 h-12 flex items-center justify-start text-on-surface hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface absolute left-1/2 transform -translate-x-1/2">
+            Report Problem
+        </h1>
+<div class="w-12"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-gutter-mobile py-stack-lg flex flex-col gap-stack-lg pb-32">
+<!-- Form Section -->
+<form class="flex flex-col gap-stack-lg">
+<!-- Problem Type Dropdown (Floating Label Pattern) -->
+<div class="relative w-full">
+<select class="block w-full rounded-lg border border-outline-variant bg-surface px-4 pb-2.5 pt-6 text-body-md text-on-surface appearance-none focus:border-growth-green focus:outline-none focus:ring-1 focus:ring-growth-green peer bg-transparent z-10 relative" id="problem_type">
+<option disabled="" hidden="" selected="" value=""></option>
+<option value="order_issue">Issue with an Order</option>
+<option value="app_bug">App not working correctly</option>
+<option value="account_access">Account access problem</option>
+<option value="other">Other</option>
+</select>
+<label class="absolute start-4 top-4 z-0 origin-[0] -translate-y-4 scale-75 transform text-label-lg text-on-surface-variant duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-growth-green" for="problem_type">
+                    Problem Type
+                </label>
+<!-- Custom Dropdown Arrow -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant z-20">
+<span class="material-symbols-outlined" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Description Textarea (Floating Label Pattern) -->
+<div class="relative w-full">
+<textarea class="block w-full rounded-lg border border-outline-variant bg-surface px-4 pb-2.5 pt-6 text-body-md text-on-surface focus:border-growth-green focus:outline-none focus:ring-1 focus:ring-growth-green peer resize-none" id="description" placeholder=" " rows="5"></textarea>
+<label class="absolute start-4 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform text-label-lg text-on-surface-variant duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-growth-green" for="description">
+                    Describe the issue
+                </label>
+</div>
+<!-- Attach Screenshot Button (Secondary Style) -->
+<button class="w-full flex items-center justify-center gap-2 border-2 border-trust-blue text-trust-blue rounded-full min-h-touch-target-min font-label-lg font-bold hover:bg-surface-container-highest active:scale-[0.98] transition-all duration-200" type="button">
+<span class="material-symbols-outlined" data-icon="add_photo_alternate" style="font-variation-settings: 'FILL' 0;">add_photo_alternate</span>
+                Attach Screenshot
+            </button>
+<!-- Attachment Preview Area (Hidden by default, shown for structure) -->
+<div class="hidden flex gap-stack-sm overflow-x-auto py-2">
+<!-- Example thumbnail -->
+<div class="relative w-20 h-20 flex-shrink-0 rounded-lg border border-border-subtle overflow-hidden">
+<div class="bg-cover bg-center w-full h-full" data-alt="A small blurred thumbnail preview of a mobile application interface showing an error state, intended to represent a user uploaded screenshot of a bug." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHfGX1AVR90u9uW45jdJkEM41kF34HE304iaF0x6KO3b7LdsnzmAvcx1EE1vbFFbB5DxxuUbn4teOkrX8L0geIKZnhvmrA4Wdsn9_ryDBUrdTYta7nngkFla9PkYBRwRHZ22ofv2-8MI8AD80vSu91q9DqPV3_5RBjAmyuQcUJyEBoN3Lh9Dj36LINUzPHv77Q-sIsmQSl7wtFpXnK8sQDCfZVBNxGenvr-cJeFKPSPfyeiMu6qc6ZCTD_ZqeCw9BkiU_w80HCvc0')"></div>
+<button class="absolute top-1 right-1 bg-surface rounded-full p-0.5 text-error shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Device Info (Read-only Context) -->
+<div class="bg-surface-gray border border-border-subtle rounded-lg p-stack-md flex items-start gap-stack-sm mt-auto">
+<span class="material-symbols-outlined text-outline mt-0.5" data-icon="info" style="font-variation-settings: 'FILL' 0;">info</span>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-on-surface-variant">Device Information included</h3>
+<p class="font-label-sm text-outline">To help us fix the issue faster, basic device details (OS version, app version, connection type) will be securely sent with this report.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed thumb zone) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle p-gutter-mobile pb-safe z-50">
+<button class="w-full bg-growth-green text-on-primary rounded-full min-h-touch-target-min flex items-center justify-center font-label-lg font-bold shadow-sm active:scale-[0.98] transition-all duration-200" type="submit">
+            Submit Report
+        </button>
+</div>
+<!-- Script to handle simple interactions (floating label fix for select on load) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('problem_type');
+            
+            // Simple logic to add a class if select has value, helping CSS peer logic if needed
+            const updateSelectState = () => {
+                if(select.value !== "") {
+                    select.classList.add('has-value');
+                } else {
+                    select.classList.remove('has-value');
+                }
+            };
+            
+            select.addEventListener('change', updateSelectState);
+            updateSelectState(); // Initial check
+        });
+    </script>
+</body></html>

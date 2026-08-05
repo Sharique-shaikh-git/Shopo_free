@@ -3,6 +3,7 @@ import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, TextInput, Acti
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { apiFetchSafe } from '../../../../lib/api';
 
 interface Customer {
@@ -15,6 +16,7 @@ interface Customer {
 
 export default function CustomersScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -43,26 +45,32 @@ export default function CustomersScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-surface">
-      {/* Top App Bar */}
+      {/* Top App Bar — with safe top insets and Back button */}
       <Animated.View
         entering={FadeInDown.duration(400).springify()}
-        className="flex-row justify-between items-center px-gutter-mobile py-4 w-full bg-surface"
+        style={{ paddingTop: Math.max(insets.top, 12) }}
+        className="flex-row justify-between items-center px-5 pb-3 w-full bg-surface border-b border-border-subtle"
       >
-        <View className="flex-row items-center gap-3">
-          <MaterialIcons name="storefront" size={28} color="#006B5E" />
-          <Text className="font-headline-md text-headline-md font-bold text-growth-green">Shop Builder</Text>
-        </View>
+        <TouchableOpacity
+          onPress={() => router.back()}
+          className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low"
+          activeOpacity={0.7}
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#1a1c1e" />
+        </TouchableOpacity>
+        <Text className="text-[20px] font-bold text-growth-green">Customers</Text>
+        <View className="w-10 h-10" />
       </Animated.View>
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 110 }} className="px-margin-mobile pt-4">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 110 }} className="px-5 pt-4">
         {/* Heading + Search */}
-        <Animated.View entering={FadeInDown.duration(400).delay(100).springify()} className="mb-stack-lg">
-          <Text className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Customers</Text>
-          <Text className="font-body-md text-body-md text-on-surface-variant mb-stack-md">
+        <Animated.View entering={FadeInDown.duration(400).delay(100).springify()} className="mb-6">
+          <Text className="text-[24px] font-bold text-on-surface mb-1">Customer Roster</Text>
+          <Text className="text-[14px] text-on-surface-variant mb-4">
             Manage and track your customer base and their lifetime value.
           </Text>
           <View className="flex-row items-center gap-3">
-            <View className="relative flex-grow justify-center">
+            <View className="relative flex-1 justify-center">
               <View className="absolute left-4 z-10">
                 <MaterialIcons name="search" size={22} color="#6e7976" />
               </View>
@@ -71,31 +79,33 @@ export default function CustomersScreen() {
                 onChangeText={setSearch}
                 placeholder="Search customer name or phone..."
                 placeholderTextColor="#6e7976"
-                className="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-2 border-border-subtle rounded-xl font-body-md text-body-md text-on-surface"
+                style={{ borderRadius: 12 }}
+                className="w-full pl-12 pr-4 py-3.5 bg-surface-container-lowest border border-border-subtle rounded-xl text-[15px] text-on-surface"
               />
             </View>
           </View>
         </Animated.View>
 
         {/* Stats Overview */}
-        <Animated.View entering={FadeInDown.duration(400).delay(200).springify()} className="flex-row gap-4 mb-stack-lg">
-          <View className="flex-1 bg-surface-container-lowest border border-border-subtle p-stack-md rounded-xl">
-            <View className="flex-row items-center gap-3 mb-2">
-              <View className="w-10 h-10 rounded-full bg-secondary-container items-center justify-center">
-                <MaterialIcons name="group" size={20} color="#007232" />
+        <Animated.View entering={FadeInDown.duration(400).delay(200).springify()} className="flex-row gap-3 mb-6">
+          <View className="flex-1 bg-surface-container-lowest border border-border-subtle p-4 rounded-xl shadow-sm">
+            <View className="flex-row items-center gap-2 mb-2">
+              <View className="w-9 h-9 rounded-full bg-secondary-container items-center justify-center">
+                <MaterialIcons name="group" size={18} color="#007232" />
               </View>
-              <Text className="font-label-lg text-label-lg text-on-surface-variant">Total Customers</Text>
+              <Text className="text-[12px] font-semibold text-on-surface-variant flex-1" numberOfLines={1}>Total Customers</Text>
             </View>
-            <Text className="font-headline-md text-headline-md text-on-surface">{totalCustomers}</Text>
+            <Text className="text-[22px] font-bold text-on-surface">{totalCustomers}</Text>
           </View>
-          <View className="flex-1 bg-surface-container-lowest border border-border-subtle p-stack-md rounded-xl">
-            <View className="flex-row items-center gap-3 mb-2">
-              <View className="w-10 h-10 rounded-full bg-tertiary-fixed items-center justify-center">
-                <MaterialIcons name="payments" size={20} color="#001848" />
+
+          <View className="flex-1 bg-surface-container-lowest border border-border-subtle p-4 rounded-xl shadow-sm">
+            <View className="flex-row items-center gap-2 mb-2">
+              <View className="w-9 h-9 rounded-full bg-tertiary-fixed items-center justify-center">
+                <MaterialIcons name="payments" size={18} color="#001848" />
               </View>
-              <Text className="font-label-lg text-label-lg text-on-surface-variant">Avg. Spent</Text>
+              <Text className="text-[12px] font-semibold text-on-surface-variant flex-1" numberOfLines={1}>Avg. Spent</Text>
             </View>
-            <Text className="font-headline-md text-headline-md text-on-surface">Rs. {avgSpent.toLocaleString()}</Text>
+            <Text className="text-[22px] font-bold text-on-surface" numberOfLines={1}>Rs. {avgSpent.toLocaleString()}</Text>
           </View>
         </Animated.View>
 

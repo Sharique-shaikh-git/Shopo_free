@@ -70,11 +70,18 @@ export default function AppLayout() {
       <Tabs.Screen
         name="more"
         options={{
-          title: 'More',
-          tabBarLabel: 'More',
+          title: 'Settings',
+          tabBarLabel: 'Settings',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="menu" size={size} color={color} />
+            <MaterialIcons name="settings" size={size} color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="(stack)"
+        options={{
+          href: null,
+          tabBarStyle: { display: 'none' },
         }}
       />
     </Tabs>

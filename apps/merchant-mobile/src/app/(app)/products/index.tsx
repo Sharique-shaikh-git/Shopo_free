@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, TextInput, Image, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, TextInput, Image, ActivityIndicator, StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
 import { apiFetch } from '../../../lib/api';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 export default function ProductsScreen() {
+  const insets = useSafeAreaInsets();
   const router = useRouter();
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +29,6 @@ export default function ProductsScreen() {
     loadProducts();
   }, []);
 
-
   const filters = ['All Products', 'In Stock', 'Out of Stock', 'Drafts'];
 
   const filteredProducts = products.filter(p => {
@@ -36,28 +38,37 @@ export default function ProductsScreen() {
     return true;
   });
 
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
+
   return (
     <SafeAreaView className="flex-1 bg-background font-body-md relative">
-      {/* Header */}
-      <View className="flex-row justify-between items-center px-6 py-4 bg-surface z-40">
+      {/* Header — with Android safe area top padding */}
+      <View 
+        style={{ paddingTop: headerPadding }} 
+        className="flex-row justify-between items-center px-6 pb-4 bg-surface z-40 border-b border-border-subtle"
+      >
         <View className="flex-row items-center gap-3">
           <MaterialIcons name="storefront" size={24} color="#006B5E" />
           <Text className="text-[24px] font-bold text-growth-green">Shop Builder</Text>
         </View>
-        <TouchableOpacity className="p-2 rounded-full hover:bg-surface-container-high active:scale-95 transition-all">
+        <TouchableOpacity 
+          onPress={() => router.push('/(app)/(stack)/settings/language' as any)}
+          className="p-2 rounded-full hover:bg-surface-container-high active:scale-95 transition-all"
+        >
           <MaterialIcons name="language" size={24} color="#006B5E" />
         </TouchableOpacity>
       </View>
 
       {/* Search & Filter */}
-      <View className="px-6 py-4 bg-background z-30">
-        <View className="flex-col gap-4">
+      <View className="px-6 pt-4 pb-2 bg-background z-30">
+        <View className="flex-col gap-3">
           <View className="relative justify-center">
             <View className="absolute left-4 z-10">
               <MaterialIcons name="search" size={24} color="#3e4946" />
             </View>
             <TextInput
               className="w-full h-14 pl-12 pr-4 bg-surface-container-lowest border border-border-subtle rounded-xl font-body-md text-[16px] text-on-surface"
+              style={{ borderRadius: 12 }}
               placeholder="Search your products..."
               placeholderTextColor="#3e4946"
               value={searchQuery}
@@ -65,7 +76,7 @@ export default function ProductsScreen() {
             />
           </View>
           
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row overflow-visible pb-2 -mx-6 px-6">
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row overflow-visible py-1">
             {filters.map((filter) => (
               <TouchableOpacity 
                 key={filter}

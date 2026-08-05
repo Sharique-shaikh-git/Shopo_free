@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Reviews</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#5dfd8a",
+                      "primary": "#005147",
+                      "surface-container-high": "#e8e8ea",
+                      "on-primary-container": "#95e8d8",
+                      "surface-container-low": "#f3f3f6",
+                      "inverse-on-surface": "#f0f0f3",
+                      "tertiary-fixed": "#dae2ff",
+                      "secondary-fixed": "#66ff8e",
+                      "tertiary-container": "#0055d4",
+                      "primary-container": "#006b5e",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1e",
+                      "on-surface-variant": "#3e4946",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container": "#eeeef0",
+                      "surface": "#f9f9fc",
+                      "on-primary-fixed-variant": "#005046",
+                      "on-secondary-fixed": "#002109",
+                      "outline": "#6e7976",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-error": "#ffffff",
+                      "whatsapp-green": "#25D366",
+                      "on-secondary-container": "#007232",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "status-shipped": "#F0FDF4",
+                      "growth-green": "#006B5E",
+                      "trust-blue": "#0055D4",
+                      "on-secondary-fixed-variant": "#005322",
+                      "surface-dim": "#dadadc",
+                      "secondary": "#006d2f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#003fa3",
+                      "error-red": "#BA1A1A",
+                      "outline-variant": "#bec9c5",
+                      "status-pending": "#FEF7FF",
+                      "surface-tint": "#006b5e",
+                      "inverse-surface": "#2f3133",
+                      "surface-bright": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-background": "#1a1c1e",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "border-subtle": "#E1E3E5",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-primary-fixed": "#00201b",
+                      "primary-fixed-dim": "#83d5c5",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#83d5c5",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed-dim": "#3de273"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target-min": "3rem",
+                      "stack-md": "1rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Be Vietnam Pro"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f9f9fc;
+            color: #1a1c1e;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .star-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            color: #EAB308; /* Tailwind yellow-500 equivalent */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background antialiased flex flex-col min-h-screen">
+<!-- Top App Bar (Task-Focused: Suppressing Main Shells) -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-gutter-mobile h-touch-target-min bg-surface dark:bg-inverse-surface border-b border-subtle dark:border-outline-variant flat no shadows transition-colors duration-200">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Reviews</h1>
+<div class="w-touch-target-min"></div> <!-- Placeholder for layout balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-touch-target-min pb-stack-lg px-gutter-mobile max-w-2xl mx-auto w-full">
+<!-- Rating Summary Area -->
+<section class="mt-stack-lg mb-stack-lg flex flex-col md:flex-row gap-stack-lg items-center justify-center bg-surface-container-lowest p-stack-md rounded-xl border border-subtle">
+<!-- Overall Score -->
+<div class="flex flex-col items-center text-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">4.8</span>
+<div class="flex gap-1 mt-stack-sm mb-stack-sm">
+<span class="material-symbols-outlined star-filled text-2xl">star</span>
+<span class="material-symbols-outlined star-filled text-2xl">star</span>
+<span class="material-symbols-outlined star-filled text-2xl">star</span>
+<span class="material-symbols-outlined star-filled text-2xl">star</span>
+<span class="material-symbols-outlined text-2xl text-outline-variant">star_half</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">12 Reviews</span>
+</div>
+<!-- Rating Distribution Bars -->
+<div class="w-full max-w-sm flex flex-col gap-2">
+<!-- 5 Star -->
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm w-4 text-on-surface">5</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<div class="flex-grow h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 80%;"></div>
+</div>
+<span class="font-label-sm text-label-sm w-4 text-right text-on-surface-variant">10</span>
+</div>
+<!-- 4 Star -->
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm w-4 text-on-surface">4</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<div class="flex-grow h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 15%;"></div>
+</div>
+<span class="font-label-sm text-label-sm w-4 text-right text-on-surface-variant">2</span>
+</div>
+<!-- 3 Star -->
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm w-4 text-on-surface">3</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<div class="flex-grow h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 0%;"></div>
+</div>
+<span class="font-label-sm text-label-sm w-4 text-right text-on-surface-variant">0</span>
+</div>
+<!-- 2 Star -->
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm w-4 text-on-surface">2</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<div class="flex-grow h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 0%;"></div>
+</div>
+<span class="font-label-sm text-label-sm w-4 text-right text-on-surface-variant">0</span>
+</div>
+<!-- 1 Star -->
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm w-4 text-on-surface">1</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<div class="flex-grow h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 0%;"></div>
+</div>
+<span class="font-label-sm text-label-sm w-4 text-right text-on-surface-variant">0</span>
+</div>
+</div>
+</section>
+<!-- Reviews List -->
+<section class="space-y-stack-md">
+<!-- Review Card 1 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-subtle shadow-none">
+<div class="flex justify-between items-start mb-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Ayesha K.</h3>
+<div class="flex gap-1 mt-1">
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oct 12, 2023</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-stack-sm">
+                    Absolutely love the quality! It exceeded my expectations. Will definitely be ordering again for my shop.
+                </p>
+</article>
+<!-- Review Card 2 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-subtle shadow-none">
+<div class="flex justify-between items-start mb-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Usman R.</h3>
+<div class="flex gap-1 mt-1">
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined text-sm text-outline-variant">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oct 05, 2023</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-stack-sm">
+                    Good product, but the delivery took a bit longer than expected. Overall satisfied with the purchase.
+                </p>
+</article>
+<!-- Review Card 3 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-subtle shadow-none">
+<div class="flex justify-between items-start mb-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Zainab F.</h3>
+<div class="flex gap-1 mt-1">
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+<span class="material-symbols-outlined star-filled text-sm">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sep 28, 2023</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-stack-sm">
+                    Perfect fit and exactly as described. Highly recommended to anyone looking for this!
+                </p>
+</article>
+</section>
+<!-- Bottom Action for Writing a Review (Thumb Zone) -->
+<div class="mt-stack-lg flex justify-center">
+<button class="bg-growth-green text-on-primary font-label-lg text-label-lg h-[56px] px-8 rounded-full flex items-center justify-center w-full max-w-sm hover:bg-primary-container transition-colors shadow-none border border-subtle">
+                Write a Review
+            </button>
+</div>
+</main>
+</body></html>

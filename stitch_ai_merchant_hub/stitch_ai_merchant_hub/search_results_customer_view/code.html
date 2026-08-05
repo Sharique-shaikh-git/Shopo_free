@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results - Kinetic Growth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#5dfd8a",
+                        "primary": "#005147",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-container": "#95e8d8",
+                        "surface-container-low": "#f3f3f6",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-fixed": "#dae2ff",
+                        "secondary-fixed": "#66ff8e",
+                        "tertiary-container": "#0055d4",
+                        "primary-container": "#006b5e",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1e",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container": "#eeeef0",
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046",
+                        "on-secondary-fixed": "#002109",
+                        "outline": "#6e7976",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-error": "#ffffff",
+                        "whatsapp-green": "#25D366",
+                        "on-secondary-container": "#007232",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "status-shipped": "#F0FDF4",
+                        "growth-green": "#006B5E",
+                        "trust-blue": "#0055D4",
+                        "on-secondary-fixed-variant": "#005322",
+                        "surface-dim": "#dadadc",
+                        "secondary": "#006d2f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#003fa3",
+                        "error-red": "#BA1A1A",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "surface-tint": "#006b5e",
+                        "inverse-surface": "#2f3133",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "surface-gray": "#F8F9FA",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-primary-fixed": "#00201b",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#83d5c5",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed-dim": "#3de273"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "3rem",
+                        "stack-md": "1rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col pb-20">
+<!-- Top Navigation (Custom Search Variant) -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-subtle">
+<div class="flex items-center px-gutter-mobile h-touch-target-min gap-3">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-full p-2 -ml-2">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex-grow relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-md font-body-md text-on-surface focus:ring-2 focus:ring-primary outline-none" placeholder="Search products..." type="text" value="Mug"/>
+</div>
+<button class="text-primary font-label-lg text-label-lg whitespace-nowrap">Cancel</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 px-gutter-mobile pt-4 pb-8">
+<!-- Results Info & Filter -->
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">12 products found</h2>
+<button class="flex items-center gap-1 text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-lg">tune</span>
+                Filter
+            </button>
+</div>
+<!-- Product Grid (Two-Column) -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Product Card 1 -->
+<article class="bg-surface-container-lowest border border-subtle rounded-lg overflow-hidden flex flex-col">
+<div class="relative pt-[100%] bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A professional product photograph of a modern, minimalist ceramic mug. The mug is a deep, rich forest green, set against a pristine white studio background with soft, natural lighting creating gentle highlights. The style reflects a clean, corporate e-commerce aesthetic, emphasizing high legibility and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhEvVYGgINblgteSQ3IwXdeg4wQmbJsUj4JMApdsjb1W8ptub7Dn-MjMrZIWUhLx2iT_UCRwDnmYA-Ka2F8_tLWX7MpYpKCrO33zobqfn-oSphtHMyc8bnH_mzupLXX3wRnj6cHO1ofdeZNt94R9X5Cyoj8_h_a2dPOqrZ6r5doYnAQiOB4qtHbpTOwlC359IpPO3uwWrFyEvkjol5ZhriqDG6ICHoB5NRjuXXrm-fGvTTZQaVl4_yznn-eSNFO9xELF8SVhy9pTw"/>
+<button aria-label="Add to Wishlist" class="absolute top-2 right-2 bg-surface/80 backdrop-blur-sm rounded-full p-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-1">Classic Green Ceramic Mug</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.8 (124)</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary">Rs 850</span>
+<button aria-label="Add to Cart" class="bg-primary-container text-on-primary-container rounded-full p-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-surface-container-lowest border border-subtle rounded-lg overflow-hidden flex flex-col">
+<div class="relative pt-[100%] bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A high-quality studio shot of a sleek, matte black coffee mug. The lighting is controlled and bright, emphasizing the smooth texture of the mug against a clean, light gray surface. The overall composition is minimalist and professional, perfectly suited for a modern, trustworthy digital storefront." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv8svQ8dCCBbjEUckOekcRRM30OTKp8r6OPxv55oDn9OMUMJi1E0644IwH_uvEj_edd2b8QnqkdTaKSoDzQegr4fGan0b492LdremYXLC2lazwao2ILQ-MJzb3b8wqb2Ff4UrTf73a4xwhuH2_qHGjzXZNpas7bvGMGRrVZbm1h15cr182J8up9pwNUjyDvQhcgyrxPp1CLj2jX4tFSvTSC7FYRZCXuDZdT_Svh8hk1rQhT6herrnsgO7t75pkHjSiKJ245rOdo00"/>
+<button aria-label="Add to Wishlist" class="absolute top-2 right-2 bg-surface/80 backdrop-blur-sm rounded-full p-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-1">Matte Black Office Mug</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.5 (89)</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary">Rs 900</span>
+<button aria-label="Add to Cart" class="bg-primary-container text-on-primary-container rounded-full p-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface-container-lowest border border-subtle rounded-lg overflow-hidden flex flex-col">
+<div class="relative pt-[100%] bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A brightly lit, clean product image of a pure white porcelain mug with a delicate handle. The background is a very subtle off-white, creating a soft, airy atmosphere. The image is crisp and highly legible, aligning with a professional, user-friendly e-commerce platform designed for simplicity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEOaRa-J517K8Lan8UUw7OZN7jlFuPgbVGfuhBYQPTmNjaJOGyioKHTHTY_wM6WazsOAFrBnVsnLeDUUaQMbqQzn8rzgwPfT0kfvt-jZZPG70IVksI-1L-tzf8IZfzSYKjKKxJpjJBVPJ6tknYxAecimyRMdqxOi45h_a2r0P7EdiHDStH_t_qxSZs4-6jnvEA_pWLN8kutsGSXnfo4kDeRjTQnVTrbazcWMZ4RdCs2qzZ-FJDRmQ9GTRPxcxXJ-odQHg_q3jHZ8I"/>
+<button aria-label="Add to Wishlist" class="absolute top-2 right-2 bg-surface/80 backdrop-blur-sm rounded-full p-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-1">White Porcelain Tea Mug</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.9 (210)</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary">Rs 1,200</span>
+<button aria-label="Add to Cart" class="bg-primary-container text-on-primary-container rounded-full p-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="bg-surface-container-lowest border border-subtle rounded-lg overflow-hidden flex flex-col">
+<div class="relative pt-[100%] bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, professional e-commerce shot of a large, rustic speckled beige mug. The mug is sitting on a clean white surface with even, diffused studio lighting that removes harsh shadows. The visual aesthetic is modern, trustworthy, and simple, focusing entirely on the product's details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK3g58HUbOq-kYs8YwA8jgXbW49A0kz1-kjZkv6YhOTTiyed2NMQJeMXs2xuExxBmll72rqH3B2J2YkZ-KdckTrg6xlBGmE-gJPIpAA3o6c7v_4e-9DqSS3VGwQcf46i5paRUCr2hPFdPNGyARNKz4UMOSR-OwwXPzPpN9300FQ2TEks-VHDuxnnJvTu7qFcF3T47wDq2Fb9tdFiVmb66XoupYgdJWMSpFC5uDMz3jVNbNomVpC4kNTdSxOROBJP6-uBvzuMxJ4t8"/>
+<button aria-label="Add to Wishlist" class="absolute top-2 right-2 bg-surface/80 backdrop-blur-sm rounded-full p-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h3 class="font-body-md text-body-md text-on-surface line-clamp-2 mb-1">Speckled Beige Jumbo Mug</h3>
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.6 (56)</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary">Rs 1,050</span>
+<button aria-label="Add to Cart" class="bg-primary-container text-on-primary-container rounded-full p-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Navigation Drawer placeholder (Hidden by default, used for structural consistency if needed) -->
+<div class="hidden"></div>
+</body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Storefront - Kinetic Growth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#5dfd8a",
+                      "primary": "#005147",
+                      "surface-container-high": "#e8e8ea",
+                      "on-primary-container": "#95e8d8",
+                      "surface-container-low": "#f3f3f6",
+                      "inverse-on-surface": "#f0f0f3",
+                      "tertiary-fixed": "#dae2ff",
+                      "secondary-fixed": "#66ff8e",
+                      "tertiary-container": "#0055d4",
+                      "primary-container": "#006b5e",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1e",
+                      "on-surface-variant": "#3e4946",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container": "#eeeef0",
+                      "surface": "#f9f9fc",
+                      "on-primary-fixed-variant": "#005046",
+                      "on-secondary-fixed": "#002109",
+                      "outline": "#6e7976",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-error": "#ffffff",
+                      "whatsapp-green": "#25D366",
+                      "on-secondary-container": "#007232",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "status-shipped": "#F0FDF4",
+                      "growth-green": "#006B5E",
+                      "trust-blue": "#0055D4",
+                      "on-secondary-fixed-variant": "#005322",
+                      "surface-dim": "#dadadc",
+                      "secondary": "#006d2f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#003fa3",
+                      "error-red": "#BA1A1A",
+                      "outline-variant": "#bec9c5",
+                      "status-pending": "#FEF7FF",
+                      "surface-tint": "#006b5e",
+                      "inverse-surface": "#2f3133",
+                      "surface-bright": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-background": "#1a1c1e",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "border-subtle": "#E1E3E5",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-primary-fixed": "#00201b",
+                      "primary-fixed-dim": "#83d5c5",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#83d5c5",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed-dim": "#3de273"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target-min": "3rem",
+                      "stack-md": "1rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Be Vietnam Pro"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar JSON Component (For Web) -->
+<header class="hidden md:flex items-center justify-between px-gutter-mobile h-touch-target-min fixed top-0 w-full z-50 bg-surface border-b border-subtle">
+<div class="flex items-center gap-4">
+<button class="h-10 w-10 flex items-center justify-center text-primary hover:bg-surface-container-high rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary font-bold">Storefront</h1>
+</div>
+<div>
+<button class="h-10 w-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors duration-200 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Mobile Top App Bar for specific intent -->
+<header class="flex md:hidden items-center justify-between px-gutter-mobile h-16 fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md">
+<button class="h-10 w-10 flex items-center justify-center text-on-surface-variant bg-surface-container rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-label-lg text-label-lg text-on-surface">Kinetic Growth</h1>
+<button class="h-10 w-10 flex items-center justify-center text-on-surface-variant bg-surface-container rounded-full">
+<span class="material-symbols-outlined">share</span>
+</button>
+</header>
+<main class="pt-16 md:pt-touch-target-min max-w-7xl mx-auto flex flex-col md:flex-row h-full">
+<!-- NavigationDrawer JSON Component (Web Only) -->
+<aside class="hidden md:flex flex-col p-4 space-y-2 h-[calc(100vh-3rem)] w-80 bg-surface shadow-lg fixed left-0 top-touch-target-min overflow-y-auto">
+<div class="flex items-center space-x-4 mb-6 px-4">
+<img alt="User Profile Avatar" class="h-12 w-12 rounded-full object-cover" data-alt="A professional headshot of a business owner looking helpful and approachable in a well-lit studio environment, clean modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXz4LZVIw0_GUSXo5kH36fTjOtayJO02P74R_ehB1X7phUJhA-LshrCEMTQhifRpAg6Kz8faGyV4orNPXJjGLxDRWuHyjR7Ankzu3wFCUMOaqYEPdCy-RBsRRZa_7jh6JUCX76yNbajQTQROBWmHDe3KidAJQc5kdy8wDOyV41u27lL-i2nPrrJHOoxRHfYqe3bLFiYf_KN5kzrKu9FM5RFj1H9e8xN8hCZrpZpk6nVTuOFPWEbPNtDkGQ2wbxSxk8F2YjB8qwGhw"/>
+<div>
+<h2 class="text-headline-md font-headline-md text-primary font-bold">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Customer Account</p>
+</div>
+</div>
+<nav class="flex flex-col space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">My Profile</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-body-md text-body-md">Wishlist</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Order History</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Payment Methods</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Canvas -->
+<div class="flex-1 w-full md:pl-80">
+<!-- Shop Banner -->
+<section class="relative w-full h-64 md:h-80 bg-surface-container-low">
+<div class="w-full h-full bg-cover bg-center" data-alt="A modern lifestyle image showing beautifully arranged handcrafted products like pottery and woven fabrics on a clean white table top with soft, natural lighting, conveying quality and artisanal craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCChj9kpl2Z-P4kDbzyE6Im6RxTdxhrfmo8sTwUcXMmny70vlmgw6z6jOrq036xXH5VgY1YOrL6hVPj1mHyNZP8fK-zWKEQk9BKVEwNbTOMduPmVb6XvtgEIBFleuRZIF6FNyrtJO-veqFvXNmfxvUkwOaB_tDqCHtNc8cIboa4UW666oHM_xTZV-BSGVqJFJugt9LQDoZc2OLdiIsWzm-17V4ytQtYcxSnY_HuHmXDzyYwJpS7Hl6HnwkQ5d0q_SivJ3T6z-5RKAY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-[-32px] left-gutter-mobile md:left-8 flex items-end gap-4">
+<div class="h-20 w-20 md:h-24 md:w-24 bg-surface rounded-full p-1 border border-subtle shadow-sm flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover rounded-full" data-alt="A clean, minimalist logo featuring a geometric leaf or abstract growth symbol in deep green tones, representing the 'Kinetic Growth' brand on a stark white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr5YqgD367GtHF1HFfOp2cqhVOvDDRZSn3g8HPx9SykPUQ9ImQR6mSjodJdJ4mA2ClKmPxzYDYgWWLkm-queGoL62ME2oHcAKQPK0LwbD9cDb_D2G_FfM1jsktCDh1bBhjKlyA8EzJz621JUvr6rl2HUt44jnXZzDusrqK1cuygZovLzzWz4Y9eeHguvlQlFscGuIntpluFZpvqcaEqJcCcg70afNiKsZux_mjBLUnjWLv_aiJGT7rjB9hpfdI3LO3-gk04j_uXYk"/>
+</div>
+</div>
+</section>
+<!-- Shop Info -->
+<section class="px-gutter-mobile md:px-8 mt-12 md:mt-16 mb-stack-lg">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold">Kinetic Growth</h2>
+<div class="flex flex-wrap items-center gap-3 mt-2">
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.8
+                            </div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="bg-status-shipped text-on-secondary-container px-2 py-1 rounded-full font-label-sm text-label-sm flex items-center">
+<span class="w-2 h-2 rounded-full bg-whatsapp-green mr-1.5"></span>
+                                Open Now
+                            </div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-on-surface-variant font-body-md text-body-md">24 Products</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Search Bar -->
+<section class="px-gutter-mobile md:px-8 mb-stack-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border border-subtle rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search products..." type="text"/>
+</div>
+</section>
+<!-- Categories Row -->
+<section class="px-gutter-mobile md:px-8 mb-stack-lg overflow-x-auto no-scrollbar">
+<div class="flex gap-2 min-w-max pb-2">
+<button class="px-5 py-2.5 bg-primary-container text-on-primary-container rounded-full font-label-lg text-label-lg border border-transparent">All</button>
+<button class="px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full font-label-lg text-label-lg border border-subtle hover:bg-surface-container transition-colors">Clothing</button>
+<button class="px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full font-label-lg text-label-lg border border-subtle hover:bg-surface-container transition-colors">Cosmetics</button>
+<button class="px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full font-label-lg text-label-lg border border-subtle hover:bg-surface-container transition-colors">Electronics</button>
+</div>
+</section>
+<!-- Featured Products Carousel -->
+<section class="mb-stack-lg">
+<h3 class="px-gutter-mobile md:px-8 font-headline-md text-headline-md font-bold mb-4">Featured</h3>
+<div class="flex overflow-x-auto gap-4 px-gutter-mobile md:px-8 pb-4 no-scrollbar snap-x">
+<!-- Featured Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface border border-subtle rounded-xl overflow-hidden snap-start flex flex-col group cursor-pointer hover:border-outline-variant transition-colors">
+<div class="h-48 bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close up shot of a beautifully textured artisan ceramic vase with a matte finish, displayed on a wooden pedestal with dramatic directional lighting creating deep shadows and highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH0Jw9MdFS_zh6-PYIMBaS8MMfdo4kNkTLtDZH4VrClSiWJx3UzJ6RUgef6hnZfJckkoueoCan0DobipCE6397UaKg5oZJemvKfOrUN1g-Sx-8eVPuMwuVXg6b4jwwr2hC8ngpbsJJQn6Z4zaw6SPmmsn7t5joPEwOK9zlusIT3S8SiW42Xiu1t25yZ-Nf_qqDDNfVM4MZWGUmGB3wlT8hWo5PsjN-01jvA45OnTOXjUgSbbJvoT6wHf2BMA0I4cG8DJ3cxnvpV14"/>
+<button class="absolute top-3 right-3 h-10 w-10 bg-surface/80 backdrop-blur-sm rounded-full flex items-center justify-center text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between">
+<div>
+<h4 class="font-body-md text-body-md font-semibold line-clamp-2">Artisan Ceramic Vase - Tall</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm mt-1">Home Decor</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold">PKR 2,450</span>
+<button class="h-10 w-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface border border-subtle rounded-xl overflow-hidden snap-start flex flex-col group cursor-pointer hover:border-outline-variant transition-colors">
+<div class="h-48 bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stylish, minimalist leather tote bag resting against a raw concrete wall. The lighting is soft and natural, emphasizing the grain and high-quality craftsmanship of the leather. Corporate clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe0CVVqOplfvWfFk2gQigxe8gRI7LikYJo-KWpNqeHZ4JDcW0bNFs0VOMaenjlgGWdH89rr9QO0oRBfjr7mzKvn-enQF2ampUn5RqZUbqlHNDvU5IfFGAPFCezZm7hlRNgbTUp1S7KAtJAls5p6nXubjIxeSDbl8xOBGPpSBkG4AJwoNkiMdwbVHx8goL0c9Emq_n_e-iLHAm3aOlI99gD-GqEaM98n_ULKavJD3xAjUSba-p0AqSheWoxdqf75Wwtjm-kJQLc83Q"/>
+<button class="absolute top-3 right-3 h-10 w-10 bg-surface/80 backdrop-blur-sm rounded-full flex items-center justify-center text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between">
+<div>
+<h4 class="font-body-md text-body-md font-semibold line-clamp-2">Minimalist Leather Tote</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm mt-1">Accessories</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold">PKR 5,200</span>
+<button class="h-10 w-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- All Products Grid -->
+<section class="px-gutter-mobile md:px-8 mb-32 md:mb-12">
+<h3 class="font-headline-md text-headline-md font-bold mb-4">All Products</h3>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Product Item 1 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-subtle mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A simple handcrafted clay mug filled with black coffee, resting on a clean white saucer. The setup is minimalist, brightly lit, and highly legible. Perfect product shot aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM1ETwIk3l3QEfFYMVQW8SGNM7sfgWgUApXDaxe4sdj8tOHaLpC0AcGXRk06kSWD949ociNHtGiPFQbIWldTaVar8gimlqBM8M54feSjrNujsWLIGJ9wV_xJdHwHlR_9Z9rIzKqjQ3TzKPJMPGcClh14c-IOVY0Otoclg0NEZmPgajoRmfjcGJZYNBlNpPmhSLe-CYCsitYlBS9rC8u7QH-IZ5mEze_0dh8iILiMSF7aY2OblXOEMI9IU6IQdoPi0jVAPb7WTig5U"/>
+<button class="absolute bottom-2 right-2 h-8 w-8 bg-surface/90 rounded-full flex items-center justify-center text-on-surface-variant shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-lg text-label-lg font-medium leading-tight line-clamp-2">Handcrafted Mug</h4>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">PKR 850</span>
+</div>
+<!-- Product Item 2 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-subtle mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A neatly folded stack of premium cotton t-shirts in earthy neutral tones (beige, olive, white) on a plain bright background. Crisp, clean, and modern apparel product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVlnpW2xvxbGeasDDLJqdhmkw30eBCmAwwwyV2uXoODq44HfdRv-Zgq0YQKX9tI0DlrQ8f2Y-j5jOiqJIqjI34cYtcO3YRPVtcXw3DPKGQCE3qiv5OO8vRUXeet8ENJgIO_YpaQ5paqbCTc1-ewCTCjZj7BtSS4e04LDLnmlcY58-PjWxNNLKW23BiGRuBjsaqxGNdYx4nM3QDicQ4NEowcjhPfT745U6mJV_aFvo_loBPG2rqmEcIBZDk8Gxlu4Gp4OBpzmaMsRE"/>
+<button class="absolute bottom-2 right-2 h-8 w-8 bg-surface/90 rounded-full flex items-center justify-center text-on-surface-variant shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-lg text-label-lg font-medium leading-tight line-clamp-2">Basic Cotton T-Shirt</h4>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">PKR 1,200</span>
+</div>
+<!-- Product Item 3 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-subtle mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A sleek, modern wireless earbud case opened on a reflective white surface. High tech, premium look with soft diffused lighting highlighting the curves of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF4y60AEjI92pooC0Zbbm1hlMr0yNiw3JB8am71TaD5_EA_oaUGmJrjVwEaqnxqlusgbN8eZUyCUXhmFHemDQeKuD8ifjrbdzve7tj44gNGIY63k9ijuvGRuJ4De9tnTibppDGdnGJbE9HAqRah2X01M8yRe5vDOD84QBNM6j22VBLDR_wG0Fpu-kiB2rOdPX18Ml9cE576LSE_sSsiw5HGs_yoNrRZrP5jHKGH0mNEf7VqIVNBiHq-ZuoPi6yPWhK8YnGT7D-5nc"/>
+<button class="absolute bottom-2 right-2 h-8 w-8 bg-surface/90 rounded-full flex items-center justify-center text-on-surface-variant shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-lg text-label-lg font-medium leading-tight line-clamp-2">Wireless Earbuds Pro</h4>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">PKR 4,500</span>
+</div>
+<!-- Product Item 4 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-subtle mb-3 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An elegant glass bottle of facial serum with a metallic dropper top, placed next to a single green leaf on a light gray background. Clean, organic skincare product visual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeqmQBA4I9r1aRkrvr7G31h0ngjssfgeMQR3sOuOFYbRdNetaAL3k2RV_Qv4sj__UQLM0NNA-nxEkrz-u3pRQFEZSWJLbfj4-K2hzAbBiGln525iTSN-ehalav8EfMgpDFqSo8JfJNrYeUv8DQ3lAteLxnLbxMOzVgc9wV3FUBaAaMKhfp3B18Qw4W1-JWOY-ruNwIvC8X-yovdZgU8NSlrFyW1ilgyKQ0H7nq-yr-YyETAQuehZzUtOKbtA1Ex3-nzcyRH-CNdbo"/>
+<button class="absolute bottom-2 right-2 h-8 w-8 bg-surface/90 rounded-full flex items-center justify-center text-on-surface-variant shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-lg text-label-lg font-medium leading-tight line-clamp-2">Organic Face Serum</h4>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">PKR 1,800</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Action Bar (Floating for Storefront specific intent) -->
+<div class="fixed bottom-0 w-full z-50 bg-surface border-t border-subtle p-4 md:hidden flex items-center gap-4 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+<button class="flex-1 h-14 bg-whatsapp-green text-white rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+            Chat with Shop
+        </button>
+<button class="relative h-14 w-14 bg-surface-container text-on-surface-variant rounded-lg flex items-center justify-center border border-subtle active:scale-95 transition-transform">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-2 right-2 w-5 h-5 bg-error text-on-error rounded-full font-label-sm text-[10px] flex items-center justify-center border-2 border-surface font-bold">3</span>
+</button>
+</div>
+<!-- BottomNavBar JSON Component (Hidden here as we use custom bottom bar for Store intent per instructions, but defining it semantically if needed for layout base) -->
+<!-- Suppressed due to task focus on Store Home specific floating bar -->
+<style>
+        /* Utility to hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

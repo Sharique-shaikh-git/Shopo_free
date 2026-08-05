@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Customer List - Shop Builder</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-surface-variant": "#3e4946",
+                "tertiary-container": "#0055d4",
+                "surface-variant": "#e2e2e5",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#dae2ff",
+                "on-secondary-fixed-variant": "#005322",
+                "on-secondary-container": "#007232",
+                "inverse-surface": "#2f3133",
+                "inverse-on-surface": "#f0f0f3",
+                "error-red": "#BA1A1A",
+                "primary": "#005147",
+                "trust-blue": "#0055D4",
+                "on-surface": "#1a1c1e",
+                "on-primary-fixed": "#00201b",
+                "on-primary-fixed-variant": "#005046",
+                "surface-container-low": "#f3f3f6",
+                "surface-dim": "#dadadc",
+                "on-tertiary-container": "#ccd8ff",
+                "on-tertiary-fixed": "#001848",
+                "on-primary-container": "#95e8d8",
+                "error": "#ba1a1a",
+                "surface-gray": "#F8F9FA",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#006b5e",
+                "on-background": "#1a1c1e",
+                "surface": "#f9f9fc",
+                "whatsapp-green": "#25D366",
+                "secondary-container": "#5dfd8a",
+                "outline-variant": "#bec9c5",
+                "outline": "#6e7976",
+                "error-container": "#ffdad6",
+                "tertiary": "#003fa3",
+                "tertiary-fixed-dim": "#b2c5ff",
+                "secondary-fixed": "#66ff8e",
+                "primary-fixed-dim": "#83d5c5",
+                "surface-bright": "#f9f9fc",
+                "surface-container-high": "#e8e8ea",
+                "growth-green": "#006B5E",
+                "surface-container-highest": "#e2e2e5",
+                "secondary": "#006d2f",
+                "primary-fixed": "#9ff2e1",
+                "on-error-container": "#93000a",
+                "status-pending": "#FEF7FF",
+                "on-secondary-fixed": "#002109",
+                "on-tertiary-fixed-variant": "#003fa3",
+                "on-primary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "surface-tint": "#006b5e",
+                "border-subtle": "#E1E3E5",
+                "inverse-primary": "#83d5c5",
+                "background": "#f9f9fc",
+                "status-shipped": "#F0FDF4",
+                "secondary-fixed-dim": "#3de273",
+                "surface-container": "#eeeef0"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "touch-target-min": "3rem",
+                "stack-lg": "2rem",
+                "margin-mobile": "1.25rem",
+                "stack-md": "1rem",
+                "stack-sm": "0.5rem",
+                "gutter-mobile": "1rem"
+            },
+            "fontFamily": {
+                "headline-lg-mobile": ["Be Vietnam Pro"],
+                "headline-md": ["Be Vietnam Pro"],
+                "body-lg": ["Be Vietnam Pro"],
+                "body-md": ["Be Vietnam Pro"],
+                "label-sm": ["Be Vietnam Pro"],
+                "headline-lg": ["Be Vietnam Pro"],
+                "label-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 flex justify-between items-center px-gutter-mobile py-4 w-full bg-surface dark:bg-on-background">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-growth-green dark:text-primary-fixed-dim" style="font-size: 28px;">storefront</span>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Shop Builder</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-growth-green dark:text-primary-fixed-dim">language</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-4 max-w-4xl mx-auto">
+<!-- Search and Filter Section -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-stack-sm text-on-surface">Customers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Manage and track your customer base and their lifetime value.</p>
+<div class="relative flex items-center gap-3">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-2 border-border-subtle rounded-xl focus:border-primary focus:ring-0 transition-all font-body-md text-body-md placeholder:text-outline" placeholder="Search customer name or phone..." type="text"/>
+</div>
+<button class="h-[56px] px-4 bg-surface-container-low border border-border-subtle rounded-xl flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Stats Overview (Asymmetric/Bento Lite) -->
+<div class="grid grid-cols-2 gap-4 mb-stack-lg">
+<div class="bg-surface-container-lowest border border-border-subtle p-stack-md rounded-xl col-span-2 md:col-span-1">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">group</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Total Customers</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">1,284</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle p-stack-md rounded-xl col-span-2 md:col-span-1">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed">payments</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Avg. Spent</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">Rs. 4,520</div>
+</div>
+</div>
+<!-- Customer List (Table-like View) -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden mb-8">
+<!-- Table Header (Desktop Only) -->
+<div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-surface-container-low border-b border-border-subtle">
+<div class="col-span-5 font-label-lg text-label-lg text-on-surface-variant">Customer</div>
+<div class="col-span-3 font-label-lg text-label-lg text-on-surface-variant">Orders</div>
+<div class="col-span-3 font-label-lg text-label-lg text-on-surface-variant">Total Spent</div>
+<div class="col-span-1"></div>
+</div>
+<!-- Customer Item -->
+<div class="group cursor-pointer hover:bg-surface-container-low transition-colors duration-150 border-b border-border-subtle last:border-b-0">
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-5">
+<!-- Customer Identity -->
+<div class="col-span-1 md:col-span-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a young Pakistani male business owner with a friendly expression, soft daylighting, clean modern office background, high resolution photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EnMrqrk0Eu6yWtd-YRR9ZQOMbBoWqISUE85p13NF6fC1jkHBSo-nC2ygvApTNGI40PKONdVcpeI1UpYUUDPXwQnI88hsL3eFmsoNaz6ALqrpFAG4kYoBnmD_rV1kMQubQEnu4J48pAyCBc55gooAqJtqu-TvsfrcD5r_PBZXpL1JWxjmUY6ogd-wVq9MFBLlpfPtSvMoYUQLoXGCnNrlrWz8EMAgbGwW0PPV1xx7_6V7PpOZFjgVizl-klSooGvKioB5hg9Pvv8"/>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Ahmed Khan</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">+92 300 1234567</div>
+</div>
+</div>
+<!-- Stats Mobile Wrapper -->
+<div class="md:hidden flex justify-between pt-2">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Orders</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">24</div>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Spent</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface text-growth-green">Rs. 45,200</div>
+</div>
+<div class="flex items-center ml-2"><span class="material-symbols-outlined text-outline">chevron_right</span></div></div>
+<!-- Desktop Stats -->
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-medium text-on-surface">
+                        24 Orders
+                    </div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-bold text-on-surface">
+                        Rs. 45,200
+                    </div>
+<div class="hidden md:col-span-1 md:flex justify-end">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Customer Item 2 -->
+<div class="group cursor-pointer hover:bg-surface-container-low transition-colors duration-150 border-b border-border-subtle last:border-b-0">
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-5">
+<div class="col-span-1 md:col-span-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clean professional headshot of a middle-aged South Asian woman, wearing traditional elegant attire, smiling warmly, minimalist photography style with soft bokeh background and bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7a5OnxrKe47namji6xe6iMJXCx-CisBxjExJMsKDYArHHshzBwdRzge19NHgMQoYrq2kDS9TZAEX1bqc00DFhFeIvPOsMtBW19J0p9dhAqVfh_V4Mcp6Lh2KLEqaSkdf3ER4r1MFbQVot19EvCoVA6WIZ2kl48X0oPx8Lfb4MKyQ3bVGo5tiBFT6M0dYhLQuJhyEk6P0PVDOJdlmrf_Cc8K4fAyhtG0irTOl0GJzys_alSdaWrSUU3ESKFPe3XZLsY9QLT6IVWyE"/>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Zainab Bibi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">+92 321 9876543</div>
+</div>
+</div>
+<div class="md:hidden flex justify-between pt-2">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Orders</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">8</div>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Spent</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface text-growth-green">Rs. 12,800</div>
+</div>
+<div class="flex items-center ml-2"><span class="material-symbols-outlined text-outline">chevron_right</span></div></div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-medium text-on-surface">8 Orders</div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-bold text-on-surface">Rs. 12,800</div>
+<div class="hidden md:col-span-1 md:flex justify-end">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Customer Item 3 -->
+<div class="group cursor-pointer hover:bg-surface-container-low transition-colors duration-150 border-b border-border-subtle last:border-b-0">
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-5">
+<div class="col-span-1 md:col-span-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-quality profile picture of a young professional adult male in a modern casual shirt, looking directly at the camera, clean grey studio background, sharp focus, professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjK7dFpy7ECWvnnw02d8blmKppDIxHO_UUiiBAuebPpaxeRLRrK2WYz2Nbh1u9orT1XmfRfLf8fv7fB9ntk-ptpDWP7uNdciUOchqHGJUdPoS04obfQXLmhug70QV8yj7DU_oNTur-5N7uBd-fqm2Mm_SYrqYYqD_h8-Xwp-qsI3O3e5iVEoaX4zTDcy-P26A3PL6m7N7twmBgE6eNi13bqPR2gV0frpp29D2Mv47CuHgGR6bxeABXbr-dGSz98VJwEQ-nwt2LCSI"/>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Omar Qureshi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">+92 345 5544332</div>
+</div>
+</div>
+<div class="md:hidden flex justify-between pt-2">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Orders</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">15</div>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Spent</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface text-growth-green">Rs. 28,450</div>
+</div>
+<div class="flex items-center ml-2"><span class="material-symbols-outlined text-outline">chevron_right</span></div></div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-medium text-on-surface">15 Orders</div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-bold text-on-surface">Rs. 28,450</div>
+<div class="hidden md:col-span-1 md:flex justify-end">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Customer Item 4 -->
+<div class="group cursor-pointer hover:bg-surface-container-low transition-colors duration-150 border-b border-border-subtle last:border-b-0">
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-5">
+<div class="col-span-1 md:col-span-5 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up photography of a young Pakistani woman with a bright smile, neutral professional background, high contrast lighting that highlights features, soft professional makeup, clear skin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8u2ljA1nf6ui5oGvk4nj5QEwTEOudrkAz002nq89y-XL0CpkBvRLy7mfrIyt4rYjSeBgFli4aIdPo3FgtgbsD11HhmrxAm5UvTDaS05WasejuB9yuLvHSEM-qsZ7mOMDDixNRQuEog7c64HHN3zDB4YHnZFKixSXXUMzmnFtvQ5EOzb7J0C_TLeLu-xq3zZus6vpZmpP7F9MVeIBuluv3J-LpPXAzPyXIXOjGYkln9F3JGmzySG1RNWzmeNWcbYJ5sUdRjEr6jc"/>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Fatima Shah</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">+92 333 7778889</div>
+</div>
+</div>
+<div class="md:hidden flex justify-between pt-2">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Orders</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">42</div>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Spent</div>
+<div class="font-body-md text-body-md font-semibold text-on-surface text-growth-green">Rs. 92,100</div>
+</div>
+<div class="flex items-center ml-2"><span class="material-symbols-outlined text-outline">chevron_right</span></div></div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-medium text-on-surface">42 Orders</div>
+<div class="hidden md:col-span-3 md:block font-body-md text-body-md font-bold text-on-surface">Rs. 92,100</div>
+<div class="hidden md:col-span-1 md:flex justify-end">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<button class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary-container/10 transition-colors active:scale-95 duration-150 flex items-center justify-center gap-2 text-growth-green">
+            View More Customers
+            <span class="material-symbols-outlined">expand_more</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-on-background border-t border-border-subtle dark:border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-label-sm text-label-sm">Upload</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- FAB for Adding Customer -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-growth-green text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined">person_add</span>
+</button>
+<script>
+        // Simple search filtering interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        const listItems = document.querySelectorAll('.group.cursor-pointer');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            listItems.forEach(item => {
+                const name = item.querySelector('.text-on-surface').textContent.toLowerCase();
+                const phone = item.querySelector('.text-on-surface-variant').textContent.toLowerCase();
+                
+                if (name.includes(term) || phone.includes(term)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Feedback for tapping a row
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const name = item.querySelector('.text-on-surface').textContent;
+                console.log(`Navigating to customer details: ${name}`);
+                // In a real app, this would route to the customer details page
+            });
+        });
+    </script>
+<script>
+  const customerCards = document.querySelectorAll('.group.cursor-pointer');
+  
+  customerCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      const name = this.querySelector('.font-body-lg').textContent;
+      const phone = this.querySelector('.text-on-surface-variant').textContent;
+      const img = this.querySelector('img').src;
+      const orders = this.querySelector('.md\\:col-span-3:nth-child(3)').textContent.trim();
+      const spent = this.querySelector('.md\\:col-span-3:nth-child(4)').textContent.trim();
+
+      const overlay = document.createElement('div');
+      overlay.className = 'fixed inset-0 z-[100] bg-surface flex flex-col transition-all duration-300 transform scale-95 opacity-0';
+      overlay.id = 'customer-drilldown';
+      
+      overlay.innerHTML = `
+        <header class="w-full sticky top-0 z-50 flex items-center px-gutter-mobile py-4 bg-surface border-b border-border-subtle">
+          <button onclick="document.getElementById('customer-drilldown').remove()" class="p-2 -ml-2 rounded-full hover:bg-surface-container-high">
+            <span class="material-symbols-outlined text-growth-green">arrow_back</span>
+          </button>
+          <h2 class="ml-4 font-headline-md text-on-surface">Customer Details</h2>
+        </header>
+        <main class="flex-grow overflow-y-auto p-margin-mobile">
+          <div class="flex flex-col items-center mb-stack-lg">
+            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-primary-fixed">
+              <img src="${img}" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-headline-lg-mobile text-on-surface">${name}</h3>
+            <p class="text-on-surface-variant">${phone}</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4 mb-stack-lg">
+            <div class="bg-surface-container-low p-4 rounded-xl">
+              <p class="text-label-sm text-on-surface-variant uppercase">Lifetime Orders</p>
+              <p class="text-headline-md font-bold text-primary">${orders.split(' ')[0]}</p>
+            </div>
+            <div class="bg-surface-container-low p-4 rounded-xl">
+              <p class="text-label-sm text-on-surface-variant uppercase">Total Value</p>
+              <p class="text-headline-md font-bold text-growth-green">${spent}</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <button class="w-full py-4 bg-growth-green text-on-primary rounded-xl font-bold flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined">chat</span> Message Customer
+            </button>
+            <button class="w-full py-4 border-2 border-primary text-primary rounded-xl font-bold flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined">history</span> View Order History
+            </button>
+          </div>
+        </main>
+      `;
+
+      document.body.appendChild(overlay);
+      
+      // Trigger transition
+      requestAnimationFrame(() => {
+        overlay.classList.remove('scale-95', 'opacity-0');
+        overlay.classList.add('scale-100', 'opacity-100');
+      });
+    });
+  });
+</script></body></html>

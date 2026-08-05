@@ -39,7 +39,7 @@ export default function OrderConfirmationScreen() {
         {loading ? (
           <ActivityIndicator size="large" color="#005147" className="mt-12" />
         ) : (
-          <>
+          <View className="w-full">
             {/* Hero Success */}
             <Animated.View entering={FadeIn.duration(600)} className="items-center py-8">
               <View className="w-24 h-24 items-center justify-center mb-6">
@@ -91,7 +91,7 @@ export default function OrderConfirmationScreen() {
             </View>
           </View>
         </Animated.View>
-          </>
+          </View>
         )}
       </ScrollView>
 

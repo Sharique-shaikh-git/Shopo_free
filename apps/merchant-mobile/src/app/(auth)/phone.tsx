@@ -79,7 +79,7 @@ export default function PhoneVerificationScreen() {
             </Text>
 
             {/* Phone Input with Flag */}
-            <View className="flex-row items-center bg-white border border-outline-variant rounded-xl overflow-hidden">
+            <View className="flex-row items-center bg-white border border-outline-variant rounded-xl overflow-hidden" style={{ borderRadius: 12 }}>
               {/* Pakistan Flag & Prefix */}
               <View className="flex-row items-center gap-2 pl-4 pr-3 py-4 border-r border-outline-variant bg-surface-gray">
                 <View className="w-7 h-5 rounded-sm bg-primary-container items-center justify-center">
@@ -132,12 +132,12 @@ export default function PhoneVerificationScreen() {
               {isLoading ? (
                 <ActivityIndicator size="small" color="white" />
               ) : (
-                <>
+                <View className="flex-row items-center justify-center gap-2">
                   <Text className="text-white font-semibold text-[14px] tracking-wider uppercase">
                     Continue
                   </Text>
                   <MaterialIcons name="chevron-right" size={20} color="white" />
-                </>
+                </View>
               )}
             </TouchableOpacity>
           </Animated.View>

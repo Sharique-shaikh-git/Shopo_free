@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Digital Dukaan - Merchant Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3e4946",
+                        "tertiary-container": "#0055d4",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#007232",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "error-red": "#BA1A1A",
+                        "trust-blue": "#0055D4",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed": "#00201b",
+                        "primary": "#005147",
+                        "surface-container-low": "#f3f3f6",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-dim": "#dadadc",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-primary-container": "#95e8d8",
+                        "error": "#ba1a1a",
+                        "surface-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#006b5e",
+                        "on-background": "#1a1c1e",
+                        "whatsapp-green": "#25D366",
+                        "secondary-container": "#5dfd8a",
+                        "surface": "#f9f9fc",
+                        "outline-variant": "#bec9c5",
+                        "outline": "#6e7976",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#003fa3",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed": "#66ff8e",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container-high": "#e8e8ea",
+                        "growth-green": "#006B5E",
+                        "secondary": "#006d2f",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "status-pending": "#FEF7FF",
+                        "on-secondary-fixed": "#002109",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#006b5e",
+                        "border-subtle": "#E1E3E5",
+                        "inverse-primary": "#83d5c5",
+                        "background": "#f9f9fc",
+                        "status-shipped": "#F0FDF4",
+                        "secondary-fixed-dim": "#3de273",
+                        "surface-container": "#eeeef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "touch-target-min": "3rem",
+                        "stack-lg": "2rem",
+                        "margin-mobile": "1.25rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; min-height: max(884px, 100dvh); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .ai-pulse { animation: pulseText 2s infinite alternate; }
+        @keyframes pulseText {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        .ai-bg-gradient {
+            background: linear-gradient(135deg, #005147 0%, #006B5E 50%, #008775 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animation Classes */
+        .fade-slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeSlideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+
+        .draw-icon {
+            opacity: 0;
+            animation: drawIn 0.8s ease-out forwards;
+        }
+        @keyframes drawIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .hover-scale {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-scale:hover, .hover-scale:active {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top App Bar equivalent -->
+<header class="flex justify-between items-center px-gutter-mobile py-4 w-full top-0 sticky z-40 bg-surface/90 backdrop-blur-md pb-4 pt-6 fade-slide-up">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant">Assalam-o-Alaikum,</p>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Kinetic Growth</h1>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors active:scale-95 duration-150 relative hover-scale">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+<span class="absolute top-3 right-3 w-2.5 h-2.5 bg-error-red rounded-full border-2 border-surface"></span>
+</button>
+</header>
+<main class="px-gutter-mobile flex flex-col gap-stack-lg pb-safe">
+<!-- Stats Cards Row (Horizontal Scroll) -->
+<section class="flex gap-stack-md overflow-x-auto hide-scrollbar snap-x snap-mandatory -mx-gutter-mobile px-gutter-mobile pb-2">
+<!-- Today's Sales -->
+<div class="snap-start flex-none w-[200px] bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col justify-between h-32 relative overflow-hidden fade-slide-up delay-100 hover-scale cursor-pointer">
+<div class="flex justify-between items-start z-10">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center draw-icon delay-200">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-2 py-1 rounded-full">Today</span>
+</div>
+<div class="z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Total Sales</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight"><span class="text-sm font-normal">PKR</span> <span class="count-up" data-target="12500">0</span></p>
+</div>
+</div>
+<!-- Total Orders -->
+<div class="snap-start flex-none w-[160px] bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col justify-between h-32 fade-slide-up delay-200 hover-scale cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center draw-icon delay-300">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Orders</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight count-up" data-target="8">0</p>
+</div>
+</div>
+<!-- Total Products -->
+<div class="snap-start flex-none w-[160px] bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col justify-between h-32 fade-slide-up delay-300 hover-scale cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center draw-icon delay-400">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Products</p>
+<p class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight count-up" data-target="24">0</p>
+</div>
+</div>
+</section>
+<!-- AI Insight Card -->
+<section class="ai-bg-gradient rounded-xl p-stack-md relative overflow-hidden shadow-sm fade-slide-up delay-400 hover-scale cursor-pointer">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute -left-4 -bottom-4 w-24 h-24 bg-secondary-container/20 rounded-full blur-xl"></div>
+<div class="relative z-10 flex items-start gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 draw-icon delay-500">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-white font-bold mb-1 ai-pulse">AI Store Insight</h3>
+<p class="font-body-md text-body-md text-white/90 mb-4 leading-snug">You sold 3 more products this week! Share your link to keep growing.</p>
+<button class="bg-white text-growth-green font-label-lg text-label-lg font-bold px-4 py-2 rounded-full flex items-center gap-2 hover-scale active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                        Share Link
+                    </button>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="fade-slide-up delay-500">
+<h2 class="font-headline-md text-headline-md font-bold mb-stack-md text-on-surface">Quick Actions</h2>
+<div class="grid grid-cols-2 gap-stack-sm">
+<!-- Add Product -->
+<button class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col items-center justify-center gap-3 hover-scale active:bg-surface-container-low transition-all duration-200 min-h-[100px]">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center draw-icon">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Add Product</span>
+</button>
+<!-- View Orders -->
+<button class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col items-center justify-center gap-3 hover-scale active:bg-surface-container-low transition-all duration-200 min-h-[100px]">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center draw-icon">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">View Orders</span>
+</button>
+<!-- Share Shop -->
+<button class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col items-center justify-center gap-3 hover-scale active:bg-surface-container-low transition-all duration-200 min-h-[100px]">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-[#25D366] draw-icon">
+<span class="material-symbols-outlined text-whatsapp-green">share</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Share Shop</span>
+</button>
+<!-- Analytics -->
+<button class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex flex-col items-center justify-center gap-3 hover-scale active:bg-surface-container-low transition-all duration-200 min-h-[100px]">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center draw-icon">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Analytics</span>
+</button>
+</div>
+</section>
+<!-- Recent Orders -->
+<section>
+<div class="flex justify-between items-center mb-stack-md fade-slide-up delay-200">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Recent Orders</h2>
+<button class="font-label-lg text-label-lg text-growth-green font-bold hover-scale">See All</button>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<!-- Order 1: Pending -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex items-center justify-between hover-scale active:bg-surface-container-low transition-all cursor-pointer fade-slide-up delay-300">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-bold font-body-lg">
+                            AK
+                        </div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-0.5">Aisha Khan</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-bold">PKR 1,500</p>
+</div>
+</div>
+<div class="bg-[#FEF7FF] text-[#6B538C] px-3 py-1 rounded-full font-label-sm text-label-sm font-bold border border-[#E9DDF8]">
+                        Pending
+                    </div>
+</div>
+<!-- Order 2: Shipped -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex items-center justify-between hover-scale active:bg-surface-container-low transition-all cursor-pointer fade-slide-up delay-400">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-bold font-body-lg">
+                            US
+                        </div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-0.5">Usman Saeed</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-bold">PKR 4,200</p>
+</div>
+</div>
+<div class="bg-status-shipped text-growth-green px-3 py-1 rounded-full font-label-sm text-label-sm font-bold border border-[#BDECC4]">
+                        Shipped
+                    </div>
+</div>
+<!-- Order 3: Delivered -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex items-center justify-between hover-scale active:bg-surface-container-low transition-all cursor-pointer fade-slide-up delay-500">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-bold font-body-lg">
+                            FA
+                        </div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface mb-0.5">Fatima Ali</p>
+<p class="font-body-md text-body-md text-on-surface-variant font-bold">PKR 2,850</p>
+</div>
+</div>
+<div class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm font-bold border border-border-subtle">
+                        Delivered
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface border-t border-border-subtle shadow-[0_-4px_20px_rgba(0,0,0,0.05)] md:hidden fade-slide-up delay-500">
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-2 min-w-[64px] active:scale-90 duration-200 transition-transform hover-scale">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1 font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-low transition-colors rounded-xl active:scale-90 duration-200 hover-scale">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Store</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-low transition-colors rounded-xl active:scale-90 duration-200 hover-scale">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-low transition-colors rounded-xl active:scale-90 duration-200 hover-scale">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 min-w-[64px] hover:bg-surface-container-low transition-colors rounded-xl active:scale-90 duration-200 hover-scale">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</button>
+</nav>
+<nav class="hidden md:flex fixed top-0 w-full z-50 bg-surface border-b border-border-subtle px-8 py-4 justify-between items-center fade-slide-up">
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Kinetic Growth</h1>
+<div class="flex gap-4">
+<button class="font-label-lg text-label-lg text-primary font-bold hover-scale">Home</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover-scale">Store</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover-scale">Orders</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover-scale">Analytics</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover-scale">Settings</button>
+</div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.count-up');
+    const speed = 150;
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText.replace(/,/g, '');
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc).toLocaleString();
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        };
+
+        // Start animation after a slight delay to match card entrance
+        setTimeout(updateCount, 600);
+    });
+});
+</script>
+</body></html>

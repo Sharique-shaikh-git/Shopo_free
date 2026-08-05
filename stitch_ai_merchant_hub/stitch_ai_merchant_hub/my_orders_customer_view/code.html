@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#5dfd8a",
+                    "primary": "#005147",
+                    "surface-container-high": "#e8e8ea",
+                    "on-primary-container": "#95e8d8",
+                    "surface-container-low": "#f3f3f6",
+                    "inverse-on-surface": "#f0f0f3",
+                    "tertiary-fixed": "#dae2ff",
+                    "secondary-fixed": "#66ff8e",
+                    "tertiary-container": "#0055d4",
+                    "primary-container": "#006b5e",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1c1e",
+                    "on-surface-variant": "#3e4946",
+                    "primary-fixed": "#9ff2e1",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e5",
+                    "surface-container": "#eeeef0",
+                    "surface": "#f9f9fc",
+                    "on-primary-fixed-variant": "#005046",
+                    "on-secondary-fixed": "#002109",
+                    "outline": "#6e7976",
+                    "surface-container-highest": "#e2e2e5",
+                    "on-error": "#ffffff",
+                    "whatsapp-green": "#25D366",
+                    "on-secondary-container": "#007232",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "status-shipped": "#F0FDF4",
+                    "growth-green": "#006B5E",
+                    "trust-blue": "#0055D4",
+                    "on-secondary-fixed-variant": "#005322",
+                    "surface-dim": "#dadadc",
+                    "secondary": "#006d2f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#003fa3",
+                    "error-red": "#BA1A1A",
+                    "outline-variant": "#bec9c5",
+                    "status-pending": "#FEF7FF",
+                    "surface-tint": "#006b5e",
+                    "inverse-surface": "#2f3133",
+                    "surface-bright": "#f9f9fc",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#001848",
+                    "on-background": "#1a1c1e",
+                    "background": "#f9f9fc",
+                    "surface-gray": "#F8F9FA",
+                    "border-subtle": "#E1E3E5",
+                    "on-tertiary-container": "#ccd8ff",
+                    "on-primary-fixed": "#00201b",
+                    "primary-fixed-dim": "#83d5c5",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#83d5c5",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "secondary-fixed-dim": "#3de273"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "3rem",
+                    "stack-md": "1rem",
+                    "gutter-mobile": "1rem",
+                    "stack-sm": "0.5rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "2rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-lg": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                    "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface text-primary font-headline-md text-headline-md border-b border-subtle flex items-center justify-between px-gutter-mobile h-touch-target-min transition-colors duration-200">
+<button class="flex items-center justify-center w-touch-target-min h-touch-target-min hover:bg-surface-container-high transition-colors duration-200 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary">Storefront</h1>
+<button class="flex items-center justify-center w-touch-target-min h-touch-target-min hover:bg-surface-container-high transition-colors duration-200 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[calc(3rem+1rem)] pb-[calc(4rem+2rem)] px-gutter-mobile overflow-y-auto">
+<!-- Page Title -->
+<div class="mt-stack-md mb-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">My Orders</h2>
+</div>
+<!-- Tabs -->
+<div class="flex space-x-2 mb-stack-lg overflow-x-auto pb-2 hide-scrollbar">
+<button class="px-5 py-2.5 bg-primary-container text-on-primary-container rounded-full font-label-lg text-label-lg whitespace-nowrap transition-transform active:scale-95">All</button>
+<button class="px-5 py-2.5 bg-surface-container-low border border-subtle text-on-surface-variant rounded-full font-label-lg text-label-lg whitespace-nowrap transition-transform active:scale-95 hover:bg-surface-container">Active</button>
+<button class="px-5 py-2.5 bg-surface-container-low border border-subtle text-on-surface-variant rounded-full font-label-lg text-label-lg whitespace-nowrap transition-transform active:scale-95 hover:bg-surface-container">Completed</button>
+</div>
+<!-- Orders List (Bento-inspired shadow-less cards) -->
+<div class="flex flex-col space-y-stack-md">
+<!-- Order 1: In Transit -->
+<article class="border border-subtle rounded-lg p-stack-md bg-surface-container-lowest flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary-container rounded-l-lg opacity-80"></div>
+<div class="flex justify-between items-start mb-stack-sm ml-2">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">#ORD-98765</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Today • 2 items</p>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1.5 rounded-full font-label-sm text-label-sm inline-flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>In Transit</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 mb-stack-lg ml-2 overflow-x-auto hide-scrollbar py-1">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex-shrink-0 bg-cover bg-center border border-subtle" data-alt="A clean, minimalist top-down shot of a small, neat kraft paper cardboard box sitting on a pristine white surface. High-key lighting, bright light-mode aesthetic, simple modern e-commerce visual style. The scene feels highly organized and professional, communicating reliability and fast shipping." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmeaqP70cn1pV1t6l9sh3xrvBE_Pd8iPgwR4J6gOW9-mqpBcX38crt_HVW8H9BOnRJD4vdGkJQV2CvtkaEb-QO4za2RoK0fUTZ8OCA2gbkVkX607VxhvwO9Si8Gv57m5t3WhcL8jVkHznLQuYnQpOciPs5gFA-V3-YUSEVVRUqXX_3bBFoJxT6-EM-mpUTR_MbEOBZycdC8V4bxFF0tzZB6vlbTM2ICS7-tyiA1bTxfC5MuPo6P5Y9sxCBjRMEfea9bkj2ndWtnt0')"></div>
+<div class="w-14 h-14 rounded-lg bg-surface-container flex-shrink-0 bg-cover bg-center border border-subtle" data-alt="A macro detail shot of a premium product securely wrapped in minimal eco-friendly packaging, resting on a clean light gray desk. The lighting is soft and shadowless, reflecting a modern, tech-forward corporate brand identity focused on radical simplicity and trust." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHje70WeDL13a2NLsUIRBWPMlaQ2XI-bSXgHufaUMS01-6dYy9iVXZOyRxbsNENJef7w4Om-KPmtGcFybiyoYtniUOgxcMDVQkQ-QP_JRv27XzsaauQaqn8eynNAOju4R1DEP78bfmO3eolHJfyT4MuceS9u9HRB_DVrhFBkGLvqRDJ7KguL8KXdacUWjm6yonEOwBPd7YLE8RvfN5UeA6In7kWsCnwsppVdzrzRngfBF_ms5GibkL8Rnn2PXmXsnHmCAnhWQuYQE')"></div>
+</div>
+<div class="flex justify-between items-center border-t border-subtle pt-stack-md ml-2">
+<div class="font-headline-md text-headline-md text-primary">PKR 2,050</div>
+<button class="h-[48px] px-6 border-2 border-trust-blue text-trust-blue font-label-lg text-label-lg rounded-lg flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95">Track</button>
+</div>
+</article>
+<!-- Order 2: Delivered -->
+<article class="border border-subtle rounded-lg p-stack-md bg-surface-container-lowest flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary rounded-l-lg opacity-80"></div>
+<div class="flex justify-between items-start mb-stack-sm ml-2">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">#ORD-98500</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">12 Oct • 1 item</p>
+</div>
+<div class="bg-status-shipped text-on-secondary-fixed-variant px-3 py-1.5 rounded-full font-label-sm text-label-sm inline-flex items-center space-x-1 border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Delivered</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 mb-stack-lg ml-2 py-1">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex-shrink-0 bg-cover bg-center border border-subtle" data-alt="A single elegant retail item presented beautifully inside an open delivery box, sitting perfectly center on an expansive white background. The image features a light-mode corporate aesthetic with soft, bright illumination, conveying a successful, reliable, and high-quality transaction completed." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhgAlVun908eUYOs-LTkXA4F6YMpvXTdjP-iiNx5KwT0h18oaqqXaontOcSd24pIfQ884IsCtQX7H8oOMPNAQ5W9ItXn3yj_PnmF7hdTkLRsGWeb3JApFSI36ZDWdMhu6Q0Yxeefv0xDmZjaChaOs1ldYb3IkwZ0vbsSMIk3xpadt4m_d5pKEJ-mJAztm38vt_OfCSTNBjIYmu-tyoA1i5DN-IzRS3QPZ0p2S3NUghIb_qUmnSOC9k5g8lDQjmfJIxu3EGb63z6kM')"></div>
+</div>
+<div class="flex justify-between items-center border-t border-subtle pt-stack-md ml-2">
+<div class="font-headline-md text-headline-md text-primary">PKR 850</div>
+<button class="h-[48px] px-6 border-2 border-trust-blue text-trust-blue font-label-lg text-label-lg rounded-lg flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95">Reorder</button>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-subtle flex justify-around items-center h-16 px-4 pb-safe">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-touch-target-min h-touch-target-min rounded-lg">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-touch-target-min h-touch-target-min rounded-lg">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Categories</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-transform w-touch-target-min h-touch-target-min rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-touch-target-min h-touch-target-min rounded-lg">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Account</span>
+</button>
+</nav>
+</body></html>

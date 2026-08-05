@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Store Home - AI Shop Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006d2f",
+                    "surface-container-highest": "#e2e2e5",
+                    "status-shipped": "#F0FDF4",
+                    "background": "#f9f9fc",
+                    "surface-gray": "#F8F9FA",
+                    "on-primary-container": "#95e8d8",
+                    "outline": "#6e7976",
+                    "primary-container": "#006b5e",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "error-red": "#BA1A1A",
+                    "on-secondary-container": "#007232",
+                    "on-secondary-fixed": "#002109",
+                    "on-background": "#1a1c1e",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#0055d4",
+                    "on-primary-fixed-variant": "#005046",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#001848",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "on-secondary-fixed-variant": "#005322",
+                    "surface-container-low": "#f3f3f6",
+                    "primary-fixed": "#9ff2e1",
+                    "surface-dim": "#dadadc",
+                    "outline-variant": "#bec9c5",
+                    "inverse-surface": "#2f3133",
+                    "surface-container-high": "#e8e8ea",
+                    "primary-fixed-dim": "#83d5c5",
+                    "on-primary": "#ffffff",
+                    "primary": "#005147",
+                    "on-primary-fixed": "#00201b",
+                    "inverse-on-surface": "#f0f0f3",
+                    "growth-green": "#006B5E",
+                    "surface": "#f9f9fc",
+                    "surface-container": "#eeeef0",
+                    "secondary-fixed": "#66ff8e",
+                    "whatsapp-green": "#25D366",
+                    "tertiary": "#003fa3",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#83d5c5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9fc",
+                    "surface-variant": "#e2e2e5",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "secondary-container": "#5dfd8a",
+                    "secondary-fixed-dim": "#3de273",
+                    "border-subtle": "#E1E3E5",
+                    "tertiary-fixed": "#dae2ff",
+                    "trust-blue": "#0055D4",
+                    "surface-tint": "#006b5e",
+                    "on-surface": "#1a1c1e",
+                    "on-tertiary-container": "#ccd8ff",
+                    "on-surface-variant": "#3e4946",
+                    "status-pending": "#FEF7FF"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "gutter-mobile": "1rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "2rem",
+                    "touch-target-min": "3rem",
+                    "stack-md": "1rem"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg-mobile": [
+                            "Be Vietnam Pro"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-md": [
+                            "Be Vietnam Pro"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pb-safe">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background w-full top-0 sticky bg-surface-gray dark:bg-surface-dim z-40 border-b border-border-subtle">
+<div class="flex justify-between items-center px-gutter-mobile py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-growth-green">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Kinetic Growth</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:scale-95 duration-150">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-gutter-mobile py-stack-md flex flex-col gap-stack-lg max-w-5xl mx-auto w-full pb-24">
+<!-- Search Bar -->
+<div class="w-full relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-border-subtle rounded-xl py-4 pl-12 pr-4 font-body-md text-body-md focus:outline-none focus:border-growth-green focus:ring-1 focus:ring-growth-green transition-colors placeholder:text-on-surface-variant/60 shadow-sm" placeholder="Search products..." type="text"/>
+</div>
+<!-- Product Grid (2 Column strictly for storefront as per guidelines) -->
+<div class="grid grid-cols-2 gap-stack-md md:gap-stack-lg">
+<!-- Product Card 1 -->
+<div class="bg-surface rounded-xl border border-border-subtle overflow-hidden flex flex-col hover:border-growth-green/30 transition-colors group">
+<div class="aspect-square w-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, brightly lit product photograph of an elegant ceramic mug resting on a pristine white surface. Soft natural light creates subtle shadows. The aesthetic is modern minimalism, emphasizing the smooth texture of the ceramic against the light mode background. High resolution, professional product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9slLOubq6uCDLJ1XSadlLafG6ElhHUYEYbysqB4noOD4izEZWsfeazZmpbdfcgq9Dd9F_UR7TPHubb7BoMxs9RV34XgmHtpssb_loN-P9x2MELYJC8sQJiidg_cQ5sBXKKGYXJN2lKv_uFxcwSbOLhXfy_Jnv-854iPXBs_MZaWEtWyqTAfwKu0ntEVYz1XIRUL2RWPC0MolsjBIzFtDnGlRK-b48Rj1XwP7bvShA2jQQ4C7R0BKKjCPPj6bpXm8nMriedKHo3hM"/>
+</div>
+<div class="p-stack-sm flex flex-col flex-grow justify-between gap-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-2">Handcrafted Ceramic Mug</h3>
+<p class="font-body-md text-body-md font-semibold text-growth-green mt-1">Rs 1,200</p>
+</div>
+<button class="w-full bg-surface-container-high hover:bg-growth-green hover:text-white text-growth-green font-label-lg text-label-lg py-2 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto border border-border-subtle hover:border-transparent">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Add
+                    </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface rounded-xl border border-border-subtle overflow-hidden flex flex-col hover:border-growth-green/30 transition-colors group">
+<div class="aspect-square w-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium quality leather wallet presented in a modern, light-mode e-commerce setting. The wallet sits on a subtle gray-white podium, illuminated by crisp studio lighting that highlights the rich texture of the leather. The composition is clean, airy, and professional, reflecting high-end craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv7BDQy8pJL0yvKpYQznNRtIQArku0IsFxNahkVNkQlJSpIY7obRFyd0ZcfnyEY_DbDic8tLychhAi6AY73kDZTov3vU2m-BCkfY7yMkGWZsONXV-IuuwcFX7ZNLAeAyr1sgiVR43MTJqbfDbQgsAd-isAKFEYlyLaetWM1RQZMXC8tVM8XQHBAH6pe2pkWIhgyiQsg85hyzUXCmyOdgpKISMFLiOMq1PAMtXiWtDfCeBVxK7CqFeoOfWAsIvMjbl1mQqfQI7X9W4"/>
+</div>
+<div class="p-stack-sm flex flex-col flex-grow justify-between gap-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-2">Classic Leather Wallet</h3>
+<p class="font-body-md text-body-md font-semibold text-growth-green mt-1">Rs 3,500</p>
+</div>
+<button class="w-full bg-surface-container-high hover:bg-growth-green hover:text-white text-growth-green font-label-lg text-label-lg py-2 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto border border-border-subtle hover:border-transparent">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Add
+                    </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface rounded-xl border border-border-subtle overflow-hidden flex flex-col hover:border-growth-green/30 transition-colors group">
+<div class="aspect-square w-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, minimalist smart watch displayed against a light gray seamless background. The device features a polished metallic rim and a matte black strap. The lighting is soft and even, casting almost no shadow to maintain a flat, modern digital aesthetic suitable for an app storefront." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8-PfVhnl6RinkYLxLXwcoJA53ZVVi3mU2nrVG3WDG0gOVNPUcA80YgrPHO-UPyNn6aOzQSL7DN4ilgze_VhTe2-5fV7ZIqWa9aVOrRhFtv2PZ8ShjfC_rBaLUUHectGvRaTAVHxXLwqVQ-U1LrGMpVuLf49r-UI9J8FAM7jvSU3ASq-QlHGpaZrMpyQDiz7Ckn6SyCBvJFIWX_Z9wXPoINnQ5hCQtfakATJ0_z7DXZi29KGF8ptxHZaRWNtLKd7ZeWx4gXh3OYAQ"/>
+</div>
+<div class="p-stack-sm flex flex-col flex-grow justify-between gap-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-2">Minimalist Smart Watch</h3>
+<p class="font-body-md text-body-md font-semibold text-growth-green mt-1">Rs 8,999</p>
+</div>
+<button class="w-full bg-surface-container-high hover:bg-growth-green hover:text-white text-growth-green font-label-lg text-label-lg py-2 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto border border-border-subtle hover:border-transparent">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Add
+                    </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-surface rounded-xl border border-border-subtle overflow-hidden flex flex-col hover:border-growth-green/30 transition-colors group">
+<div class="aspect-square w-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of stylish, modern wireless earbuds in a matte white finish, resting beside their charging case. The scene is shot on a perfectly white, bright background with soft diffuse light. The aesthetic is clean, technological, and premium, evoking a sense of modern simplicity and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvokyOdgZh3w1RckOb7LanMmGqV_NmRdJMAxsbxvRWIaRC9Bgqvtpnu27mRl_DjrKEIfbQ37MJ69GOSHybLYBJXgMEAHXsjJNPclJh-fU25oJ1pQbunZPWG3n90JO_w3GDRa-glS2WLIVUFayzGNS4uxnnP4CceXmJ1HVeokjcZk7u7PNHPV19N8Kp3-BVZT4jUZ8frNaoom-2dyXbXiRrhS7bhgCzO_1KJ_Qi8VD4UuZtdVEO-ZYOWpeqP0EcpJQXuDZUulxcR78"/>
+</div>
+<div class="p-stack-sm flex flex-col flex-grow justify-between gap-stack-sm">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-2">Pro Wireless Earbuds</h3>
+<p class="font-body-md text-body-md font-semibold text-growth-green mt-1">Rs 4,250</p>
+</div>
+<button class="w-full bg-surface-container-high hover:bg-growth-green hover:text-white text-growth-green font-label-lg text-label-lg py-2 rounded-lg transition-colors flex items-center justify-center gap-2 mt-auto border border-border-subtle hover:border-transparent">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Add
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

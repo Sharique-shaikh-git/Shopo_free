@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Switch, Modal } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Switch, Modal, StatusBar } from 'react-native';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const START_TIME_OPTIONS = ['10:00 PM', '11:00 PM', '12:00 AM'];
 const END_TIME_OPTIONS = ['6:00 AM', '7:00 AM', '8:00 AM'];
 
 export default function NotificationsScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [newOrders, setNewOrders] = useState(true);
+
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
   const [orderUpdates, setOrderUpdates] = useState(true);
   const [promotionalMessages, setPromotionalMessages] = useState(false);
   const [weeklyReport, setWeeklyReport] = useState(true);
@@ -84,7 +88,8 @@ export default function NotificationsScreen() {
       {/* Header */}
       <Animated.View
         entering={FadeInDown.duration(400).springify()}
-        className="flex-row items-center justify-between px-gutter-mobile py-4 border-b border-border-subtle bg-surface-gray"
+        style={{ paddingTop: headerPadding }}
+        className="flex-row items-center justify-between px-5 pb-3 border-b border-border-subtle bg-surface"
       >
         <TouchableOpacity
           accessibilityLabel="Go back"

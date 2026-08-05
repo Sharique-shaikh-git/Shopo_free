@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>App Version Info</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "tertiary-container": "#0055d4",
+                            "secondary-fixed-dim": "#3de273",
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1a1c1e",
+                            "on-primary-fixed": "#00201b",
+                            "inverse-surface": "#2f3133",
+                            "on-tertiary": "#ffffff",
+                            "outline-variant": "#bec9c5",
+                            "on-background": "#1a1c1e",
+                            "surface-tint": "#006b5e",
+                            "surface-container-low": "#f3f3f6",
+                            "primary-fixed": "#9ff2e1",
+                            "on-error-container": "#93000a",
+                            "surface-container-highest": "#e2e2e5",
+                            "on-secondary-container": "#007232",
+                            "on-primary": "#ffffff",
+                            "surface-variant": "#e2e2e5",
+                            "status-shipped": "#F0FDF4",
+                            "primary": "#005147",
+                            "primary-fixed-dim": "#83d5c5",
+                            "surface-dim": "#dadadc",
+                            "growth-green": "#006B5E",
+                            "status-pending": "#FEF7FF",
+                            "on-tertiary-fixed-variant": "#003fa3",
+                            "on-primary-container": "#95e8d8",
+                            "outline": "#6e7976",
+                            "secondary-fixed": "#66ff8e",
+                            "on-tertiary-fixed": "#001848",
+                            "surface-container-high": "#e8e8ea",
+                            "secondary": "#006d2f",
+                            "tertiary": "#003fa3",
+                            "on-secondary": "#ffffff",
+                            "surface-container-lowest": "#ffffff",
+                            "on-surface-variant": "#3e4946",
+                            "surface-gray": "#F8F9FA",
+                            "on-secondary-fixed": "#002109",
+                            "whatsapp-green": "#25D366",
+                            "surface": "#f9f9fc",
+                            "surface-bright": "#f9f9fc",
+                            "on-secondary-fixed-variant": "#005322",
+                            "inverse-primary": "#83d5c5",
+                            "error": "#ba1a1a",
+                            "secondary-container": "#5dfd8a",
+                            "error-red": "#BA1A1A",
+                            "tertiary-fixed-dim": "#b2c5ff",
+                            "trust-blue": "#0055D4",
+                            "border-subtle": "#E1E3E5",
+                            "on-tertiary-container": "#ccd8ff",
+                            "primary-container": "#006b5e",
+                            "tertiary-fixed": "#dae2ff",
+                            "inverse-on-surface": "#f0f0f3",
+                            "surface-container": "#eeeef0",
+                            "on-error": "#ffffff",
+                            "background": "#f9f9fc",
+                            "on-primary-fixed-variant": "#005046"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "stack-lg": "2rem",
+                            "stack-sm": "0.5rem",
+                            "stack-md": "1rem",
+                            "margin-mobile": "1.25rem",
+                            "touch-target-min": "3rem",
+                            "gutter-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                            "headline-md": ["Be Vietnam Pro"],
+                            "label-sm": ["Be Vietnam Pro"],
+                            "label-lg": ["Be Vietnam Pro"],
+                            "headline-lg-mobile": ["Be Vietnam Pro"],
+                            "body-lg": ["Be Vietnam Pro"],
+                            "headline-lg": ["Be Vietnam Pro"],
+                            "body-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased pb-safe">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-gray z-10 flex justify-between items-center px-gutter-mobile py-4 transition-colors">
+<button class="flex items-center justify-center w-[48px] h-[48px] rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">App Version</h1>
+<div class="w-[48px]"></div> <!-- Spacer to center title -->
+</header>
+<main class="flex-1 flex flex-col px-gutter-mobile pt-stack-lg pb-stack-lg gap-stack-lg overflow-y-auto">
+<!-- App Logo & Version Info -->
+<div class="flex flex-col items-center justify-center pt-stack-md pb-stack-lg">
+<div class="w-32 h-32 rounded-xl bg-primary-container flex items-center justify-center mb-stack-md shadow-sm border border-border-subtle relative overflow-hidden">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A clean, modern, minimalist 3D rendering of a stylized storefront or shopping bag icon. The icon is rendered in a smooth, matte Growth Green color (#006B5E) sitting perfectly centered against a pure white background. The lighting is soft and studio-like, creating gentle gradients and a subtle, high-end corporate feel. The design perfectly embodies the pillars of empowerment, reliability, and radical simplicity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7wGxjk__8bG27hqIwKRGldAcCBG9t5udnuJAr_E3jiRUac7WpGHhDlWljAL5ErhauNOA9JpapxferiiJjvx9ITAezHHd9MQi0wTTcGVY5lNypidvF1wBGm9OqyZThmSGGulD6xzUvBwFZjdNkBLSYUs3UxnY3HaJVWszSmwO9hLtO3jSVNF_bKK7X-RuTXaX1EAJzyLTm_Qb3NdAToaJfJZCkgrhRC0eqBm3OX0754rFV7VlPfOdF2jBtmW-fW_vlbnI1zRF-ofk"/>
+<!-- Fallback icon if image fails -->
+<span class="material-symbols-outlined text-white text-6xl relative z-10 drop-shadow-md">storefront</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-stack-sm text-center">Shop Builder</h2>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md">
+<span>Version 1.0.0</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Build 123</span>
+</div>
+<div class="mt-stack-md px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm border border-border-subtle flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-growth-green">verified</span>
+                Up to date
+            </div>
+</div>
+<!-- Links List -->
+<div class="flex flex-col gap-0 border border-border-subtle rounded-xl bg-surface overflow-hidden">
+<button class="flex items-center justify-between w-full p-4 min-h-[56px] bg-surface hover:bg-surface-container-low active:bg-surface-container transition-colors border-b border-border-subtle last:border-b-0 text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-growth-green">
+<span class="material-symbols-outlined">new_releases</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface">What's New</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 min-h-[56px] bg-surface hover:bg-surface-container-low active:bg-surface-container transition-colors border-b border-border-subtle last:border-b-0 text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-trust-blue">
+<span class="material-symbols-outlined">star_rate</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface">Rate Us</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 min-h-[56px] bg-surface hover:bg-surface-container-low active:bg-surface-container transition-colors border-b border-border-subtle last:border-b-0 text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">policy</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 min-h-[56px] bg-surface hover:bg-surface-container-low active:bg-surface-container transition-colors border-b border-border-subtle last:border-b-0 text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface">Terms of Service</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+<div class="flex justify-center mt-stack-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center opacity-70">
+                © 2024 Shop Builder Inc.<br/>All rights reserved.
+            </p>
+</div>
+</main>
+</body></html>

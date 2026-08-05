@@ -2,14 +2,17 @@ import { Slot, useRouter, useSegments } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useFonts } from 'expo-font';
-import { getToken } from '../lib/api';
+import { getToken, removeToken, apiFetch } from '../lib/api';
 import { AnimatedSplashScreen } from '../components/AnimatedSplashScreen';
 import { ThemeProvider, useThemePreference } from '../context/ThemeContext';
+
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function ThemeWrapper({ children }: { children: React.ReactNode }) {
   const { theme } = useThemePreference();
   return (
-    <View style={{ flex: 1 }} className={theme === 'dark' ? 'dark' : ''}>
+    <View style={{ flex: 1, backgroundColor: theme === 'dark' ? '#121212' : '#f9f9fc' }} className={theme === 'dark' ? 'dark' : ''}>
+      <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
       {children}
     </View>
   );
@@ -25,21 +28,27 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
       const token = await getToken();
       const inAuthGroup = segments[0] === '(auth)';
 
-      // Unauthenticated users should land on the welcome/auth flow
-      if (!token && !inAuthGroup) {
-        router.replace('/(auth)/welcome');
+      if (!token) {
+        if (!inAuthGroup) {
+          router.replace('/(auth)/welcome');
+        }
         return;
       }
 
-      // Authenticated users should never see the auth screens
-      if (token && inAuthGroup) {
-        router.replace('/(app)');
-        return;
+      // Verify token with backend
+      try {
+        await apiFetch('/auth/me');
+        if (inAuthGroup) {
+          router.replace('/(app)');
+        }
+      } catch (apiErr) {
+        // Stale or invalid token → clear it and go to welcome
+        await removeToken();
+        if (!inAuthGroup) {
+          router.replace('/(auth)/welcome');
+        }
       }
-
-      // Stay where you are — authenticated in app, or unauthenticated in auth.
     } catch (err) {
-      // If any storage error occurs, fail safe to the welcome screen.
       if (segments[0] !== '(auth)') {
         router.replace('/(auth)/welcome');
       }
@@ -54,8 +63,10 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
 
   if (!isReady) return <AnimatedSplashScreen />;
 
-  return <>{children}</>;
+  return <View style={{ flex: 1 }}>{children}</View>;
 }
+
+import { StatusBar } from 'expo-status-bar';
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -70,12 +81,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
-      <ThemeWrapper>
-        <AuthGuard>
-          <Slot />
-        </AuthGuard>
-      </ThemeWrapper>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <ThemeWrapper>
+          <AuthGuard>
+            <Slot />
+          </AuthGuard>
+        </ThemeWrapper>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

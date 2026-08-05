@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Enrichment Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f0f3",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-red": "#BA1A1A",
+                        "on-tertiary-fixed": "#001848",
+                        "on-primary-fixed": "#00201b",
+                        "surface-tint": "#006b5e",
+                        "primary-fixed": "#9ff2e1",
+                        "on-secondary-fixed": "#002109",
+                        "surface-container-low": "#f3f3f6",
+                        "surface-dim": "#dadadc",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e2e5",
+                        "surface-container-high": "#e8e8ea",
+                        "inverse-surface": "#2f3133",
+                        "secondary-fixed-dim": "#3de273",
+                        "error": "#ba1a1a",
+                        "border-subtle": "#E1E3E5",
+                        "surface": "#f9f9fc",
+                        "trust-blue": "#0055D4",
+                        "primary-container": "#006b5e",
+                        "whatsapp-green": "#25D366",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-secondary-container": "#007232",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "on-primary-container": "#95e8d8",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ccd8ff",
+                        "growth-green": "#006B5E",
+                        "status-shipped": "#F0FDF4",
+                        "on-primary-fixed-variant": "#005046",
+                        "primary": "#005147",
+                        "surface-variant": "#e2e2e5",
+                        "tertiary": "#003fa3",
+                        "outline": "#6e7976",
+                        "tertiary-container": "#0055d4",
+                        "inverse-primary": "#83d5c5",
+                        "secondary": "#006d2f",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "on-background": "#1a1c1e",
+                        "secondary-fixed": "#66ff8e",
+                        "surface-bright": "#f9f9fc",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "on-surface": "#1a1c1e",
+                        "secondary-container": "#5dfd8a",
+                        "on-surface-variant": "#3e4946",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeef0",
+                        "surface-gray": "#F8F9FA",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9fc",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "gutter-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "touch-target-min": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ai-pulse {
+            animation: pulse-bg 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-bg {
+            0%, 100% { background-color: #F8F9FA; }
+            50% { background-color: #eeeef0; }
+        }
+        .ai-text-shimmer {
+            background: linear-gradient(90deg, #006B5E 0%, #3de273 50%, #006B5E 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 2s linear infinite;
+        }
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md h-screen flex flex-col antialiased">
+<!-- TopAppBar: Transactional, hides normal nav layout to focus on task -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background flex justify-between items-center px-gutter-mobile py-4 bg-surface-gray dark:bg-surface-dim flat no shadows">
+<button class="text-on-surface-variant flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Review Product Details</h1>
+<div class="w-10"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto pb-32"> <!-- pb-32 to clear the bottom action bar -->
+<div class="max-w-md mx-auto px-gutter-mobile py-stack-md flex flex-col gap-stack-lg">
+<!-- Image Section -->
+<section class="flex flex-col gap-stack-sm items-center">
+<div class="w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden border border-border-subtle relative group">
+<img class="object-cover w-full h-full" data-alt="A beautifully photographed artisan leather wallet resting on a clean, light wood surface. The lighting is soft and natural, creating a bright, modern aesthetic typical of high-end e-commerce. The background is slightly blurred to emphasize the product's texture and craftsmanship. The overall mood is premium and professional, aligning with a corporate minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbv0t7aBuwv3PGGxSlz5rc9f_EHhim-N4StSzKjA0nRRwvawXRsUU6eWCXRN3E2JA8dp9doZOL8hT6CWrlThswr8InEykq-9Pp-IY9cDLFdcFh4K2cX8zhLckCIQHK2UDedhhnRIAUzKeOrLNYJhCJL9vnkaWQRkqh3BbrhNJRVhWrjqHowRuOU879Nb81M4LFviZFsiPTFRk7J-wE07dN9L3ks9BDUTCmXpp2TZRsVam6V_hkez1GzD2CyoPE6IdKf2bfaMhKo3I"/>
+<button class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-sm p-2 rounded-full shadow-sm text-on-surface-variant hover:bg-surface transition-colors flex items-center justify-center border border-border-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit</span>
+</button>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-lg text-label-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="ai-text-shimmer">AI Enchanted Image</span>
+</div>
+</section>
+<!-- Form Section -->
+<form class="flex flex-col gap-stack-lg">
+<!-- Title Field -->
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface px-1 font-label-sm text-label-sm text-growth-green" for="product-title">Product Title</label>
+<input class="w-full bg-surface border-2 border-growth-green rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:outline-none focus:ring-0 focus:border-growth-green transition-colors min-h-[56px]" id="product-title" type="text" value="Handcrafted Leather Wallet - Vintage Brown"/>
+</div>
+<!-- Price Field -->
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="product-price">Price (PKR)</label>
+<input class="w-full bg-surface border border-border-subtle rounded-lg px-4 py-3 font-body-lg text-body-lg text-on-surface focus:outline-none focus:border-growth-green focus:border-2 transition-colors min-h-[56px]" id="product-price" type="number" value="4500"/>
+</div>
+<!-- Description Field (Simulating AI Loading State initially, then fading to content) -->
+<div class="relative" id="description-container">
+<label class="absolute -top-2 left-3 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="product-description">Description</label>
+<!-- AI Loading State -->
+<div class="w-full bg-surface border border-border-subtle rounded-lg px-4 py-3 min-h-[120px] ai-pulse flex flex-col gap-2 justify-center" id="description-loading">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-fixed-dim animate-spin" style="animation-duration: 3s;">cycle</span>
+<span class="font-body-md text-body-md text-on-surface-variant ai-text-shimmer">AI is writing your description...</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded w-3/4"></div>
+<div class="h-2 bg-surface-container-highest rounded w-1/2"></div>
+<div class="h-2 bg-surface-container-highest rounded w-5/6"></div>
+</div>
+<!-- Actual Textarea (Hidden initially) -->
+<textarea class="w-full bg-surface border border-border-subtle rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-growth-green focus:border-2 transition-colors min-h-[120px] hidden resize-none" id="product-description">Elevate your everyday carry with this premium handcrafted leather wallet. Made from authentic, top-grain leather that develops a beautiful patina over time. Features 6 card slots, a spacious bill compartment, and reinforced stitching for ultimate durability. The perfect blend of traditional craftsmanship and modern utility.</textarea>
+</div>
+</form>
+</div>
+</main>
+<!-- Bottom Action Bar: Fixed to bottom for thumb access -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle p-gutter-mobile pb-safe z-50">
+<button class="w-full bg-growth-green text-on-primary font-label-lg text-label-lg rounded-xl min-h-[56px] flex items-center justify-center gap-2 hover:bg-primary transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">check_circle</span>
+            Confirm &amp; Add Product
+        </button>
+</div>
+<!-- Script to toggle AI state for demonstration -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const loading = document.getElementById('description-loading');
+                const textarea = document.getElementById('product-description');
+                const label = document.querySelector('label[for="product-description"]');
+                
+                loading.classList.add('hidden');
+                textarea.classList.remove('hidden');
+                
+                // Simulate form focus effect on the description after load
+                textarea.classList.add('border-growth-green', 'border-2');
+                textarea.classList.remove('border-border-subtle', 'border');
+                label.classList.add('text-growth-green');
+                label.classList.remove('text-on-surface-variant');
+
+                // Remove highlight after a moment to show normal state
+                setTimeout(() => {
+                    textarea.classList.remove('border-growth-green', 'border-2');
+                    textarea.classList.add('border-border-subtle', 'border');
+                    label.classList.remove('text-growth-green');
+                    label.classList.add('text-on-surface-variant');
+                }, 1500);
+
+            }, 2500); // Simulate 2.5s of AI generation
+        });
+    </script>
+</body></html>

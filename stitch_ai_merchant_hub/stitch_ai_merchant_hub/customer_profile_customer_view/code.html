@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#5dfd8a",
+                        "primary": "#005147",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-container": "#95e8d8",
+                        "surface-container-low": "#f3f3f6",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-fixed": "#dae2ff",
+                        "secondary-fixed": "#66ff8e",
+                        "tertiary-container": "#0055d4",
+                        "primary-container": "#006b5e",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1e",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container": "#eeeef0",
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046",
+                        "on-secondary-fixed": "#002109",
+                        "outline": "#6e7976",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-error": "#ffffff",
+                        "whatsapp-green": "#25D366",
+                        "on-secondary-container": "#007232",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "status-shipped": "#F0FDF4",
+                        "growth-green": "#006B5E",
+                        "trust-blue": "#0055D4",
+                        "on-secondary-fixed-variant": "#005322",
+                        "surface-dim": "#dadadc",
+                        "secondary": "#006d2f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#003fa3",
+                        "error-red": "#BA1A1A",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "surface-tint": "#006b5e",
+                        "inverse-surface": "#2f3133",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "surface-gray": "#F8F9FA",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-primary-fixed": "#00201b",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#83d5c5",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed-dim": "#3de273"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "3rem",
+                        "stack-md": "1rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col md:hidden pb-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-subtle flex items-center justify-between px-gutter-mobile h-touch-target-min transition-colors duration-200">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-primary tracking-tight">My Account</h1>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[calc(3rem+1px)] px-margin-mobile flex flex-col gap-stack-lg pb-stack-lg">
+<!-- Profile Header -->
+<section class="flex flex-col items-center pt-stack-lg">
+<div class="w-24 h-24 rounded-full overflow-hidden border border-subtle mb-stack-md bg-surface-container-low shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="A clean, highly professional, realistic portrait of a South Asian man in his 30s. He is wearing modern, casual business attire. The lighting is soft, high-key studio lighting that creates a bright, welcoming atmosphere suitable for a modern mobile app profile picture. The background is a pure, solid light gray, ensuring focus remains entirely on the friendly, approachable subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgYK7TG8hkjDKu28XECsnEiKuPVuZ1OiaPxSng8q8ZjRr0rDqrA2NhC-LKoFcafsid2Es0PLHrEhxbhZPs-Utzz4ddRXqNOhOyh2JJbu2NFKlcOYzAC6dhvl1skyqTiMFefFZG-TgW3UeWVMFAs2FhUZ1taGOLHjFbXDU8nlUnWwS806sPv0f2BD57HcYhS69ablQXpU_6Vp5hOncEphLyFxBlt9GK0E-oaWfx4YbUTxot-4skcctQlCmTdSj1Jf9NuamnVhONxys"/>
+<button class="absolute bottom-0 w-full bg-primary/80 text-on-primary py-1 flex justify-center items-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary text-center">Ahmed Khan</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1 text-center">+92 300 1234567</p>
+</section>
+<!-- Menu List (Glassmorphism/Flat cards) -->
+<section class="flex flex-col gap-stack-sm w-full max-w-md mx-auto">
+<a class="flex items-center justify-between p-stack-md bg-surface-container-low border border-subtle rounded-lg hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.99]" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-growth-green transition-colors" data-icon="location_on">location_on</span>
+<span class="font-body-lg text-body-lg text-on-surface">Saved Addresses</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-stack-md bg-surface-container-low border border-subtle rounded-lg hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.99]" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-growth-green transition-colors" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-lg text-body-lg text-on-surface">My Orders</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-stack-md bg-surface-container-low border border-subtle rounded-lg hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.99]" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-growth-green transition-colors" data-icon="favorite">favorite</span>
+<span class="font-body-lg text-body-lg text-on-surface">Wishlist</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-stack-md bg-surface-container-low border border-subtle rounded-lg hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.99]" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-growth-green transition-colors" data-icon="help">help</span>
+<span class="font-body-lg text-body-lg text-on-surface">Help &amp; Support</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-stack-md bg-surface-container-low border border-subtle rounded-lg hover:bg-surface-container-high transition-colors duration-200 group active:scale-[0.99]" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-growth-green transition-colors" data-icon="settings">settings</span>
+<span class="font-body-lg text-body-lg text-on-surface">Settings</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+</section>
+<!-- Logout Action -->
+<div class="w-full max-w-md mx-auto mt-stack-md">
+<button class="w-full flex items-center justify-center gap-2 p-stack-md rounded-lg border-2 border-error-container text-error bg-error-container/20 hover:bg-error-container/40 transition-colors duration-200 h-touch-target-min active:scale-95">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Logout</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-subtle flex justify-around items-center h-16 bg-surface px-4 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform w-full h-full" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low active:scale-95 transition-transform w-full h-full relative" href="#">
+<div class="absolute inset-0 bg-primary-container opacity-10 rounded-lg scale-90"></div>
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Account</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>COD Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#006d2f",
+                      "surface-container-highest": "#e2e2e5",
+                      "status-shipped": "#F0FDF4",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "on-primary-container": "#95e8d8",
+                      "outline": "#6e7976",
+                      "primary-container": "#006b5e",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "error-red": "#BA1A1A",
+                      "on-secondary-container": "#007232",
+                      "on-secondary-fixed": "#002109",
+                      "on-background": "#1a1c1e",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#0055d4",
+                      "on-primary-fixed-variant": "#005046",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#001848",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "on-secondary-fixed-variant": "#005322",
+                      "surface-container-low": "#f3f3f6",
+                      "primary-fixed": "#9ff2e1",
+                      "surface-dim": "#dadadc",
+                      "outline-variant": "#bec9c5",
+                      "inverse-surface": "#2f3133",
+                      "surface-container-high": "#e8e8ea",
+                      "primary-fixed-dim": "#83d5c5",
+                      "on-primary": "#ffffff",
+                      "primary": "#005147",
+                      "on-primary-fixed": "#00201b",
+                      "inverse-on-surface": "#f0f0f3",
+                      "growth-green": "#006B5E",
+                      "surface": "#f9f9fc",
+                      "surface-container": "#eeeef0",
+                      "secondary-fixed": "#66ff8e",
+                      "whatsapp-green": "#25D366",
+                      "tertiary": "#003fa3",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#83d5c5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f9f9fc",
+                      "surface-variant": "#e2e2e5",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "secondary-container": "#5dfd8a",
+                      "secondary-fixed-dim": "#3de273",
+                      "border-subtle": "#E1E3E5",
+                      "tertiary-fixed": "#dae2ff",
+                      "trust-blue": "#0055D4",
+                      "surface-tint": "#006b5e",
+                      "on-surface": "#1a1c1e",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-surface-variant": "#3e4946",
+                      "status-pending": "#FEF7FF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "gutter-mobile": "1rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem",
+                      "touch-target-min": "3rem",
+                      "stack-md": "1rem"
+              },
+              "fontFamily": {
+                      "label-sm": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .floating-input:focus-within label, .floating-input input:not(:placeholder-shown) + label {
+            transform: translateY(-120%) scale(0.85);
+            color: #006b5e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- Top App Bar -->
+<header class="bg-surface sticky w-full top-0 z-50 bg-surface-gray dark:bg-surface-dim flat no shadows px-gutter-mobile py-4 flex justify-between items-center transition-colors">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Checkout</h1>
+<div class="w-12 h-12"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-gutter-mobile pt-stack-md pb-32 max-w-lg mx-auto w-full flex flex-col gap-stack-lg">
+<!-- Shipping Information Section -->
+<section class="flex flex-col gap-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Shipping Information</h2>
+<div class="flex flex-col gap-stack-lg mt-stack-sm">
+<!-- Floating Label Input: Full Name -->
+<div class="relative floating-input bg-surface-container-lowest border border-border-subtle rounded-lg px-4 pt-6 pb-2 focus-within:border-growth-green focus-within:border-2 transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface outline-none peer" id="fullName" placeholder=" " required="" type="text"/>
+<label class="absolute left-4 top-4 font-body-md text-body-md text-on-surface-variant transition-all duration-200 pointer-events-none origin-left" for="fullName">Full Name</label>
+</div>
+<!-- Floating Label Input: Phone Number -->
+<div class="relative floating-input bg-surface-container-lowest border border-border-subtle rounded-lg px-4 pt-6 pb-2 focus-within:border-growth-green focus-within:border-2 transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface outline-none peer" id="phoneNumber" placeholder=" " required="" type="tel"/>
+<label class="absolute left-4 top-4 font-body-md text-body-md text-on-surface-variant transition-all duration-200 pointer-events-none origin-left" for="phoneNumber">Phone Number</label>
+</div>
+<!-- Floating Label Input: Delivery Address -->
+<div class="relative floating-input bg-surface-container-lowest border border-border-subtle rounded-lg px-4 pt-6 pb-2 focus-within:border-growth-green focus-within:border-2 transition-all h-32">
+<textarea class="w-full h-full bg-transparent border-none focus:ring-0 p-0 font-body-md text-body-md text-on-surface outline-none peer resize-none" id="deliveryAddress" placeholder=" " required=""></textarea>
+<label class="absolute left-4 top-4 font-body-md text-body-md text-on-surface-variant transition-all duration-200 pointer-events-none origin-left" for="deliveryAddress">Complete Delivery Address</label>
+</div>
+<!-- City/Area Selection (Simplified for COD context) -->
+<div class="relative bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-3 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">City / Region</span>
+<span class="font-body-md text-body-md text-on-surface">Karachi, Sindh</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Payment Method Section -->
+<section class="flex flex-col gap-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Payment Method</h2>
+<!-- Locked COD Card -->
+<div class="bg-surface-container-low border border-border-subtle rounded-lg p-stack-md flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-lg text-label-lg text-on-surface">Cash on Delivery</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Pay with cash when your order arrives. Please keep exact change ready.</span>
+</div>
+<span class="material-symbols-outlined text-growth-green">check_circle</span>
+</div>
+</section>
+<!-- Order Summary Section -->
+<section class="flex flex-col gap-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Order Summary</h2>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-stack-md flex flex-col gap-4">
+<!-- Product Line Item -->
+<div class="flex items-center gap-4 border-b border-border-subtle pb-4">
+<img class="w-16 h-16 object-cover rounded-lg bg-surface-container" data-alt="A modern minimalist product photography shot of a sleek wireless earbud set resting on a clean white surface with subtle soft shadows. The lighting is bright and high-key, complementing a corporate yet approachable tech aesthetic with hints of fresh growth green accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOZcuj4XXim0QRC257GUQQ1XmgJWHDhmbfEOtwhx9qdQimgLd0OtAf1AL6xNCkmPvO2-r75d687EOU0ScrFlC9s4ban8KhrVm8-wLX_0NtUdieN-sMYQD8B0eLeSPyrzpMQNiH436q558DggXGDD8AzsxkIAkeIuLhKBdmJpzUQg81xX7J5ND7re4M_QfL81MaNlBPJOBROKGJl_XnxB5T_G_xJquGFMarJ5BMrCeS5Vk8P66Mple8RD40jnQnp8-8Q7ElInH-MNo"/>
+<div class="flex flex-col flex-grow">
+<span class="font-body-md text-body-md text-on-surface line-clamp-1">Premium Wireless Earbuds Pro</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Qty: 1</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface text-right">Rs 4,500</span>
+</div>
+<!-- Totals -->
+<div class="flex justify-between items-center mt-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">Rs 4,500</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Delivery Fee</span>
+<span class="font-body-md text-body-md text-on-surface">Rs 200</span>
+</div>
+<!-- Grand Total -->
+<div class="flex justify-between items-center pt-4 border-t border-border-subtle mt-2">
+<span class="font-headline-md text-headline-md text-on-surface">Total</span>
+<span class="font-headline-md text-headline-md text-growth-green">Rs 4,700</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Thumb Zone) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle p-4 pb-safe z-50">
+<div class="max-w-lg mx-auto flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Payable</span>
+<span class="font-headline-md text-headline-md text-growth-green">Rs 4,700</span>
+</div>
+<button class="bg-growth-green text-on-primary font-label-lg text-label-lg rounded-full h-14 px-8 flex items-center justify-center flex-grow shadow-sm active:scale-95 transition-transform duration-150 min-w-[48px]">
+                Place Order
+            </button>
+</div>
+</div>
+</body></html>

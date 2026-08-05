@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export function ProductCard({ name, price, stock, imageUrl, className, onPress }: ProductCardProps) {
   const content = (
-    <>
+    <View className="flex-row flex-1 items-center">
       <View className="h-16 w-16 bg-surface-container-low rounded-[12px] items-center justify-center mr-4 overflow-hidden border border-border-subtle">
         {imageUrl ? (
           <Image source={{ uri: imageUrl }} className="w-full h-full" resizeMode="cover" />
@@ -31,7 +31,7 @@ export function ProductCard({ name, price, stock, imageUrl, className, onPress }
           </Text>
         </View>
       </View>
-    </>
+    </View>
   );
 
   const containerClassName = twMerge('bg-surface-container-lowest rounded-[16px] border border-border-subtle p-4 mb-4 flex-row', className);

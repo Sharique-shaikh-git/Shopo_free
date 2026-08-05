@@ -15,7 +15,7 @@ export function OrderCard({ id, customerName, total, status, date, className, on
   const isPending = status === 'PENDING';
   
   const content = (
-    <>
+    <View className="w-full">
       <View className="flex-row justify-between items-center mb-3">
         <Text className="font-bold text-on-surface text-[18px]">Order #{id}</Text>
         <View className={twMerge('px-3 py-1 rounded-full', isPending ? 'bg-[#fff8e1]' : 'bg-secondary-container')}>
@@ -34,7 +34,7 @@ export function OrderCard({ id, customerName, total, status, date, className, on
           Rs {total.toLocaleString()}
         </Text>
       </View>
-    </>
+    </View>
   );
 
   const containerClassName = twMerge('bg-surface-container-lowest rounded-[16px] border border-border-subtle p-5 mb-4', className);

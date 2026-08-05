@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI Shop Builder - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f0f0f3",
+                    "primary-fixed-dim": "#83d5c5",
+                    "error-red": "#BA1A1A",
+                    "on-tertiary-fixed": "#001848",
+                    "on-primary-fixed": "#00201b",
+                    "surface-tint": "#006b5e",
+                    "primary-fixed": "#9ff2e1",
+                    "on-secondary-fixed": "#002109",
+                    "surface-container-low": "#f3f3f6",
+                    "surface-dim": "#dadadc",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e2e2e5",
+                    "surface-container-high": "#e8e8ea",
+                    "inverse-surface": "#2f3133",
+                    "secondary-fixed-dim": "#3de273",
+                    "error": "#ba1a1a",
+                    "border-subtle": "#E1E3E5",
+                    "surface": "#f9f9fc",
+                    "trust-blue": "#0055D4",
+                    "primary-container": "#006b5e",
+                    "whatsapp-green": "#25D366",
+                    "tertiary-fixed": "#dae2ff",
+                    "on-secondary-container": "#007232",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "on-primary-container": "#95e8d8",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ccd8ff",
+                    "growth-green": "#006B5E",
+                    "status-shipped": "#F0FDF4",
+                    "on-primary-fixed-variant": "#005046",
+                    "primary": "#005147",
+                    "surface-variant": "#e2e2e5",
+                    "tertiary": "#003fa3",
+                    "outline": "#6e7976",
+                    "tertiary-container": "#0055d4",
+                    "inverse-primary": "#83d5c5",
+                    "secondary": "#006d2f",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005322",
+                    "on-background": "#1a1c1e",
+                    "secondary-fixed": "#66ff8e",
+                    "surface-bright": "#f9f9fc",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#bec9c5",
+                    "status-pending": "#FEF7FF",
+                    "on-surface": "#1a1c1e",
+                    "secondary-container": "#5dfd8a",
+                    "on-surface-variant": "#3e4946",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeef0",
+                    "surface-gray": "#F8F9FA",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9fc",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "2rem",
+                    "gutter-mobile": "1rem",
+                    "stack-md": "1rem",
+                    "touch-target-min": "3rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .language-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .language-card.selected {
+            border-color: #006B5E;
+            background-color: #F0FDF4; /* Very subtle tint for selection */
+        }
+        .language-card.selected .check-icon {
+            opacity: 1;
+        }
+        .check-icon {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        /* Custom scrollbar hiding for clean UI */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen flex flex-col font-body-md antialiased selection:bg-growth-green selection:text-white">
+<!-- Hero / Header Area -->
+<header class="pt-12 px-margin-mobile md:px-8 pb-stack-lg flex-shrink-0 flex flex-col items-center text-center mt-8">
+<div class="w-16 h-16 rounded-2xl bg-growth-green text-white flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 32px; font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-4">
+            Start your online business in seconds
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+            Select your preferred language to continue setting up your shop.
+        </p>
+</header>
+<!-- Main Content Area (Scrollable if needed on very small screens, but mostly centered) -->
+<main class="flex-grow px-margin-mobile md:px-8 flex flex-col items-center justify-start pb-32">
+<div class="w-full max-w-md flex flex-col gap-stack-md mt-4">
+<!-- Language Option: English -->
+<button class="language-card selected w-full bg-surface-container-lowest border-2 border-growth-green rounded-xl p-stack-md flex items-center justify-between shadow-sm relative overflow-hidden group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growth-green" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="font-label-lg text-label-lg">EN</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-md text-headline-md text-on-background">English</span>
+</div>
+</div>
+<div class="check-icon text-growth-green relative z-10 opacity-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 28px;">check_circle</span>
+</div>
+</button>
+<!-- Language Option: Urdu -->
+<button class="language-card w-full bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex items-center justify-between shadow-sm relative overflow-hidden group hover:border-outline-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growth-green" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold">اردو</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-md text-headline-md text-on-background">Urdu (اردو)</span>
+</div>
+</div>
+<div class="check-icon text-growth-green relative z-10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 28px;">check_circle</span>
+</div>
+</button>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed thumb zone) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-border-subtle p-margin-mobile md:px-8 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50">
+<div class="max-w-md mx-auto flex justify-center">
+<button class="w-full h-14 bg-growth-green hover:bg-primary-container text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95">
+                Start Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+        function selectLanguage(clickedElement) {
+            // Remove 'selected' class and reset styling from all cards
+            const cards = document.querySelectorAll('.language-card');
+            cards.forEach(card => {
+                card.classList.remove('selected');
+                card.classList.remove('border-growth-green', 'border-2');
+                card.classList.add('border-border-subtle', 'border');
+                
+                // Hide checkmark
+                const checkIcon = card.querySelector('.check-icon');
+                if(checkIcon) checkIcon.style.opacity = '0';
+            });
+
+            // Add 'selected' class and styling to clicked card
+            clickedElement.classList.add('selected');
+            clickedElement.classList.remove('border-border-subtle', 'border');
+            clickedElement.classList.add('border-growth-green', 'border-2');
+            
+            // Show checkmark
+            const activeCheckIcon = clickedElement.querySelector('.check-icon');
+            if(activeCheckIcon) activeCheckIcon.style.opacity = '1';
+            
+            // Subtle vibration feedback if available (for mobile)
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+    </script>
+</body></html>

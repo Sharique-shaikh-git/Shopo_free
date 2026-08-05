@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Edit Product - Kinetic Growth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3e4946",
+                      "tertiary-container": "#0055d4",
+                      "surface-variant": "#e2e2e5",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#007232",
+                      "tertiary-fixed": "#dae2ff",
+                      "on-secondary-fixed-variant": "#005322",
+                      "inverse-surface": "#2f3133",
+                      "inverse-on-surface": "#f0f0f3",
+                      "error-red": "#BA1A1A",
+                      "trust-blue": "#0055D4",
+                      "on-surface": "#1a1c1e",
+                      "on-primary-fixed": "#00201b",
+                      "primary": "#005147",
+                      "surface-container-low": "#f3f3f6",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-dim": "#dadadc",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-primary-container": "#95e8d8",
+                      "error": "#ba1a1a",
+                      "surface-gray": "#F8F9FA",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#006b5e",
+                      "on-background": "#1a1c1e",
+                      "whatsapp-green": "#25D366",
+                      "secondary-container": "#5dfd8a",
+                      "surface": "#f9f9fc",
+                      "outline-variant": "#bec9c5",
+                      "outline": "#6e7976",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#003fa3",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed": "#66ff8e",
+                      "primary-fixed-dim": "#83d5c5",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container-high": "#e8e8ea",
+                      "growth-green": "#006B5E",
+                      "secondary": "#006d2f",
+                      "surface-container-highest": "#e2e2e5",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "status-pending": "#FEF7FF",
+                      "on-secondary-fixed": "#002109",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#006b5e",
+                      "border-subtle": "#E1E3E5",
+                      "inverse-primary": "#83d5c5",
+                      "background": "#f9f9fc",
+                      "status-shipped": "#F0FDF4",
+                      "secondary-fixed-dim": "#3de273",
+                      "surface-container": "#eeeef0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "1rem",
+                      "touch-target-min": "3rem",
+                      "stack-lg": "2rem",
+                      "margin-mobile": "1.25rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased pb-32">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface z-40 flex justify-between items-center px-gutter-mobile py-4 border-b border-border-subtle">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Edit Product</h1>
+<button aria-label="Delete product" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-error-red hover:bg-error-container transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="delete">delete</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mx-auto">
+<!-- Product Image Section -->
+<section class="relative w-full aspect-square bg-surface-container-low mb-stack-lg group">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A minimalist ceramic mug with a smooth matte finish, sitting on a clean, bright, white studio backdrop. The lighting is soft and natural, emphasizing the subtle textures of the ceramic. The composition is simple and elegant, focusing entirely on the product to convey a sense of modern, high-quality craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMwyJ6vqQd6nYtJ7Fva0Kj0QSOlFL6Elh2l3EyS73cw6iL5txdKtiYzK7E6abRjr8Zeco8kqL430NxIQN3wz4dAVW7rsCr34BLPhmsljax91X7pQh_63GLZlBgdpg8EXXzIcne0w2b_d_o1uMdKtur_h9wbWAhZNudBT3rjz5V2fpgbohCeVBLVf8WOlxzA6bzme5APeXKevA-v-J2n06h20zq7th2k9UksWgOqslfBkkj82Jk4YA-AVuxdxVZqUns9CLxxFbP8u8"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+<button class="bg-surface/90 text-primary px-6 py-3 rounded-full font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface transition-colors active:scale-95 duration-150 shadow-sm">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+                    Change Photo
+                </button>
+</div>
+<!-- Mobile persistent button -->
+<button class="md:hidden absolute bottom-4 right-4 bg-surface text-primary w-12 h-12 rounded-full flex items-center justify-center shadow-md active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+</section>
+<!-- Form Fields -->
+<form class="px-gutter-mobile flex flex-col gap-stack-lg">
+<!-- Product Title -->
+<div class="relative w-full">
+<input class="block w-full px-4 py-4 pt-6 bg-surface text-on-surface font-body-md text-body-md border border-border-subtle rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors peer" id="product_title" name="product_title" placeholder=" " type="text" value="Minimalist Ceramic Mug"/>
+<label class="absolute text-on-surface-variant font-label-sm text-label-sm duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="product_title">Product Title</label>
+</div>
+<!-- Description -->
+<div class="relative w-full">
+<textarea class="block w-full px-4 py-4 pt-6 bg-surface text-on-surface font-body-md text-body-md border border-border-subtle rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors peer resize-none" id="product_description" name="product_description" placeholder=" " rows="4">Handcrafted ceramic mug with a matte finish. Perfect for your morning coffee or tea.</textarea>
+<label class="absolute text-on-surface-variant font-label-sm text-label-sm duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="product_description">Description</label>
+</div>
+<!-- Price & Stock Row -->
+<div class="flex gap-4 w-full">
+<!-- Price -->
+<div class="relative w-1/2">
+<div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+<span class="text-on-surface-variant font-body-md text-body-md mt-2">PKR</span>
+</div>
+<input class="block w-full ps-14 pe-4 py-4 pt-6 bg-surface text-on-surface font-body-md text-body-md border border-border-subtle rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors peer" id="product_price" name="product_price" placeholder=" " type="number" value="850"/>
+<label class="absolute text-on-surface-variant font-label-sm text-label-sm duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="product_price">Price</label>
+</div>
+<!-- Stock -->
+<div class="relative w-1/2">
+<input class="block w-full px-4 py-4 pt-6 bg-surface text-on-surface font-body-md text-body-md border border-border-subtle rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors peer" id="product_stock" name="product_stock" placeholder=" " type="number" value="12"/>
+<label class="absolute text-on-surface-variant font-label-sm text-label-sm duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary" for="product_stock">Stock Quantity</label>
+</div>
+</div>
+<!-- Category Dropdown -->
+<div class="relative w-full">
+<select class="block w-full px-4 py-4 pt-6 bg-surface text-on-surface font-body-md text-body-md border border-border-subtle rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors appearance-none peer cursor-pointer" id="product_category" name="product_category">
+<option selected="" value="home_decor">Home &amp; Decor</option>
+<option value="electronics">Electronics</option>
+<option value="clothing">Clothing</option>
+<option value="beauty">Health &amp; Beauty</option>
+</select>
+<label class="absolute text-on-surface-variant font-label-sm text-label-sm duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-4 peer-focus:text-primary pointer-events-none" for="product_category">Category</label>
+<div class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Status Toggle -->
+<div class="w-full flex items-center justify-between p-4 bg-surface border border-border-subtle rounded-lg mb-stack-md">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">Product Status</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Visible in your storefront</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ms-3 font-label-lg text-label-lg text-primary peer-checked:text-primary">Active</span>
+</label>
+</div>
+<!-- Secondary Delete Action -->
+<button class="w-full flex items-center justify-center gap-2 py-4 border-2 border-error-red text-error-red rounded-lg font-label-lg text-label-lg bg-transparent hover:bg-error-container/50 transition-colors active:scale-95 duration-150 mb-stack-md" type="button">
+<span class="material-symbols-outlined" data-icon="delete_outline">delete_outline</span>
+                Delete Product
+            </button>
+</form>
+</main>
+<!-- Bottom Action Bar (Fixed) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-border-subtle px-gutter-mobile py-4 pb-safe z-50">
+<button class="w-full bg-growth-green text-on-primary rounded-lg min-h-[56px] font-label-lg text-label-lg flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm active:scale-[0.98] duration-150">
+            Save Changes
+        </button>
+</div>
+</body></html>

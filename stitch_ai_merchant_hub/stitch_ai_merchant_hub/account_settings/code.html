@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3e4946",
+                      "tertiary-container": "#0055d4",
+                      "surface-variant": "#e2e2e5",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#007232",
+                      "tertiary-fixed": "#dae2ff",
+                      "on-secondary-fixed-variant": "#005322",
+                      "inverse-surface": "#2f3133",
+                      "inverse-on-surface": "#f0f0f3",
+                      "error-red": "#BA1A1A",
+                      "trust-blue": "#0055D4",
+                      "on-surface": "#1a1c1e",
+                      "on-primary-fixed": "#00201b",
+                      "primary": "#005147",
+                      "surface-container-low": "#f3f3f6",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-dim": "#dadadc",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-primary-container": "#95e8d8",
+                      "error": "#ba1a1a",
+                      "surface-gray": "#F8F9FA",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#006b5e",
+                      "on-background": "#1a1c1e",
+                      "whatsapp-green": "#25D366",
+                      "secondary-container": "#5dfd8a",
+                      "surface": "#f9f9fc",
+                      "outline-variant": "#bec9c5",
+                      "outline": "#6e7976",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#003fa3",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed": "#66ff8e",
+                      "primary-fixed-dim": "#83d5c5",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container-high": "#e8e8ea",
+                      "growth-green": "#006B5E",
+                      "secondary": "#006d2f",
+                      "surface-container-highest": "#e2e2e5",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "status-pending": "#FEF7FF",
+                      "on-secondary-fixed": "#002109",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#006b5e",
+                      "border-subtle": "#E1E3E5",
+                      "inverse-primary": "#83d5c5",
+                      "background": "#f9f9fc",
+                      "status-shipped": "#F0FDF4",
+                      "secondary-fixed-dim": "#3de273",
+                      "surface-container": "#eeeef0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "1rem",
+                      "touch-target-min": "3rem",
+                      "stack-lg": "2rem",
+                      "margin-mobile": "1.25rem",
+                      "gutter-mobile": "1rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface flex justify-between items-center px-gutter-mobile py-4 z-40 bg-surface-gray">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Account Settings</h1>
+<div class="min-w-[48px]"></div> <!-- Placeholder to center title -->
+</header>
+<main class="flex-grow px-gutter-mobile pt-stack-lg pb-32 flex flex-col gap-stack-lg max-w-md mx-auto w-full">
+<!-- Profile Photo -->
+<div class="flex justify-center">
+<div class="relative group cursor-pointer">
+<div class="w-24 h-24 rounded-full overflow-hidden border border-border-subtle bg-surface-container-high">
+<img alt="Profile Photo" class="w-full h-full object-cover" data-alt="A professional, well-lit studio portrait of a South Asian merchant in his 30s. He is looking forward with a subtle, confident smile. The background is a clean, neutral white. The lighting is soft and even, typical of a high-quality modern corporate headshot. The mood is approachable and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqzkD_9hibhxeGkOZm2eLOaeyrsWJ3B_Cj_0LkVnifRF4BHtYogDlsWgMqP0KDwC4_DGFCjEQRzws4n21uK2gC8dpX6j036hQSgx6zEi406Um4476GyMwMQKNjtuAKj3I1kI37CxhwiO8pEGkLzRX4ZYfPL0VxZ8In4GNVEf2RdS_aH6zIVpRYOXW5LD3-OkCmGXvgzLdpOSLzBqRcQ7benUODltA4lKOJlY-dgF2qf9bQK9t6F1W1GLdc103DWgAR6FF9agbqK7A"/>
+</div>
+<div class="absolute inset-0 bg-on-background/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary" data-icon="photo_camera" data-weight="fill">photo_camera</span>
+</div>
+<button aria-label="Change photo" class="absolute bottom-0 right-0 bg-primary-container text-on-primary-container rounded-full p-1.5 shadow-sm min-w-[36px] min-h-[36px] flex items-center justify-center border-2 border-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit" data-weight="fill">edit</span>
+</button>
+</div>
+</div>
+<!-- Form Fields -->
+<form class="flex flex-col gap-stack-md">
+<!-- Full Name -->
+<div class="relative w-full">
+<label class="absolute left-4 -top-2.5 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="fullName">Full Name</label>
+<input class="w-full h-14 px-4 pt-1 rounded-lg border border-outline-variant bg-transparent font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="fullName" placeholder="Enter your full name" type="text" value="Ahmed Khan"/>
+</div>
+<!-- Phone Number (Read-only) -->
+<div class="relative w-full">
+<label class="absolute left-4 -top-2.5 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="phoneNumber">Phone Number</label>
+<div class="relative">
+<input class="w-full h-14 pl-4 pr-12 pt-1 rounded-lg border border-outline-variant bg-surface-container-lowest font-body-md text-on-surface-variant cursor-not-allowed" id="phoneNumber" placeholder="Phone number" readonly="" type="text" value="+92 300 1234567"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<!-- Email (Optional) -->
+<div class="relative w-full">
+<label class="absolute left-4 -top-2.5 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="email">Email <span class="text-outline">(Optional)</span></label>
+<input class="w-full h-14 px-4 pt-1 rounded-lg border border-outline-variant bg-transparent font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="email" placeholder="Enter your email" type="email" value="ahmed@digitaldukaan.pk"/>
+</div>
+<!-- Shop Name -->
+<div class="relative w-full">
+<label class="absolute left-4 -top-2.5 bg-surface px-1 font-label-sm text-label-sm text-on-surface-variant" for="shopName">Shop Name</label>
+<input class="w-full h-14 px-4 pt-1 rounded-lg border border-outline-variant bg-transparent font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="shopName" placeholder="Enter your shop name" type="text" value="Kinetic Growth"/>
+</div>
+<!-- Save Changes Button -->
+<div class="pt-stack-sm">
+<button class="w-full h-14 bg-growth-green text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center hover:bg-primary transition-colors active:scale-95 duration-150" type="button">
+                    Save Changes
+                </button>
+</div>
+</form>
+<!-- Danger Zone -->
+<div class="mt-stack-lg border-t border-border-subtle pt-stack-lg">
+<div class="bg-error-container/20 border border-error-container rounded-lg p-stack-md flex flex-col gap-4">
+<div>
+<h3 class="font-label-lg text-label-lg text-error-red mb-1">Danger Zone</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Permanently delete your account and all associated data. This action cannot be undone.</p>
+</div>
+<button class="w-full h-14 border-2 border-error-red text-error-red rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-error-container/50 transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+                    Delete Account
+                </button>
+</div>
+</div>
+</main>
+</body></html>

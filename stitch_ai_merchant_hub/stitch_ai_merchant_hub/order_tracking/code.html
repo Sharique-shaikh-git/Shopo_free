@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Track Your Order - Shop Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .ai-shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3e4946",
+                      "tertiary-container": "#0055d4",
+                      "surface-variant": "#e2e2e5",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#dae2ff",
+                      "on-secondary-fixed-variant": "#005322",
+                      "on-secondary-container": "#007232",
+                      "inverse-surface": "#2f3133",
+                      "inverse-on-surface": "#f0f0f3",
+                      "error-red": "#BA1A1A",
+                      "primary": "#005147",
+                      "trust-blue": "#0055D4",
+                      "on-surface": "#1a1c1e",
+                      "on-primary-fixed": "#00201b",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-container-low": "#f3f3f6",
+                      "surface-dim": "#dadadc",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-tertiary-fixed": "#001848",
+                      "on-primary-container": "#95e8d8",
+                      "error": "#ba1a1a",
+                      "surface-gray": "#F8F9FA",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#006b5e",
+                      "on-background": "#1a1c1e",
+                      "surface": "#f9f9fc",
+                      "whatsapp-green": "#25D366",
+                      "secondary-container": "#5dfd8a",
+                      "outline-variant": "#bec9c5",
+                      "outline": "#6e7976",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#003fa3",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "secondary-fixed": "#66ff8e",
+                      "primary-fixed-dim": "#83d5c5",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container-high": "#e8e8ea",
+                      "growth-green": "#006B5E",
+                      "surface-container-highest": "#e2e2e5",
+                      "secondary": "#006d2f",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error-container": "#93000a",
+                      "status-pending": "#FEF7FF",
+                      "on-secondary-fixed": "#002109",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#006b5e",
+                      "border-subtle": "#E1E3E5",
+                      "inverse-primary": "#83d5c5",
+                      "background": "#f9f9fc",
+                      "status-shipped": "#F0FDF4",
+                      "secondary-fixed-dim": "#3de273",
+                      "surface-container": "#eeeef0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target-min": "48px",
+                      "stack-lg": "2rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-md": "1rem",
+                      "stack-sm": "0.5rem",
+                      "gutter-mobile": "1rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen pb-32">
+<!-- Top AppBar (from Shared Components JSON) -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background flex justify-between items-center px-gutter-mobile py-4 w-full z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-growth-green dark:text-primary-fixed-dim">storefront</span>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Shop Builder</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-on-surface-variant">language</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-8 max-w-2xl mx-auto">
+<!-- Order Identity Section -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-stack-sm">
+<div>
+<p class="text-on-surface-variant font-label-lg text-label-lg uppercase tracking-wider">Order #SB-8291</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tracking your package</h2>
+</div>
+<div class="bg-secondary-container px-3 py-1 rounded-xl text-on-secondary-container font-label-lg text-label-lg">
+                    In Transit
+                </div>
+</div>
+<p class="text-on-surface-variant">Estimated delivery: <span class="font-bold text-on-surface">Oct 24, 2023</span></p>
+</section>
+<!-- Bento Grid Status Visualization -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-stack-lg">
+<!-- Map Placeholder -->
+<div class="md:col-span-2 relative h-48 rounded-xl overflow-hidden border border-border-subtle group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A clean, minimalist digital map showing a delivery route through a modern urban neighborhood. The map uses a soft pastel color palette with trust-blue lines and a pulsing growth-green delivery icon. The lighting is bright and airy, reflecting a professional and reliable logistical service." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF52MFYFlWrzacffemn5mpypsWTDB_urt_WcXObE-vXg5GWcgtzFSswVz0HMVnJOIQf6sC4nrEg-jyvJOE_Po4OCfsNuvhz86s2FNJH1dWO0H5SCHPRoQFOgmmakVz8dRg01csPafjggcExEYmCa_TTH8K0xLaffL9UWsZnVjGqzi8SZAGCyttdl-_uvUMxVCwaGRjMLqnKuMrG0gZ8lsCUXNb-o6IXx6iysiOLPuw4smeGpEN4UopWYe8ugwxufnko4rB3IByrOc')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-whatsapp-green" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-lg text-label-lg">Currently near Saddar Town, Karachi</span>
+</div>
+</div>
+<!-- Estimated Time Bento Card -->
+<div class="p-stack-md rounded-xl border border-border-subtle bg-surface-container-lowest flex flex-col justify-between">
+<span class="material-symbols-outlined text-trust-blue text-4xl mb-2">schedule</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Arrival Time</h3>
+<p class="font-headline-md text-headline-md text-on-surface">~ 45 mins</p>
+</div>
+</div>
+<!-- Delivery Partner Bento Card -->
+<div class="p-stack-md rounded-xl border border-border-subtle bg-surface-container-lowest flex flex-col justify-between">
+<span class="material-symbols-outlined text-growth-green text-4xl mb-2">local_shipping</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Carrier</h3>
+<p class="font-headline-md text-headline-md text-on-surface">Swift Logistics</p>
+</div>
+</div>
+</div>
+<!-- Vertical Stepper Progress -->
+<section class="bg-surface-gray rounded-xl p-stack-md border border-border-subtle relative overflow-hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Order Timeline</h3>
+<div class="space-y-8 relative">
+<!-- Vertical Line Connector -->
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-outline-variant"></div>
+<!-- Step 1: Delivered (Inactive) -->
+<div class="flex gap-4 relative z-10 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Delivered</p>
+<p class="text-label-sm text-on-surface-variant">Waiting to reach your doorstep</p>
+</div>
+</div>
+<!-- Step 2: On the way (Active) -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-growth-green flex items-center justify-center flex-shrink-0 step-pulse">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-bold">On the way</p>
+<p class="text-label-sm text-on-surface-variant">The rider has picked up your order</p>
+<p class="text-label-sm text-growth-green mt-1">11:32 AM</p>
+</div>
+</div>
+<!-- Step 3: Processing (Completed) -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Processing</p>
+<p class="text-label-sm text-on-surface-variant">Merchant verified and packed items</p>
+<p class="text-label-sm text-on-surface-variant mt-1">10:15 AM</p>
+</div>
+</div>
+<!-- Step 4: Order Placed (Completed) -->
+<div class="flex gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Order Placed</p>
+<p class="text-label-sm text-on-surface-variant">Successfully received by shop</p>
+<p class="text-label-sm text-on-surface-variant mt-1">09:50 AM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Items Detail (Collapsible Style) -->
+<section class="mt-stack-lg border border-border-subtle rounded-xl overflow-hidden bg-white">
+<button class="w-full flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors" onclick="toggleDetails()">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_bag</span>
+<span class="font-label-lg text-label-lg text-on-surface">Order Details (3 Items)</span>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300" id="chevron">expand_more</span>
+</button>
+<div class="hidden border-t border-border-subtle p-stack-md space-y-4" id="orderDetails">
+<div class="flex justify-between items-center">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-surface-container-high"></div>
+<div>
+<p class="text-label-lg text-on-surface">Classic Polo T-Shirt</p>
+<p class="text-label-sm text-on-surface-variant">Size: L, Blue</p>
+</div>
+</div>
+<p class="font-bold text-on-surface">Rs. 2,450</p>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-surface-container-high"></div>
+<div>
+<p class="text-label-lg text-on-surface">Canvas Sneakers</p>
+<p class="text-label-sm text-on-surface-variant">Size: 42, White</p>
+</div>
+</div>
+<p class="font-bold text-on-surface">Rs. 4,200</p>
+</div>
+<div class="pt-4 border-t border-dashed border-outline-variant flex justify-between items-center">
+<p class="font-label-lg text-label-lg">Total Amount</p>
+<p class="font-headline-md text-headline-md text-growth-green">Rs. 6,650</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Fixed CTAs) -->
+<div class="fixed bottom-0 left-0 w-full bg-white glass-panel border-t border-border-subtle p-4 z-[60] flex gap-3 pb-safe">
+<a class="flex-1 flex items-center justify-center gap-2 py-4 border-2 border-growth-green text-growth-green font-bold rounded-xl active:scale-95 duration-150" href="tel:+923000000000">
+<span class="material-symbols-outlined">call</span>
+            Call Merchant
+        </a>
+<button class="flex-1 bg-growth-green text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 duration-150 shadow-lg shadow-growth-green/20">
+<span class="material-symbols-outlined">help_center</span>
+            Support
+        </button>
+</div>
+<!-- Bottom Navigation Bar (from Shared Components JSON) -->
+<!-- Note: Following "Semantic Shell Mandate", suppressing active navigation tabs on a sub-page/task-focused screen. 
+         However, the user might navigate back, so keeping standard nav but ensuring logic mapping -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-on-background border-t border-border-subtle dark:border-outline-variant md:hidden">
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-label-sm text-label-sm">Upload</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        function toggleDetails() {
+            const details = document.getElementById('orderDetails');
+            const chevron = document.getElementById('chevron');
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                details.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body></html>

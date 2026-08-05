@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Store Launch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bec9c5",
+                      "outline": "#6e7976",
+                      "on-surface": "#1a1c1e",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1a1c1e",
+                      "surface-bright": "#f9f9fc",
+                      "tertiary-fixed": "#dae2ff",
+                      "secondary-container": "#5dfd8a",
+                      "on-secondary-container": "#007232",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#003fa3",
+                      "surface-tint": "#006b5e",
+                      "trust-blue": "#0055D4",
+                      "primary-container": "#006b5e",
+                      "error-red": "#BA1A1A",
+                      "on-error-container": "#93000a",
+                      "status-pending": "#FEF7FF",
+                      "on-primary-fixed": "#00201b",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#0055d4",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-tertiary-container": "#ccd8ff",
+                      "surface-container-high": "#e8e8ea",
+                      "inverse-surface": "#2f3133",
+                      "status-shipped": "#F0FDF4",
+                      "error": "#ba1a1a",
+                      "border-subtle": "#E1E3E5",
+                      "on-secondary-fixed": "#002109",
+                      "surface-gray": "#F8F9FA",
+                      "surface-container-low": "#f3f3f6",
+                      "secondary-fixed": "#66ff8e",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-variant": "#e2e2e5",
+                      "inverse-primary": "#83d5c5",
+                      "background": "#f9f9fc",
+                      "primary": "#005147",
+                      "on-surface-variant": "#3e4946",
+                      "primary-fixed-dim": "#83d5c5",
+                      "inverse-on-surface": "#f0f0f3",
+                      "whatsapp-green": "#25D366",
+                      "surface-dim": "#dadadc",
+                      "on-tertiary-fixed": "#001848",
+                      "on-secondary-fixed-variant": "#005322",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#95e8d8",
+                      "growth-green": "#006B5E",
+                      "surface-container": "#eeeef0",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "surface": "#f9f9fc",
+                      "primary-fixed": "#9ff2e1",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#3de273",
+                      "secondary": "#006d2f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1rem",
+                      "stack-lg": "2rem",
+                      "margin-mobile": "1.25rem",
+                      "gutter-mobile": "1rem",
+                      "touch-target-min": "3rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "label-lg": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+        
+        /* Subtle continuous pulse for the URL box to encourage copying */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 107, 94, 0.1); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 107, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 107, 94, 0); }
+        }
+        .pulse-url {
+            animation: subtle-pulse 3s infinite;
+        }
+
+        /* Confetti Animation for entry */
+        @keyframes float-up {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-float-up {
+            animation: float-up 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen w-full overflow-hidden flex flex-col justify-between selection:bg-growth-green selection:text-white">
+<!-- Top Navigation (Shell logic: Suppressed for transactional success screen, but adding a minimalistic close to dashboard option to allow escape) -->
+<header class="w-full flex justify-end items-center px-gutter-mobile py-4 sticky top-0 z-10 bg-transparent">
+<button aria-label="Close to Dashboard" class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile max-w-md mx-auto w-full pb-[176px]">
+<!-- Success Illustration / Graphic -->
+<div class="w-48 h-48 mb-stack-lg rounded-full flex items-center justify-center bg-status-shipped relative animate-float-up">
+<!-- Confetti abstract shapes (static in CSS for simplicity, representing the celebratory nature) -->
+<div class="absolute -top-4 -left-4 w-6 h-6 bg-secondary-container rounded-full opacity-60"></div>
+<div class="absolute top-10 -right-8 w-4 h-4 bg-growth-green rounded-full opacity-50"></div>
+<div class="absolute -bottom-6 left-10 w-8 h-8 bg-trust-blue rounded-full opacity-40"></div>
+<div class="w-32 h-32 bg-growth-green rounded-full flex items-center justify-center text-white shadow-[0_10px_30px_rgba(0,107,94,0.3)]">
+<span class="material-symbols-outlined text-[64px]" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="text-center w-full mb-stack-lg opacity-0 animate-float-up delay-100">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-growth-green mb-stack-sm md:font-headline-lg md:text-headline-lg">
+                Your shop is live!
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Congratulations! You can now start sharing your products with customers.
+            </p>
+</div>
+<!-- Prominent URL Box -->
+<div class="w-full bg-surface-bright border-2 border-primary-container rounded-xl p-4 flex items-center justify-between opacity-0 animate-float-up delay-200 pulse-url mb-stack-lg relative overflow-hidden group hover:bg-surface-container-lowest transition-colors cursor-pointer" id="urlBox">
+<!-- Subtle gradient background purely for visual pop -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-primary-container/5 pointer-events-none"></div>
+<div class="flex flex-col z-10 w-full overflow-hidden">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1">Your Store Link</span>
+<span class="font-body-lg text-body-lg text-growth-green font-bold truncate select-all" id="storeUrl">
+                    myshop.ai/boutique
+                </span>
+</div>
+<button aria-label="Copy Link" class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-surface-container-high rounded-full text-growth-green hover:bg-growth-green hover:text-white transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-growth-green" id="copyBtn">
+<span class="material-symbols-outlined text-[24px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Inline feedback message for copy -->
+<div class="text-trust-blue font-label-sm text-label-sm h-6 opacity-0 transition-opacity flex items-center justify-center mb-4" id="copyFeedback">
+<span class="material-symbols-outlined text-[16px] mr-1">check</span> Link copied to clipboard!
+        </div>
+</main>
+<!-- Bottom Action Area (Thumb Zone) -->
+<div class="fixed bottom-0 w-full px-margin-mobile pb-8 pt-4 bg-gradient-to-t from-surface via-surface to-transparent md:static md:bg-none md:max-w-md md:mx-auto md:pb-margin-mobile z-20">
+<div class="flex flex-col gap-stack-sm opacity-0 animate-float-up delay-300">
+<!-- Primary Action -->
+<button class="w-full min-h-[56px] bg-growth-green text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center hover:bg-primary-fixed-variant transition-colors active:scale-[0.98]">
+                Open My Shop
+                <span class="material-symbols-outlined ml-2 text-[20px]" data-icon="open_in_new">open_in_new</span>
+</button>
+<!-- Secondary Marketing Action -->
+<button class="w-full min-h-[56px] border-2 border-whatsapp-green bg-white text-whatsapp-green font-label-lg text-label-lg rounded-xl flex items-center justify-center hover:bg-status-shipped transition-colors active:scale-[0.98]">
+<svg class="w-6 h-6 mr-2 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+</svg>
+                Share on WhatsApp
+            </button>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlBox = document.getElementById('urlBox');
+            const copyBtn = document.getElementById('copyBtn');
+            const storeUrl = document.getElementById('storeUrl');
+            const feedback = document.getElementById('copyFeedback');
+            
+            const handleCopy = async () => {
+                const textToCopy = storeUrl.innerText.trim();
+                
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    
+                    // Visual feedback on button
+                    const originalIcon = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<span class="material-symbols-outlined text-[24px]" data-icon="check">check</span>';
+                    copyBtn.classList.replace('text-growth-green', 'text-white');
+                    copyBtn.classList.replace('bg-surface-container-high', 'bg-growth-green');
+                    
+                    // Show message
+                    feedback.classList.remove('opacity-0');
+                    
+                    // Remove pulse animation after successful interaction
+                    urlBox.classList.remove('pulse-url');
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalIcon;
+                        copyBtn.classList.replace('text-white', 'text-growth-green');
+                        copyBtn.classList.replace('bg-growth-green', 'bg-surface-container-high');
+                        feedback.classList.add('opacity-0');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            };
+            
+            urlBox.addEventListener('click', handleCopy);
+        });
+    </script>
+</body></html>

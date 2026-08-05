@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Customer Details | Shop Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E1E3E5;
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "status-pending": "#FEF7FF",
+                        "outline": "#6e7976",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "error-red": "#BA1A1A",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#83d5c5",
+                        "growth-green": "#006B5E",
+                        "whatsapp-green": "#25D366",
+                        "trust-blue": "#0055D4",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "tertiary-container": "#0055d4",
+                        "surface-variant": "#e2e2e5",
+                        "secondary-fixed": "#66ff8e",
+                        "error": "#ba1a1a",
+                        "primary-container": "#006b5e",
+                        "surface-dim": "#dadadc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f9f9fc",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-tertiary-fixed": "#001848",
+                        "status-shipped": "#F0FDF4",
+                        "inverse-surface": "#2f3133",
+                        "outline-variant": "#bec9c5",
+                        "primary-fixed-dim": "#83d5c5",
+                        "surface-gray": "#F8F9FA",
+                        "on-primary-fixed-variant": "#005046",
+                        "tertiary": "#003fa3",
+                        "surface-tint": "#006b5e",
+                        "border-subtle": "#E1E3E5",
+                        "secondary-container": "#5dfd8a",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002109",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed": "#00201b",
+                        "background": "#f9f9fc",
+                        "on-surface": "#1a1c1e",
+                        "on-background": "#1a1c1e",
+                        "primary": "#005147",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f3f6",
+                        "secondary-fixed-dim": "#3de273",
+                        "secondary": "#006d2f",
+                        "on-primary-container": "#95e8d8",
+                        "on-secondary-container": "#007232"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "touch-target-min": "3rem",
+                        "gutter-mobile": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar (From JSON Blueprint) -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-on-background flex justify-between items-center px-gutter-mobile py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-growth-green active:scale-95 duration-150 p-2 -ml-2">arrow_back</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Customer Details</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-growth-green">language</span>
+</div>
+</header>
+<main class="px-gutter-mobile space-y-stack-lg mt-4">
+<!-- Profile Header Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<!-- Main Info Card -->
+<div class="md:col-span-2 border-subtle border rounded-xl p-stack-md bg-white flex flex-col items-center sm:items-start sm:flex-row gap-6">
+<div class="relative">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a friendly Pakistani male merchant in a clean, modern studio setting. Soft, directional lighting highlights natural skin textures and a warm, approachable smile. The background is a minimalist gradient of growth-green and white, reflecting a corporate and reliable aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtL0X39oLooPo9OMvalMWG_kMWhe49Tr6N0Yneh6XGHjHmknZqjgXUS-1xiwBHu7teEEVdjEnfAUy9OqI9MVYGxkeljc5YC2oWQNWSRc4V72ady1vEov4e3qAbeQbgTb0WME-5XCojsAIkRhAl3RBPl_e7yiRxaUKJEB296iqnDyqSU9C4hlK9qEnq3hQx9UZgXRZPNHiqT9XZBvPzISPQ3wbs89BGa8c5BIB9LzMMSxPXMIFN3pEHKyAmP8aNw6dUWO0L5qomixo"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-whatsapp-green text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1 space-y-2 text-center sm:text-left">
+<div class="flex flex-col sm:flex-row sm:items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Haroon Rashid</h2>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-0.5 rounded-full font-label-sm text-label-sm self-center sm:self-auto">Gold Member</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center justify-center sm:justify-start gap-2">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                        Gulberg III, Lahore
+                    </p>
+<div class="pt-4 flex flex-wrap justify-center sm:justify-start gap-3">
+<button class="bg-whatsapp-green text-white px-6 py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+                            WhatsApp
+                        </button>
+<button class="border-2 border-trust-blue text-trust-blue px-6 py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">call</span>
+                            Call
+                        </button>
+</div>
+</div>
+</div>
+<!-- Lifetime Value Stats Card -->
+<div class="border-subtle border rounded-xl p-stack-md bg-growth-green text-white flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Lifetime Value</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">Rs. 84,200</h3>
+</div>
+<div class="mt-4 pt-4 border-t border-primary/30 space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Total Orders</span>
+<span class="font-label-lg text-label-lg">12</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Avg. Order Value</span>
+<span class="font-label-lg text-label-lg">Rs. 7,016</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-stack-md">
+<div class="border-subtle border rounded-xl p-stack-md bg-white">
+<span class="material-symbols-outlined text-growth-green mb-2">calendar_today</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Customer Since</p>
+<p class="font-label-lg text-label-lg text-on-surface">Oct 2023</p>
+</div>
+<div class="border-subtle border rounded-xl p-stack-md bg-white">
+<span class="material-symbols-outlined text-growth-green mb-2">package_2</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active Returns</p>
+<p class="font-label-lg text-label-lg text-on-surface">0</p>
+</div>
+<div class="border-subtle border rounded-xl p-stack-md bg-white">
+<span class="material-symbols-outlined text-growth-green mb-2">history</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Last Purchase</p>
+<p class="font-label-lg text-label-lg text-on-surface">3 days ago</p>
+</div>
+<div class="border-subtle border rounded-xl p-stack-md bg-white">
+<span class="material-symbols-outlined text-growth-green mb-2">favorite</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Top Category</p>
+<p class="font-label-lg text-label-lg text-on-surface">Electronics</p>
+</div>
+</section>
+<!-- Order List Section -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Orders</h3>
+<button class="text-trust-blue font-label-lg text-label-lg hover:underline transition-all">View All</button>
+</div>
+<div class="space-y-stack-sm">
+<!-- Order Item 1 -->
+<div class="border-subtle border rounded-xl p-stack-md bg-white hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<p class="font-label-lg text-label-lg text-on-surface">Order #ORD-9921</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 24, 2023 • 2 Items</p>
+</div>
+<span class="bg-status-shipped text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                            Delivered
+                        </span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-border-subtle">
+<div class="w-12 h-12 rounded-lg bg-surface-gray border border-border-subtle overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up high-quality product photo of a sleek modern smartphone with a glass back, resting on a white minimalist surface with soft ambient lighting. The product looks premium and trustworthy, fitting a professional retail application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ePhxAeuD0t0Ej2WfwLZBl3-593XMQNt_KdyDRb-T-a7dyxssBki9LzB9ZjSz_XBr_UwOPDCyGW9_OsSmZwnU4KmKnE90HD6r6ZkbciDY4QP-AVh6VAwx_Lvl7m-zoTOJKZ1Gm6ZFWUaVYPo0zw-0j9Iv7KpPpodkyj-oQPA_GovjyKk2Cs--BEvXZg-080TI2yRxtPUZtXy5EozA3-aiIk6x2af9YAs4jDVK0Na1NS_eZBPtD3AhegQb8X2fauT4om18A2Dp8EM"/>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface truncate">iPhone 15 Pro Max - Natural Titanium</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Rs. 345,000</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Order Item 2 -->
+<div class="border-subtle border rounded-xl p-stack-md bg-white hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<p class="font-label-lg text-label-lg text-on-surface">Order #ORD-8812</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 12, 2023 • 1 Item</p>
+</div>
+<span class="bg-status-pending text-primary px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+                            Processing
+                        </span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-border-subtle">
+<div class="w-12 h-12 rounded-lg bg-surface-gray border border-border-subtle overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Macro photography of professional wireless noise-canceling headphones in charcoal gray. The lighting is sophisticated and moody, highlighting the ergonomic curves and high-tech finish. Minimalist aesthetic on a neutral gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBSqBazNG2nlckrDcmy__PNTz3DWKbBJPAZM7Jr6Ar3dxsASaT598NcqdHgTTNmO5TDM-aTXjex56LXuItXQE9Au8OeLu3K1KQxzl0JrHmgf6XfaagEmKFYURzQPBK6eu5gGSPnIFKaQ1dB6ntwB4o16fySfY6azGOqwltr23eimSpkSWBzu-0vYEfRl6Tl3R2vyftefnJA1oqHujpJKw6FFBdVmvhyNaPw79ClrAQib8AsWLdKKlaG-6QJF-SUuZadw7I-OGVnvQ"/>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Bose QuietComfort Headphones</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Rs. 65,000</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (From JSON Blueprint) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-on-background border-t border-border-subtle dark:border-outline-variant">
+<!-- Orders (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</a>
+<!-- Upload (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-label-sm text-label-sm mt-1">Upload</span>
+</a>
+<!-- Dashboard (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container rounded-xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button for Profile Page Logic -->
+<!-- Suppressed per context rule: "Profile" doesn't strictly need the "Book a Walk" FAB -->
+<script>
+        // Simple micro-interaction for active states
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', () => {
+                // Potential for haptic feedback triggers or navigation logic
+            });
+        });
+
+        // AI Progress Simulation (If needed for dynamic loading states)
+        function simulateAIUpdate() {
+            const statusPills = document.querySelectorAll('.bg-status-pending');
+            statusPills.forEach(pill => {
+                pill.classList.add('animate-pulse');
+                setTimeout(() => pill.classList.remove('animate-pulse'), 3000);
+            });
+        }
+    </script>
+</body></html>

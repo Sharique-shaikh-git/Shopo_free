@@ -143,6 +143,7 @@ export default function LoginScreen() {
                   onChangeText={setName}
                   placeholder="Ali Ahmed"
                   className="bg-white border border-outline-variant rounded-xl px-4 py-4 text-[16px] text-on-surface"
+                  style={{ borderRadius: 12 }}
                   placeholderTextColor="#6e7976"
                   autoCapitalize="words"
                 />
@@ -160,6 +161,7 @@ export default function LoginScreen() {
                 placeholder="0300 1234567"
                 keyboardType="phone-pad"
                 className="bg-white border border-outline-variant rounded-xl px-4 py-4 text-[16px] text-on-surface"
+                style={{ borderRadius: 12 }}
                 placeholderTextColor="#6e7976"
               />
             </View>
@@ -176,6 +178,7 @@ export default function LoginScreen() {
                   placeholder="Enter password"
                   secureTextEntry={!showPassword}
                   className="bg-white border border-outline-variant rounded-xl px-4 pr-12 py-4 text-[16px] text-on-surface"
+                  style={{ borderRadius: 12 }}
                   placeholderTextColor="#6e7976"
                   autoCapitalize="none"
                 />
@@ -210,12 +213,12 @@ export default function LoginScreen() {
               {isLoading ? (
                 <ActivityIndicator size="small" color="white" />
               ) : (
-                <>
+                <View className="flex-row items-center justify-center gap-2">
                   <Text className="text-white font-semibold text-[15px] tracking-wide">
                     {isLogin ? 'Login to My Shop' : 'Create Account'}
                   </Text>
                   <MaterialIcons name="arrow-forward" size={20} color="white" />
-                </>
+                </View>
               )}
             </TouchableOpacity>
 

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Shop Builder - Notifications Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#001848",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#0055d4",
+                      "on-primary-fixed-variant": "#005046",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#002109",
+                      "on-background": "#1a1c1e",
+                      "inverse-surface": "#2f3133",
+                      "outline-variant": "#bec9c5",
+                      "surface-dim": "#dadadc",
+                      "primary-fixed": "#9ff2e1",
+                      "surface-container-low": "#f3f3f6",
+                      "on-secondary-fixed-variant": "#005322",
+                      "tertiary-fixed-dim": "#b2c5ff",
+                      "surface-container-highest": "#e2e2e5",
+                      "secondary": "#006d2f",
+                      "on-secondary-container": "#007232",
+                      "primary-container": "#006b5e",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "error-red": "#BA1A1A",
+                      "outline": "#6e7976",
+                      "status-shipped": "#F0FDF4",
+                      "background": "#f9f9fc",
+                      "surface-gray": "#F8F9FA",
+                      "on-primary-container": "#95e8d8",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f9f9fc",
+                      "surface-variant": "#e2e2e5",
+                      "inverse-primary": "#83d5c5",
+                      "tertiary": "#003fa3",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#ccd8ff",
+                      "on-surface-variant": "#3e4946",
+                      "status-pending": "#FEF7FF",
+                      "surface-tint": "#006b5e",
+                      "on-surface": "#1a1c1e",
+                      "tertiary-fixed": "#dae2ff",
+                      "trust-blue": "#0055D4",
+                      "secondary-fixed-dim": "#3de273",
+                      "border-subtle": "#E1E3E5",
+                      "secondary-container": "#5dfd8a",
+                      "on-tertiary-fixed-variant": "#003fa3",
+                      "primary": "#005147",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#83d5c5",
+                      "surface-container-high": "#e8e8ea",
+                      "secondary-fixed": "#66ff8e",
+                      "whatsapp-green": "#25D366",
+                      "surface-container": "#eeeef0",
+                      "surface": "#f9f9fc",
+                      "growth-green": "#006B5E",
+                      "on-primary-fixed": "#00201b",
+                      "inverse-on-surface": "#f0f0f3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "1rem",
+                      "touch-target-min": "3rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "2rem",
+                      "stack-sm": "0.5rem",
+                      "gutter-mobile": "1rem"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-sm": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg-mobile": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Be Vietnam Pro"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-on-background bg-surface-gray dark:bg-surface-dim flex justify-between items-center px-gutter-mobile py-4 w-full flat no shadows">
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-growth-green">Notifications</h1>
+<button class="font-label-lg text-label-lg text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-150 px-2 py-1 rounded">Clear</button>
+</header>
+<!-- Main Content -->
+<main class="px-gutter-mobile pt-stack-md flex flex-col gap-stack-sm max-w-2xl mx-auto">
+<!-- Notification Date Divider -->
+<div class="py-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Today</span>
+</div>
+<!-- Notification Card - Unread - New Order -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex gap-stack-md relative hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div aria-label="Unread indicator" class="absolute top-4 left-2 w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-12 h-12 shrink-0 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface font-bold">New Order Received</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">2 mins ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Ahmed Khan placed a new order for PKR 4,200.</p>
+</div>
+</article>
+<!-- Notification Card - Unread - System Tip -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex gap-stack-md relative hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div aria-label="Unread indicator" class="absolute top-4 left-2 w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-12 h-12 shrink-0 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface font-bold">Shop Tip: Add AI Descriptions</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">1 hour ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Products with AI descriptions sell 30% faster. Try it now.</p>
+</div>
+</article>
+<!-- Notification Date Divider -->
+<div class="py-2 mt-stack-md">
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Yesterday</span>
+</div>
+<!-- Notification Card - Read - Order Shipped -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex gap-stack-md relative hover:bg-surface-container-low transition-colors cursor-pointer group opacity-80">
+<div class="w-12 h-12 shrink-0 rounded-full bg-status-shipped text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface">Order #1040 Shipped</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Your order is on the way to the customer.</p>
+</div>
+</article>
+<!-- Notification Card - Read - Summary -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-xl p-stack-md flex gap-stack-md relative hover:bg-surface-container-low transition-colors cursor-pointer group opacity-80">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface">Weekly Summary</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">You made PKR 24,000 in sales this week. Keep it up!</p>
+</div>
+</article>
+</main>
+<!-- Contextual FAB Suppression: FAB suppressed for Notifications panel -->
+</body></html>

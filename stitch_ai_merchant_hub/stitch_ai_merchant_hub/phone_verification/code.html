@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Phone Verification - Shop Builder</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3e4946",
+                    "tertiary-container": "#0055d4",
+                    "surface-variant": "#e2e2e5",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#dae2ff",
+                    "on-secondary-fixed-variant": "#005322",
+                    "on-secondary-container": "#007232",
+                    "inverse-surface": "#2f3133",
+                    "inverse-on-surface": "#f0f0f3",
+                    "error-red": "#BA1A1A",
+                    "primary": "#005147",
+                    "trust-blue": "#0055D4",
+                    "on-surface": "#1a1c1e",
+                    "on-primary-fixed": "#00201b",
+                    "on-primary-fixed-variant": "#005046",
+                    "surface-container-low": "#f3f3f6",
+                    "surface-dim": "#dadadc",
+                    "on-tertiary-container": "#ccd8ff",
+                    "on-tertiary-fixed": "#001848",
+                    "on-primary-container": "#95e8d8",
+                    "error": "#ba1a1a",
+                    "surface-gray": "#F8F9FA",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#006b5e",
+                    "on-background": "#1a1c1e",
+                    "surface": "#f9f9fc",
+                    "whatsapp-green": "#25D366",
+                    "secondary-container": "#5dfd8a",
+                    "outline-variant": "#bec9c5",
+                    "outline": "#6e7976",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#003fa3",
+                    "tertiary-fixed-dim": "#b2c5ff",
+                    "secondary-fixed": "#66ff8e",
+                    "primary-fixed-dim": "#83d5c5",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container-high": "#e8e8ea",
+                    "growth-green": "#006B5E",
+                    "surface-container-highest": "#e2e2e5",
+                    "secondary": "#006d2f",
+                    "primary-fixed": "#9ff2e1",
+                    "on-error-container": "#93000a",
+                    "status-pending": "#FEF7FF",
+                    "on-secondary-fixed": "#002109",
+                    "on-tertiary-fixed-variant": "#003fa3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#006b5e",
+                    "border-subtle": "#E1E3E5",
+                    "inverse-primary": "#83d5c5",
+                    "background": "#f9f9fc",
+                    "status-shipped": "#F0FDF4",
+                    "secondary-fixed-dim": "#3de273",
+                    "surface-container": "#eeeef0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "3rem",
+                    "stack-lg": "2rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem",
+                    "gutter-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "label-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .input-focus-ring:focus-within {
+            border-color: #005147;
+            box-shadow: 0 0 0 1px #005147;
+        }
+        /* Mobile-first constraints */
+        .app-container {
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background">
+<div class="app-container relative overflow-hidden bg-surface-container-lowest">
+<!-- Header / Back Navigation -->
+<header class="flex items-center px-gutter-mobile py-4 sticky top-0 bg-surface-container-lowest z-10">
+<button class="w-10 h-10 flex items-center justify-center rounded-full active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+</header>
+<!-- Main Content Section -->
+<main class="flex-1 px-gutter-mobile pt-stack-lg flex flex-col">
+<!-- Branding & Animated Element -->
+<div class="mb-stack-lg flex flex-col items-start gap-4">
+<div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[40px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">phone_android</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+                    Enter your phone number
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">
+                    We will send a 4-digit code to verify your account.
+                </p>
+</div>
+<!-- Form Area -->
+<div class="space-y-stack-lg">
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface-variant ml-1" for="phone-number">
+                        Mobile Number
+                    </label>
+<div class="relative flex items-center bg-white border border-outline-variant rounded-xl overflow-hidden input-focus-ring transition-all duration-200">
+<!-- Flag & Prefix Selector -->
+<div class="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-outline-variant bg-surface-gray">
+<div class="w-7 h-5 rounded-sm overflow-hidden bg-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A macro close-up of a high-quality fabric texture featuring the national flag of Pakistan with its dark green field and white crescent and star. The lighting is soft and professional, emphasizing the woven details and rich colors consistent with a premium corporate design language. The aesthetic is clean and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBChzTrQxdLpvnIEFFi45rz5l1xp4mLV0c00AxxIRJGz2abz916GwgSzIZ2gj-tjQUnpl3vaxmpH8j55AVJfgrNzKHZe3VJ6NSouQZHIH75ZT6_o6RP82_PCQCizlrNppMZ6JlY9GErLSrlby-pMzlHOIBCJ_qM9V6RC7xGe0NWV6GY0Pg02_XP-mssCXP5AS7BEAwOik3BHbC6N8kb_ayahQCKoV4FaXhkn7o718gy0efB4i_zuXLmsrDo7q9BiBjbOTk7WI3iXYk"/>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">+92</span>
+</div>
+<!-- Number Input -->
+<input class="flex-1 px-4 py-4 font-body-lg text-body-lg bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline" id="phone-number" maxlength="10" placeholder="300 1234567" type="tel"/>
+</div>
+</div>
+<!-- Assistance Text -->
+<div class="flex items-start gap-3 p-4 bg-surface-gray rounded-xl border border-border-subtle">
+<span class="material-symbols-outlined text-trust-blue">info</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+                        By continuing, you agree to receive an automated SMS code for security and account management.
+                    </p>
+</div>
+</div>
+<!-- Spacer for Thumb-Zone positioning -->
+<div class="flex-1 min-h-[40px]"></div>
+<!-- Bottom Action Bar (Fixed-like behavior within container) -->
+<div class="pb-safe pt-stack-md mb-gutter-mobile">
+<button class="w-full h-[56px] bg-growth-green text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-150 shadow-sm" id="send-code-btn">
+<span>Send Code</span>
+<span class="material-symbols-outlined text-white">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Illustration / Background Detail (Subtle) -->
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="absolute top-1/3 -left-32 w-64 h-64 bg-trust-blue/5 rounded-full blur-3xl -z-10"></div>
+</div>
+<script>
+        // Simple micro-interaction for input formatting
+        const phoneInput = document.getElementById('phone-number');
+        const sendBtn = document.getElementById('send-code-btn');
+
+        phoneInput.addEventListener('input', (e) => {
+            // Remove non-numeric characters
+            let val = e.target.value.replace(/\D/g, '');
+            
+            // Limit to 10 digits (Standard Pak mobile length without prefix)
+            if (val.length > 10) val = val.slice(0, 10);
+            
+            e.target.value = val;
+
+            // Simple visual feedback for button state
+            if (val.length >= 10) {
+                sendBtn.classList.remove('opacity-60');
+                sendBtn.classList.add('bg-growth-green');
+            } else {
+                sendBtn.classList.add('opacity-60');
+            }
+        });
+
+        // Initialize state
+        sendBtn.classList.add('opacity-60');
+
+        // Button click feedback
+        sendBtn.addEventListener('click', () => {
+            if (phoneInput.value.length >= 10) {
+                sendBtn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Sending...</span>
+                `;
+                setTimeout(() => {
+                    // Reset or transition to OTP screen (simulated)
+                    alert('OTP Sent to +92 ' + phoneInput.value);
+                    sendBtn.innerHTML = '<span>Send Code</span><span class="material-symbols-outlined text-white">chevron_right</span>';
+                }, 2000);
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#006d2f",
+                        "surface-container-highest": "#e2e2e5",
+                        "status-shipped": "#F0FDF4",
+                        "background": "#f9f9fc",
+                        "surface-gray": "#F8F9FA",
+                        "on-primary-container": "#95e8d8",
+                        "outline": "#6e7976",
+                        "primary-container": "#006b5e",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-red": "#BA1A1A",
+                        "on-secondary-container": "#007232",
+                        "on-secondary-fixed": "#002109",
+                        "on-background": "#1a1c1e",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#0055d4",
+                        "on-primary-fixed-variant": "#005046",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#001848",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "surface-container-low": "#f3f3f6",
+                        "primary-fixed": "#9ff2e1",
+                        "surface-dim": "#dadadc",
+                        "outline-variant": "#bec9c5",
+                        "inverse-surface": "#2f3133",
+                        "surface-container-high": "#e8e8ea",
+                        "primary-fixed-dim": "#83d5c5",
+                        "on-primary": "#ffffff",
+                        "primary": "#005147",
+                        "on-primary-fixed": "#00201b",
+                        "inverse-on-surface": "#f0f0f3",
+                        "growth-green": "#006B5E",
+                        "surface": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "secondary-fixed": "#66ff8e",
+                        "whatsapp-green": "#25D366",
+                        "tertiary": "#003fa3",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#83d5c5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9fc",
+                        "surface-variant": "#e2e2e5",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "secondary-container": "#5dfd8a",
+                        "secondary-fixed-dim": "#3de273",
+                        "border-subtle": "#E1E3E5",
+                        "tertiary-fixed": "#dae2ff",
+                        "trust-blue": "#0055D4",
+                        "surface-tint": "#006b5e",
+                        "on-surface": "#1a1c1e",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-surface-variant": "#3e4946",
+                        "status-pending": "#FEF7FF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "gutter-mobile": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "2rem",
+                        "touch-target-min": "3rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    },
+                    "animation": {
+                        'slide-up-fade': 'slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pop-subtle': 'popSubtle 2.5s ease-in-out infinite'
+                    },
+                    "keyframes": {
+                        slideUpFade: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        popSubtle: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.02)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for image carousel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script>
+    // Simple script to handle floating header background transition on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('mobile-header');
+        if (window.scrollY > 20) {
+            header.classList.add('bg-background/95', 'shadow-sm');
+            header.classList.remove('bg-background/80');
+        } else {
+            header.classList.remove('bg-background/95', 'shadow-sm');
+            header.classList.add('bg-background/80');
+        }
+    });
+  </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- Top Navigation (Mobile Only Context) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md px-gutter-mobile py-4 flex items-center justify-between border-b border-subtle md:hidden transition-all duration-300 ease-in-out" id="mobile-header">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-growth-green">Storefront</div>
+<button aria-label="Share product" class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container active:scale-95 transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:max-w-4xl md:mx-auto md:w-full md:grid md:grid-cols-2 md:gap-8 md:pt-12 pt-[72px]">
+<!-- Left Column: Product Imagery -->
+<div class="relative w-full aspect-square md:rounded-xl overflow-hidden bg-surface-container-low opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+<div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory h-full w-full scroll-smooth">
+<!-- Image 1 -->
+<div class="snap-center shrink-0 w-full h-full relative transition-opacity duration-700 ease-in-out">
+<img class="w-full h-full object-cover" data-alt="A high-quality, perfectly lit product photograph of a modern, stylish ceramic dining bowl. The bowl features a minimalist design with a matte off-white exterior and a subtly glazed inner surface. It rests on a clean, light gray surface, casting a soft, diffuse shadow. The lighting is bright and studio-quality, emphasizing the smooth texture and elegant curve of the object against a crisp, neutral background, reflecting a professional e-commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqWa3YXn0RPqTtPt8EFfZ3kkR-oPlc6uRb_R5dhw2V0fwhj178Qj40aQnnKSd_sbhRAQrEUSo4tdZu9i2d-F2Uqzc07BqjNhuoCLna_9NJZnxyKWCTDyK5WoZ_8vKcWOF3Z-2p6vITwCCp24r8zaESFUYLVBQVKYVWhX2DDcC19EFppPqjpX_yFvfXLArfIBQ9FKZ99pZ_SsrvxLhQc_2GSzfX-vgXeX8LvGt70JWhiiYugPuTGp9exs5ibTPIRiaXTLm0Q8LZn2o"/>
+</div>
+<!-- Image 2 -->
+<div class="snap-center shrink-0 w-full h-full relative transition-opacity duration-700 ease-in-out">
+<img class="w-full h-full object-cover" data-alt="A detail shot of the same modern ceramic dining bowl, focusing closely on the rim and inner glaze. The macro photography highlights the subtle, organic imperfections in the off-white ceramic material, demonstrating high craftsmanship. Soft, directional light gently illuminates the texture, creating a premium, tactile feel. The background is softly blurred to keep attention entirely on the product's quality and minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwt5Z80cmiZYLW471M0_O8y8NCqU5qVOWUYFIm3Wy1sOVQeWNO2nV1Iu1m7ZouUVeLv3lrXL4H3tIP4Z1vHBxFAvg20YiqwUIeDmXUIQ79JXbzFbFqrE1jOVKEc3KBbw5Tx99o2aKLwNz3yqMxt-U4uf1nO_sAWJxDuzg8vKgHry-TSjnc55g99mIzg1WOoksjl3DYQLLpfqXzK8Rdo1QqkBOJXwrTJK17VW9nfWp4oG0pWnaaC4nPlwc8PeHEjqbeGDWlYDzJHSU"/>
+</div>
+</div>
+<!-- Pagination Dots (Simplified visual representation) -->
+<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-growth-green transition-transform duration-300 ease-in-out"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest transition-transform duration-300 ease-in-out"></div>
+</div>
+</div>
+<!-- Right Column: Product Details & Interaction -->
+<div class="px-margin-mobile py-stack-md flex flex-col md:py-0">
+<!-- Category / Status -->
+<div class="flex items-center gap-2 mb-stack-sm opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider transition-colors duration-200">Home &amp; Living</span>
+<span class="text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> In Stock
+                </span>
+</div>
+<!-- Title & Price -->
+<div class="opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-on-background mb-2">Artisan Ceramic Bowl - Off White Matte</h1>
+<div class="flex items-baseline gap-3 mb-stack-lg border-b border-border-subtle pb-stack-md">
+<span class="font-headline-md text-headline-md font-bold text-growth-green">Rs. 1,450</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through">Rs. 1,800</span>
+</div>
+</div>
+<!-- Options / Variants (e.g., Quantity or Size) -->
+<div class="mb-stack-lg opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.3s_forwards]">
+<h3 class="font-label-lg text-label-lg text-on-background mb-3">Quantity</h3>
+<div class="flex items-center gap-4 bg-surface-gray rounded-lg border border-border-subtle w-fit p-1">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-md active:scale-95 transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-body-lg text-body-lg font-medium w-8 text-center">1</span>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-md active:scale-95 transition-all duration-150 ease-in-out">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Description -->
+<div class="mb-stack-lg opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards]">
+<h3 class="font-label-lg text-label-lg text-on-background mb-3">Product Description</h3>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-4">
+<p>Elevate your dining experience with our Artisan Ceramic Bowl. Crafted with care, this piece features a modern minimalist aesthetic with a durable matte exterior and a food-safe glazed interior.</p>
+<p>Perfect for soups, salads, or as an elegant display piece. Microwave and dishwasher safe for everyday convenience.</p>
+<ul class="list-disc pl-5 space-y-1 mt-2">
+<li>Diameter: 8 inches</li>
+<li>Height: 3.5 inches</li>
+<li>Material: High-fired stoneware</li>
+</ul>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="bg-surface-gray rounded-xl p-stack-md border border-border-subtle mb-stack-lg opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.5s_forwards]">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-growth-green">local_shipping</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-background">Fast Delivery</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">2-3 working days across Pakistan</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-trust-blue">verified_user</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-background">Secure Payment</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Cash on Delivery available</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Mobile Sticky) -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface border-t border-border-subtle p-gutter-mobile pb-safe md:static md:w-auto md:border-none md:p-0 md:mt-auto md:bg-transparent px-margin-mobile opacity-0 animate-[slide-up-fade_0.6s_cubic-bezier(0.16,1,0.3,1)_0.6s_forwards]">
+<button class="w-full bg-growth-green text-on-primary min-h-[56px] rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 hover:brightness-105 active:scale-[0.98] transition-all duration-300 ease-in-out shadow-sm animate-pop-subtle hover:animate-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+            Buy Now (Cash on Delivery)
+        </button>
+</div>
+<!-- Desktop Navigation Top Bar (Hidden on Mobile) -->
+<div class="hidden md:flex fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md px-8 py-4 items-center justify-between border-b border-border-subtle transition-all duration-300 ease-in-out">
+<div class="font-headline-md text-headline-md font-bold text-growth-green flex items-center gap-2">
+<span class="material-symbols-outlined">storefront</span>
+            Shop Builder
+        </div>
+<div class="flex items-center gap-6">
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-growth-green active:scale-95 transition-all duration-150 ease-in-out" href="#">Categories</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-growth-green active:scale-95 transition-all duration-150 ease-in-out" href="#">About Us</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-growth-green active:scale-95 transition-all duration-150 ease-in-out" href="#">Track Order</a>
+</div>
+</div>
+</body></html>

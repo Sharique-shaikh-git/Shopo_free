@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - Storefront</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#5dfd8a",
+                        "primary": "#005147",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-container": "#95e8d8",
+                        "surface-container-low": "#f3f3f6",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-fixed": "#dae2ff",
+                        "secondary-fixed": "#66ff8e",
+                        "tertiary-container": "#0055d4",
+                        "primary-container": "#006b5e",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1e",
+                        "on-surface-variant": "#3e4946",
+                        "primary-fixed": "#9ff2e1",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container": "#eeeef0",
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed-variant": "#005046",
+                        "on-secondary-fixed": "#002109",
+                        "outline": "#6e7976",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-error": "#ffffff",
+                        "whatsapp-green": "#25D366",
+                        "on-secondary-container": "#007232",
+                        "on-tertiary-fixed-variant": "#003fa3",
+                        "status-shipped": "#F0FDF4",
+                        "growth-green": "#006B5E",
+                        "trust-blue": "#0055D4",
+                        "on-secondary-fixed-variant": "#005322",
+                        "surface-dim": "#dadadc",
+                        "secondary": "#006d2f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#003fa3",
+                        "error-red": "#BA1A1A",
+                        "outline-variant": "#bec9c5",
+                        "status-pending": "#FEF7FF",
+                        "surface-tint": "#006b5e",
+                        "inverse-surface": "#2f3133",
+                        "surface-bright": "#f9f9fc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001848",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "surface-gray": "#F8F9FA",
+                        "border-subtle": "#E1E3E5",
+                        "on-tertiary-container": "#ccd8ff",
+                        "on-primary-fixed": "#00201b",
+                        "primary-fixed-dim": "#83d5c5",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#83d5c5",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "secondary-fixed-dim": "#3de273"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-min": "3rem",
+                        "stack-md": "1rem",
+                        "gutter-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-subtle flex items-center justify-between px-gutter-mobile h-touch-target-min transition-colors duration-200">
+<button aria-label="Go Back" class="h-10 w-10 flex items-center justify-center text-primary rounded-full hover:bg-surface-container-high active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex space-x-2">
+<button aria-label="Share" class="h-10 w-10 flex items-center justify-center text-primary rounded-full hover:bg-surface-container-high active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button aria-label="Cart" class="h-10 w-10 flex items-center justify-center text-primary rounded-full hover:bg-surface-container-high active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-error text-on-error font-label-sm text-label-sm rounded-full h-4 w-4 flex items-center justify-center">3</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[calc(3rem+1px)]">
+<!-- Product Image -->
+<div class="w-full aspect-square bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, professional product photography shot of a minimalist ceramic mug with a smooth, matte finish. The mug is a muted, elegant light grey or off-white color. It sits on a clean, light-colored surface with soft, diffused natural lighting creating gentle shadows. The background is simple and uncluttered, emphasizing the product's clean lines and high-quality craftsmanship. The overall aesthetic is modern, serene, and premium, perfectly matching a bright, clean e-commerce interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSQIaaox4GbArxQf5qN0fLzL4IN_h5R_5Eoj0W5Zif2XkoePxBTMKORjTVRIDBysByZmeYM9ts6kaOrVO2R7At6zlf-N1_3ln5WFsQNCoI7y9pVD-s_Z_WL-0s4_fQxO-soQ6gvkhJ2dGFrI-JNdsVrA6EQAlG9eBg9x84DycI1fLrQUL4Pvut5rXMr9BMrZq8u8W6bgh2nMgYTcMWPICvJS8L--0iiubBxS-CbuDgyCjcn_yQNKFd09ApMb8GTEE269u0UdidajA"/>
+</div>
+<!-- Product Details Container -->
+<div class="px-gutter-mobile py-stack-md space-y-stack-md">
+<!-- Header Section -->
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Minimalist Ceramic Mug</h1>
+<div class="flex items-center space-x-2">
+<span class="font-headline-md text-headline-md text-primary">PKR 850</span>
+<span class="font-body-md text-body-md text-outline line-through">PKR 1,200</span>
+</div>
+</div>
+<div class="bg-status-shipped text-on-secondary-container px-2 py-1 rounded-full border border-whatsapp-green/20">
+<span class="font-label-sm text-label-sm">In Stock</span>
+</div>
+</div>
+<!-- Rating -->
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-secondary-container text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-surface">4.8</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">(12 reviews)</span>
+</div>
+<!-- Divider -->
+<hr class="border-t border-subtle"/>
+<!-- Description -->
+<div class="space-y-2">
+<h2 class="font-label-lg text-label-lg text-on-surface">Description</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Handcrafted ceramic mug with a matte finish. Perfect for your morning coffee or tea. Designed for both aesthetic appeal and practical everyday use.
+                </p>
+<button class="font-label-lg text-label-lg text-trust-blue hover:underline">Read more</button>
+</div>
+<!-- Divider -->
+<hr class="border-t border-subtle"/>
+<!-- Quantity & Actions -->
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-surface-gray border border-subtle rounded-lg p-3">
+<span class="font-label-lg text-label-lg text-on-surface">Quantity</span>
+<div class="flex items-center space-x-4">
+<button class="w-8 h-8 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-container-high active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="font-body-md text-body-md text-on-surface">1</span>
+<button class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center space-x-2 text-on-surface-variant bg-surface-container-low p-3 rounded-lg border border-subtle">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-md text-body-md">Free delivery on orders over PKR 2,000</span>
+</div>
+</div>
+<!-- Divider -->
+<hr class="border-t border-subtle"/>
+<!-- Reviews Snapshot -->
+<div class="space-y-3 pb-8">
+<div class="flex justify-between items-center">
+<h2 class="font-label-lg text-label-lg text-on-surface">Customer Reviews</h2>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface border border-subtle rounded-lg p-4 space-y-2">
+<div class="flex justify-between items-start">
+<div class="flex space-x-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 days ago</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Excellent quality</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">"The matte finish is beautiful and it feels very sturdy. Arrived well packaged."</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">- Aisha K.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 w-full bg-surface border-t border-subtle p-4 flex gap-3 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:hidden">
+<button class="flex-1 h-14 rounded-lg border-2 border-primary text-primary font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-transform">
+            Buy Now
+        </button>
+<button class="flex-[2] h-14 rounded-lg bg-growth-green text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-transform">
+<span class="material-symbols-outlined mr-2" data-icon="add_shopping_cart">add_shopping_cart</span>
+            Add to Cart
+        </button>
+</div>
+<!-- Desktop Bottom Action Bar (Hidden on Mobile) -->
+<div class="hidden md:flex justify-end p-gutter-mobile border-t border-subtle bg-surface sticky bottom-0 z-40">
+<div class="flex gap-4 w-1/3">
+<button class="flex-1 h-14 rounded-lg border-2 border-primary text-primary font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-transform">
+                Buy Now
+            </button>
+<button class="flex-[2] h-14 rounded-lg bg-growth-green text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-transform">
+<span class="material-symbols-outlined mr-2" data-icon="add_shopping_cart">add_shopping_cart</span>
+                Add to Cart
+            </button>
+</div>
+</div>
+</body></html>
