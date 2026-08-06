@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Switch, Modal, StatusBar } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Switch, Modal, StatusBar, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -180,10 +180,19 @@ export default function NotificationsScreen() {
         </Animated.View>
       </ScrollView>
 
-      {/* Bottom Action Bar */}
-      <View className="bg-surface border-t border-border-subtle p-margin-mobile">
-        <TouchableOpacity className="w-full bg-growth-green h-[56px] rounded-xl items-center justify-center active:scale-95">
-          <Text className="text-on-primary font-body-lg text-[18px] font-medium">Save Preferences</Text>
+      {/* Bottom Action Bar — with safe bottom inset for Android software nav bar */}
+      <View 
+        style={{ paddingBottom: Math.max(insets.bottom, 24) }}
+        className="bg-surface border-t border-border-subtle px-5 pt-4"
+      >
+        <TouchableOpacity 
+          onPress={() => {
+            Alert.alert('Preferences Saved', 'Your notification preferences have been updated.');
+            handleBack();
+          }}
+          className="w-full bg-growth-green h-[56px] rounded-xl items-center justify-center active:scale-95 shadow-sm"
+        >
+          <Text className="text-on-primary font-body-lg text-[17px] font-semibold">Save Preferences</Text>
         </TouchableOpacity>
       </View>
 

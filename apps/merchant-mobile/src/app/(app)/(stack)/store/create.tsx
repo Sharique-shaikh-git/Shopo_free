@@ -183,15 +183,15 @@ export default function StoreCreationScreen() {
               </Text>
             </Animated.View>
 
-            <View className="flex-1 min-h-[40px]" />
+            <View className="h-6" />
           </View>
         </ScrollView>
 
-        {/* Bottom Action Bar */}
+        {/* Bottom Action Bar — with safe bottom inset for Android software nav bar */}
         <Animated.View
           entering={FadeIn.duration(500).delay(500)}
-          className="border-t border-border-subtle bg-surface px-5 py-4 pb-6"
-          style={{ paddingBottom: Platform.OS === 'ios' ? 32 : 24 }}
+          style={{ paddingBottom: Math.max(insets.bottom, 24) }}
+          className="border-t border-border-subtle bg-surface px-5 pt-4"
         >
           <TouchableOpacity
             activeOpacity={0.9}
