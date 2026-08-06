@@ -74,18 +74,31 @@ export default function StoreCreationScreen() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          {/* Header */}
+          {/* Header with Back Button */}
           <Animated.View
             entering={FadeInDown.duration(600).springify()}
             style={{ paddingTop: headerPadding }}
-            className="pb-4 px-5 items-center"
+            className="pb-4 px-5 flex-row items-center justify-between"
           >
-            <Text className="text-[28px] font-bold text-growth-green text-center">
-              Create Your Shop
-            </Text>
-            <Text className="text-center text-[16px] text-on-surface-variant mt-2 leading-6">
-              Let's set up your brand identity.
-            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                if (router.canGoBack()) {
+                  router.back();
+                } else {
+                  router.replace('/(app)');
+                }
+              }}
+              className="w-10 h-10 rounded-full bg-surface-container-low items-center justify-center"
+              activeOpacity={0.7}
+            >
+              <MaterialIcons name="arrow-back" size={24} color="#1a1c1e" />
+            </TouchableOpacity>
+            <View className="flex-1 items-center px-2">
+              <Text className="text-[22px] font-bold text-growth-green text-center">
+                Create Your Shop
+              </Text>
+            </View>
+            <View className="w-10 h-10" />
           </Animated.View>
 
           {/* Form */}

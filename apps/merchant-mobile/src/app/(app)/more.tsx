@@ -154,19 +154,18 @@ export default function SettingsMainScreen() {
         {/* 3. App Preferences */}
         <Text className="text-[12px] font-bold text-on-surface-variant uppercase tracking-wider mb-2 px-1">App Preferences</Text>
         <View className="bg-surface-container-lowest border border-border-subtle rounded-xl overflow-hidden mb-6 shadow-sm">
-          {/* Notifications Toggle */}
-          <View className="flex-row items-center justify-between p-4 border-b border-border-subtle">
+          {/* Notifications Settings Route */}
+          <TouchableOpacity
+            onPress={() => router.push('/(app)/(stack)/settings/notifications' as any)}
+            className="flex-row items-center justify-between p-4 border-b border-border-subtle"
+            activeOpacity={0.7}
+          >
             <View className="flex-row items-center gap-3">
               <MaterialIcons name="notifications" size={22} color="#6e7976" />
               <Text className="text-[16px] font-medium text-on-surface">Notifications</Text>
             </View>
-            <Switch
-              value={notificationsEnabled}
-              onValueChange={setNotificationsEnabled}
-              trackColor={{ false: '#e2e2e5', true: '#006B5E' }}
-              thumbColor="white"
-            />
-          </View>
+            <MaterialIcons name="chevron-right" size={22} color="#6e7976" />
+          </TouchableOpacity>
 
           {/* Language */}
           <TouchableOpacity

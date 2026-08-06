@@ -71,6 +71,14 @@ export default function AnalyticsScreen() {
     } catch (err) {}
   };
 
+  const handleBack = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/(app)');
+    }
+  };
+
   const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
 
   return (
@@ -82,7 +90,7 @@ export default function AnalyticsScreen() {
         className="flex-row items-center justify-between px-5 pb-3 bg-surface border-b border-border-subtle z-10"
       >
         <TouchableOpacity
-          onPress={() => router.back()}
+          onPress={handleBack}
           className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low"
           activeOpacity={0.7}
         >

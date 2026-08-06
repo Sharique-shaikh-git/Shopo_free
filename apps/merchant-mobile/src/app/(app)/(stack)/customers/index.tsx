@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, TextInput, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, TextInput, ActivityIndicator, StatusBar } from 'react-native';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -43,16 +43,26 @@ export default function CustomersScreen() {
   const initials = (name: string) =>
     name.split(' ').map((p) => p.charAt(0)).slice(0, 2).join('').toUpperCase() || 'C';
 
+  const handleBack = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/(app)');
+    }
+  };
+
+  const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
+
   return (
     <SafeAreaView className="flex-1 bg-surface">
       {/* Top App Bar — with safe top insets and Back button */}
       <Animated.View
         entering={FadeInDown.duration(400).springify()}
-        style={{ paddingTop: Math.max(insets.top, 12) }}
+        style={{ paddingTop: headerPadding }}
         className="flex-row justify-between items-center px-5 pb-3 w-full bg-surface border-b border-border-subtle"
       >
         <TouchableOpacity
-          onPress={() => router.back()}
+          onPress={handleBack}
           className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low"
           activeOpacity={0.7}
         >

@@ -32,6 +32,14 @@ export default function LanguageScreen() {
     Alert.alert('Language updated', 'Interface language will change on next reload.', [{ text: 'OK' }]);
   };
 
+  const handleBack = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/(app)/more');
+    }
+  };
+
   const headerPadding = Math.max(insets.top, StatusBar.currentHeight || 24, 12);
 
   return (
@@ -41,7 +49,7 @@ export default function LanguageScreen() {
         style={{ paddingTop: headerPadding }}
         className="flex-row items-center justify-between px-5 pb-3 border-b border-border-subtle bg-surface"
       >
-        <TouchableOpacity onPress={() => router.back()} className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low">
+        <TouchableOpacity onPress={handleBack} className="w-10 h-10 rounded-full items-center justify-center bg-surface-container-low">
           <MaterialIcons name="arrow-back" size={24} color="#1a1c1e" />
         </TouchableOpacity>
         <Text className="text-[20px] font-bold text-growth-green">Language</Text>

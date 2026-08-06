@@ -172,31 +172,25 @@ export default function DashboardScreen() {
         className="flex-1 px-5"
         showsVerticalScrollIndicator={false}
       >
-        {/* Stats Cards — Horizontal Scroll with snap */}
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false} 
-          className="flex-row overflow-visible -mx-5 px-5 pb-2"
-          snapToInterval={SCREEN_WIDTH * 0.5 + 16}
-          decelerationRate="fast"
-        >
+        {/* Stats Cards Grid — Responsive side-by-side equal flex cards */}
+        <View className="flex-row gap-3 w-full mt-4">
           {/* Today's Sales */}
           <Animated.View 
             entering={FadeInDown.duration(600).delay(100).springify()} 
-            className="w-[200px] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 h-32 mr-4 flex-col justify-between shadow-sm"
+            className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-3.5 h-32 flex-col justify-between shadow-sm"
           >
             <View className="flex-row justify-between items-start">
-              <View className="w-10 h-10 rounded-full bg-primary-container/20 items-center justify-center">
-                <MaterialIcons name="payments" size={20} color="#006b5e" />
+              <View className="w-9 h-9 rounded-full bg-primary-container/20 items-center justify-center">
+                <MaterialIcons name="payments" size={18} color="#006b5e" />
               </View>
-              <View className="bg-surface-container-low px-2 py-1 rounded-full">
-                <Text className="text-[12px] font-medium text-on-surface-variant">Today</Text>
+              <View className="bg-surface-container-low px-2 py-0.5 rounded-full">
+                <Text className="text-[11px] font-medium text-on-surface-variant">Today</Text>
               </View>
             </View>
             <View>
-              <Text className="text-[12px] font-medium text-on-surface-variant mb-1">Total Sales</Text>
-              <Text className="text-[24px] font-bold text-on-surface tracking-tight">
-                <Text className="text-[14px] font-normal">PKR </Text>{displaySales.toLocaleString()}
+              <Text className="text-[11px] font-medium text-on-surface-variant mb-0.5">Total Sales</Text>
+              <Text className="text-[20px] font-bold text-on-surface tracking-tight" numberOfLines={1}>
+                <Text className="text-[13px] font-normal">PKR </Text>{displaySales.toLocaleString()}
               </Text>
             </View>
           </Animated.View>
@@ -204,51 +198,53 @@ export default function DashboardScreen() {
           {/* Total Orders */}
           <Animated.View 
             entering={FadeInDown.duration(600).delay(200).springify()} 
-            className="w-[160px] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 h-32 mr-4 flex-col justify-between shadow-sm"
+            className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-3.5 h-32 flex-col justify-between shadow-sm"
           >
-            <View className="w-10 h-10 rounded-full bg-tertiary-container/20 items-center justify-center">
-              <MaterialIcons name="shopping-bag" size={20} color="#0055D4" />
+            <View className="w-9 h-9 rounded-full bg-tertiary-container/20 items-center justify-center">
+              <MaterialIcons name="shopping-bag" size={18} color="#0055D4" />
             </View>
             <View>
-              <Text className="text-[12px] font-medium text-on-surface-variant mb-1">Orders</Text>
-              <Text className="text-[24px] font-bold text-on-surface tracking-tight">{displayOrders}</Text>
+              <Text className="text-[11px] font-medium text-on-surface-variant mb-0.5">Orders</Text>
+              <Text className="text-[20px] font-bold text-on-surface tracking-tight">{displayOrders}</Text>
             </View>
           </Animated.View>
 
           {/* Total Products */}
           <Animated.View 
             entering={FadeInDown.duration(600).delay(300).springify()} 
-            className="w-[160px] bg-surface-container-lowest border border-border-subtle rounded-xl p-4 h-32 mr-6 flex-col justify-between shadow-sm"
+            className="flex-1 bg-surface-container-lowest border border-border-subtle rounded-xl p-3.5 h-32 flex-col justify-between shadow-sm"
           >
-            <View className="w-10 h-10 rounded-full bg-secondary-container/30 items-center justify-center">
-              <MaterialIcons name="inventory-2" size={20} color="#007232" />
+            <View className="w-9 h-9 rounded-full bg-secondary-container/30 items-center justify-center">
+              <MaterialIcons name="inventory-2" size={18} color="#007232" />
             </View>
             <View>
-              <Text className="text-[12px] font-medium text-on-surface-variant mb-1">Products</Text>
-              <Text className="text-[24px] font-bold text-on-surface tracking-tight">{displayProducts}</Text>
+              <Text className="text-[11px] font-medium text-on-surface-variant mb-0.5">Products</Text>
+              <Text className="text-[20px] font-bold text-on-surface tracking-tight">{displayProducts}</Text>
             </View>
           </Animated.View>
-        </ScrollView>
+        </View>
 
         {/* Create Store Prompt Banner if no store exists */}
         {!storeName && (
           <Animated.View 
             entering={FadeInDown.duration(600).delay(50).springify()}
-            className="mt-6 bg-primary-container p-5 rounded-2xl shadow-md border border-primary/20"
+            className="mt-5 bg-primary-container p-5 rounded-2xl shadow-md border border-primary/20"
           >
-            <View className="flex-row items-center gap-4">
-              <View className="w-12 h-12 rounded-xl bg-white/20 items-center justify-center">
-                <MaterialIcons name="add-business" size={28} color="white" />
+            <View className="flex-row items-start gap-3.5 mb-4">
+              <View className="w-11 h-11 rounded-xl bg-white/20 items-center justify-center flex-shrink-0 mt-0.5">
+                <MaterialIcons name="add-business" size={24} color="white" />
               </View>
-              <View className="flex-1">
-                <Text className="text-[18px] font-bold text-white mb-1">Create Your Online Store</Text>
-                <Text className="text-[13px] text-white/90 leading-5">Set up your shop name and link in under 2 minutes.</Text>
+              <View className="flex-1 pr-1">
+                <Text className="text-[17px] font-bold text-white mb-1">Create Your Online Store</Text>
+                <Text className="text-[13px] text-white/90 leading-5">
+                  Set up your shop name and link in under 2 minutes.
+                </Text>
               </View>
             </View>
             <TouchableOpacity
               activeOpacity={0.9}
               onPress={() => router.push('/(app)/(stack)/store/create' as any)}
-              className="mt-4 bg-white py-3 px-5 rounded-xl items-center justify-center flex-row gap-2 shadow-sm"
+              className="w-full bg-white py-3.5 px-4 rounded-xl items-center justify-center flex-row gap-2 shadow-sm"
             >
               <MaterialIcons name="storefront" size={20} color="#006B5E" />
               <Text className="font-bold text-[15px] text-growth-green">Create Store Now</Text>

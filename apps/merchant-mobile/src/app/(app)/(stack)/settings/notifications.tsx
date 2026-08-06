@@ -83,6 +83,14 @@ export default function NotificationsScreen() {
     </Modal>
   );
 
+  const handleBack = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/(app)/more');
+    }
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-surface">
       {/* Header */}
@@ -93,7 +101,7 @@ export default function NotificationsScreen() {
       >
         <TouchableOpacity
           accessibilityLabel="Go back"
-          onPress={() => router.back()}
+          onPress={handleBack}
           className="w-touch-target-min h-touch-target-min items-start justify-center rounded-full active:scale-95"
         >
           <MaterialIcons name="arrow-back" size={24} color="#006B5E" />
