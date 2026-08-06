@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 import { useRouter } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 

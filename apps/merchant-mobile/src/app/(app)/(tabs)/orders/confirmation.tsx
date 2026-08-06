@@ -3,7 +3,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 export default function OrderConfirmationScreen() {
   const router = useRouter();

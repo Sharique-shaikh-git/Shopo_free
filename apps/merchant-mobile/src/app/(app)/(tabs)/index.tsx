@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn, useSharedValue, useAnimatedStyle, withRepeat, withTiming, withSequence, interpolate, Easing } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { apiFetch } from '../../lib/api';
+import { apiFetch } from '../../../lib/api';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 

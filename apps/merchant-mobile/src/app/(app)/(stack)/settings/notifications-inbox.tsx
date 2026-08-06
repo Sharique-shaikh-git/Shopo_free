@@ -40,7 +40,7 @@ export default function NotificationsInboxScreen() {
     if (router.canGoBack()) {
       router.back();
     } else {
-      router.replace('/(app)');
+      router.push('/(app)' as any);
     }
   };
 

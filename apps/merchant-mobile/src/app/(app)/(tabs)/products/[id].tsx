@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, ScrollView, SafeAreaView, TouchableOpacity, Image, Alert, KeyboardAvoidingView, Platform, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 export default function EditProductScreen() {
   const router = useRouter();

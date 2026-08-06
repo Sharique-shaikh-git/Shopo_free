@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking, Alert 
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn, useSharedValue, useAnimatedStyle, withRepeat, withTiming } from 'react-native-reanimated';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 const TIMELINE_STEPS = [
   { key: 'placed', label: 'Order Placed', desc: 'Successfully received by shop', icon: 'check' as const },

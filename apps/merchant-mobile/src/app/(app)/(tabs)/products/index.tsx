@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, TextInput, Imag
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

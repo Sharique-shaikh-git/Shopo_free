@@ -85,7 +85,7 @@ export default function StoreCreationScreen() {
                 if (router.canGoBack()) {
                   router.back();
                 } else {
-                  router.replace('/(app)');
+                  router.push('/(app)' as any);
                 }
               }}
               className="w-10 h-10 rounded-full bg-surface-container-low items-center justify-center"

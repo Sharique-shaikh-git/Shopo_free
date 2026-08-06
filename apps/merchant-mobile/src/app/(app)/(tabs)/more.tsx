@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { removeToken, apiFetch } from '../../lib/api';
+import { removeToken, apiFetch } from '../../../lib/api';
 
 import { StatusBar } from 'react-native';
 

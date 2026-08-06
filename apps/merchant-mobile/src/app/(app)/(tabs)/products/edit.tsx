@@ -3,7 +3,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 const CATEGORIES = ['Home & Decor', 'Electronics', 'Clothing', 'Health & Beauty'];
 

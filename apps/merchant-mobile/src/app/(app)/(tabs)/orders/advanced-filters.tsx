@@ -3,7 +3,7 @@ import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image, Activity
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 export default function AdvancedFiltersScreen() {
   const router = useRouter();

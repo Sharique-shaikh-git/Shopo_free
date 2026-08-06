@@ -87,7 +87,7 @@ export default function NotificationsScreen() {
     if (router.canGoBack()) {
       router.back();
     } else {
-      router.replace('/(app)/more');
+      router.push('/(app)/more' as any);
     }
   };
 

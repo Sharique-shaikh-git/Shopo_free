@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TextInput, TouchableOpacity, ActivityIndicator 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 export default function CODCheckoutScreen() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function CODCheckoutScreen() {
   useEffect(() => {
     if (!orderId) return;
     apiFetch(`/orders/${orderId}`)
-      .then((o) => {
+      .then((o: any) => {
         setOrder(o);
         setFullName(o.customerName || '');
         setPhone(o.customerPhone || o.phone || '');

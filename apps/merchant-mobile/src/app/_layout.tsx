@@ -18,48 +18,54 @@ function ThemeWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { Stack } from 'expo-router';
+
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const segments = useSegments();
   const router = useRouter();
   const [isReady, setIsReady] = useState(false);
 
-  const checkAuth = useCallback(async () => {
-    try {
-      const token = await getToken();
-      const inAuthGroup = segments[0] === '(auth)';
-
-      if (!token) {
-        if (!inAuthGroup) {
-          router.replace('/(auth)/welcome');
-        }
-        return;
-      }
-
-      // Verify token with backend
-      try {
-        await apiFetch('/auth/me');
-        if (inAuthGroup) {
-          router.replace('/(app)');
-        }
-      } catch (apiErr) {
-        // Stale or invalid token → clear it and go to welcome
-        await removeToken();
-        if (!inAuthGroup) {
-          router.replace('/(auth)/welcome');
-        }
-      }
-    } catch (err) {
-      if (segments[0] !== '(auth)') {
-        router.replace('/(auth)/welcome');
-      }
-    } finally {
-      setIsReady(true);
-    }
-  }, [segments, router]);
-
   useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
+    let isMounted = true;
+    async function verifyAuth() {
+      try {
+        const token = await getToken();
+        const inAuthGroup = segments[0] === '(auth)';
+
+        if (!token) {
+          if (!inAuthGroup) {
+            router.replace('/(auth)/welcome');
+          }
+          return;
+        }
+
+        try {
+          await apiFetch('/auth/me');
+          if (inAuthGroup) {
+            router.replace('/(app)');
+          }
+        } catch (apiErr) {
+          await removeToken();
+          if (!inAuthGroup) {
+            router.replace('/(auth)/welcome');
+          }
+        }
+      } catch (err) {
+        if (segments[0] !== '(auth)') {
+          router.replace('/(auth)/welcome');
+        }
+      } finally {
+        if (isMounted) {
+          setIsReady(true);
+        }
+      }
+    }
+
+    verifyAuth();
+    return () => {
+      isMounted = false;
+    };
+  }, []); // Run auth check once on initial mount
 
   if (!isReady) return <AnimatedSplashScreen />;
 
@@ -85,7 +91,7 @@ export default function RootLayout() {
       <ThemeProvider>
         <ThemeWrapper>
           <AuthGuard>
-            <Slot />
+            <Stack screenOptions={{ headerShown: false }} />
           </AuthGuard>
         </ThemeWrapper>
       </ThemeProvider>

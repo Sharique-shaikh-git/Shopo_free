@@ -3,8 +3,8 @@ import { View, Text, TextInput, ScrollView, SafeAreaView, TouchableOpacity, Imag
 import { useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
-import { Button } from '../../../components/Button';
-import { apiFetch } from '../../../lib/api';
+import { Button } from '../../../../components/Button';
+import { apiFetch } from '../../../../lib/api';
 
 export default function CreateProductScreen() {
   const router = useRouter();

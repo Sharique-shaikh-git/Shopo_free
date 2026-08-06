@@ -3,7 +3,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import Animated, { FadeIn } from 'react-native-reanimated';
-import { apiFetch } from '../../../lib/api';
+import { apiFetch } from '../../../../lib/api';
 
 export default function AIEnrichmentReviewScreen() {
   const router = useRouter();
