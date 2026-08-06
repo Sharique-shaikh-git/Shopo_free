@@ -54,7 +54,7 @@ export default function LoginScreen() {
 
       if (res.token) {
         await setToken(res.token);
-        router.replace('/');
+        router.replace('/(app)' as any);
       }
     } catch (err: any) {
       Alert.alert(

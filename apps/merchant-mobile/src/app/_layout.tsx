@@ -25,47 +25,33 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [isReady, setIsReady] = useState(false);
 
-  useEffect(() => {
-    let isMounted = true;
-    async function verifyAuth() {
-      try {
-        const token = await getToken();
-        const inAuthGroup = segments[0] === '(auth)';
+  const checkAuth = useCallback(async () => {
+    try {
+      const token = await getToken();
+      const inAuthGroup = segments[0] === '(auth)';
 
-        if (!token) {
-          if (!inAuthGroup) {
-            router.replace('/(auth)/welcome');
-          }
-          return;
-        }
-
-        try {
-          await apiFetch('/auth/me');
-          if (inAuthGroup) {
-            router.replace('/(app)' as any);
-          }
-        } catch (apiErr) {
-          await removeToken();
-          if (!inAuthGroup) {
-            router.replace('/(auth)/welcome');
-          }
-        }
-      } catch (err) {
-        if (segments[0] !== '(auth)') {
+      if (!token) {
+        if (!inAuthGroup) {
           router.replace('/(auth)/welcome');
         }
-      } finally {
-        if (isMounted) {
-          setIsReady(true);
-        }
+        return;
       }
-    }
 
-    verifyAuth();
-    return () => {
-      isMounted = false;
-    };
-  }, []); // Run auth check once on initial mount
+      if (inAuthGroup) {
+        router.replace('/(app)' as any);
+      }
+    } catch (err) {
+      if (segments[0] !== '(auth)') {
+        router.replace('/(auth)/welcome');
+      }
+    } finally {
+      setIsReady(true);
+    }
+  }, [segments, router]);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   if (!isReady) return <AnimatedSplashScreen />;
 
