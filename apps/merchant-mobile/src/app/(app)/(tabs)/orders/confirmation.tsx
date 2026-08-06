@@ -28,7 +28,7 @@ export default function OrderConfirmationScreen() {
     <View className="flex-1 bg-white">
       {/* Header */}
       <View className="flex-row items-center px-4 py-4 bg-white">
-        <TouchableOpacity onPress={() => router.replace('/(app)')} className="w-10 h-10 items-center justify-center rounded-full">
+        <TouchableOpacity onPress={() => router.replace('/(app)' as any)} className="w-10 h-10 items-center justify-center rounded-full">
           <Ionicons name="close" size={24} color="#1a1c1e" />
         </TouchableOpacity>
         <Text className="flex-1 text-center text-[20px] font-semibold text-[#1a1c1e]">Order Confirmation</Text>
@@ -102,7 +102,7 @@ export default function OrderConfirmationScreen() {
           <Text className="text-[14px] font-semibold text-white">WhatsApp Merchant</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => router.replace('/(app)')}
+          onPress={() => router.replace('/(app)' as any)}
           className="w-full h-[56px] border-2 border-[#E0E3DE] rounded-xl items-center justify-center"
         >
           <Text className="text-[14px] font-semibold text-[#1a1c1e]">Keep Shopping</Text>

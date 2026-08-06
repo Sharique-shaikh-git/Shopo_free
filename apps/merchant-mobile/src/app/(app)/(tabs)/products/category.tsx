@@ -106,7 +106,7 @@ export default function CategoryProductsScreen() {
               >
                 <TouchableOpacity
                   activeOpacity={0.9}
-                  onPress={() => router.push(`/(app)/products/${product.id}`)}
+                  onPress={() => router.push(`/(app)/products/${product.id}` as any)}
                   className="flex-col"
                 >
                   <View className="aspect-[4/5] relative bg-surface-container">

@@ -82,7 +82,7 @@ export default function StoreLaunchScreen() {
       {/* Close Button */}
       <View className="flex-row justify-end px-4 py-4">
         <TouchableOpacity
-          onPress={() => router.replace('/(app)')}
+          onPress={() => router.replace('/')}
           className="w-12 h-12 items-center justify-center rounded-full"
           activeOpacity={0.7}
         >

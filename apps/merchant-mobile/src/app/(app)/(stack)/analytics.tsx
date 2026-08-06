@@ -75,7 +75,7 @@ export default function AnalyticsScreen() {
     if (router.canGoBack()) {
       router.back();
     } else {
-      router.replace('/(app)');
+      router.replace('/');
     }
   };
 

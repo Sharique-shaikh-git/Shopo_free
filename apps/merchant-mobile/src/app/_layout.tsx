@@ -42,7 +42,7 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
         try {
           await apiFetch('/auth/me');
           if (inAuthGroup) {
-            router.replace('/(app)');
+            router.replace('/(app)' as any);
           }
         } catch (apiErr) {
           await removeToken();

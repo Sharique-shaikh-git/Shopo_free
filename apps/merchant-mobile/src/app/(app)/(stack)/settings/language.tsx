@@ -36,7 +36,7 @@ export default function LanguageScreen() {
     if (router.canGoBack()) {
       router.back();
     } else {
-      router.replace('/(app)/more');
+      router.replace('/more');
     }
   };
 

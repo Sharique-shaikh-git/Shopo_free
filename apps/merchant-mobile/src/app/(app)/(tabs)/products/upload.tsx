@@ -49,7 +49,7 @@ export default function ProductPhotoUploadScreen() {
 
     if (!result.canceled) {
       router.push({
-        pathname: '/(app)/products/create',
+        pathname: '/products/create',
         params: { imageUri: result.assets[0].uri }
       });
     }
@@ -72,7 +72,7 @@ export default function ProductPhotoUploadScreen() {
 
     if (!result.canceled) {
       router.push({
-        pathname: '/(app)/products/create',
+        pathname: '/products/create',
         params: { imageUri: result.assets[0].uri }
       });
     }

@@ -114,7 +114,7 @@ export default function ProductsScreen() {
                 <Animated.View key={product.id || index} entering={FadeInDown.duration(400).delay(index * 100).springify()}>
                   <TouchableOpacity 
                     activeOpacity={0.9} 
-                    onPress={() => router.push(`/(app)/products/${product.id}`)}
+                    onPress={() => router.push(`/(app)/products/${product.id}` as any)}
                     className="flex-row items-center p-3 bg-surface-container-lowest border border-border-subtle rounded-xl shadow-sm min-h-[88px]"
                   >
                     <View className={`w-16 h-16 rounded-lg overflow-hidden bg-surface-container border border-border-subtle shrink-0 items-center justify-center ${!inStock ? 'opacity-60' : ''}`}>
@@ -156,7 +156,7 @@ export default function ProductsScreen() {
       {/* FAB: Add Product */}
       <TouchableOpacity 
         activeOpacity={0.8}
-        onPress={() => router.push('/(app)/products/create')}
+        onPress={() => router.push('/(app)/products/create' as any)}
         className="absolute bottom-6 right-6 w-14 h-14 bg-growth-green rounded-xl shadow-lg items-center justify-center z-50"
       >
         <MaterialIcons name="add" size={28} color="white" />
