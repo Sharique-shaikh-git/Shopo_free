@@ -77,3 +77,15 @@
 **Status**: Accepted
 **Decision**: Downgrade the Mobile App to NativeWind v2 instead of using v4 (react-native-css-interop).
 **Rationale**: NativeWind v4's `cssInterop` wraps all React components and modifies standard React Context stringification. This causes a fundamental breaking bug with Expo Router and React Navigation (`Couldn't find a navigation context`). NativeWind v2 uses a safe Babel plugin approach that avoids mutating core React components.
+
+## ADR-014: Stack-wrapping-Tabs Navigation Layout (Expo Router)
+**Date**: 2026-08-06
+**Status**: Accepted
+**Decision**: Configure Expo Router layout tree as a `<Stack>` Navigator wrapping a `<Tabs>` Navigator (`(app)/(tabs)`).
+**Rationale**: Placing sub-screens in a hidden tab inside `<Tabs>` breaks React Navigation stack history, causing `router.back()` to jump to the Home tab. Moving `<Tabs>` under `(app)/(tabs)` and placing sub-screens on the `(app)` Stack allows sub-screens to stack over tabs and pop back dynamically to their exact originating screen.
+
+## ADR-015: Dynamic Auth Guard with Root Redirect to /(app)
+**Date**: 2026-08-06
+**Status**: Accepted
+**Decision**: Set root entry route `src/app/index.tsx` to redirect to `/(app)` and re-evaluate `AuthGuard` on segment changes.
+**Rationale**: Having a hardcoded `<Redirect href="/(auth)/welcome" />` in root `index.tsx` created an infinite loop after login. Routing `index.tsx` to `/(app)` allows `AuthGuard` to verify auth token dynamically and enter the app upon successful login.
