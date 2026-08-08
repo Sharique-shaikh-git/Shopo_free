@@ -1,27 +1,25 @@
-# SHOPO (Working Title) — Project Brief (Read First, Every Session)
+# SHOPO — Global AI Store Builder (Project Brief)
 
-> [!NOTE]
-> App name is **SHOPO** (working title — not finalized yet). Previously called "Digital Dukaan."
+> [!IMPORTANT]
+> SHOPO is a **Global mobile-first AI store builder** competing with Shopify for sellers worldwide. Initial local testing utilizes Pakistan / COD as the pilot market, but all architecture, payments, multi-currency support (USD, EUR, GBP, PKR, AED, SAR), and AI theme engines are engineered **Global-First** from Day 1.
 
 ## What Are We Building?
-A **mobile-first AI-powered store builder** for non-technical merchants in Pakistan.
+A **Global mobile-first AI-powered store builder** for non-technical merchants worldwide who want a Shopify-grade online store created and customized entirely via mobile phone and AI.
 
-**One-liner**: "Open the app → take photos → start receiving orders."
+**One-liner**: "Open the app → take photos → AI builds & customizes your global online store in 5 minutes."
 
 ## The Problem
-- Pakistani shopkeepers sell on WhatsApp/Facebook → endless chat, negotiation, wasted time
-- Shopify/existing platforms are expensive (USD pricing) and too technical
-- Merchants don't know DNS, hosting, SSL — they just want orders
+- Traditional e-commerce platforms (Shopify, WooCommerce) require desktop computers, technical configuration, theme code editing (Liquid/HTML/CSS), and complex developer setups.
+- Non-technical mobile-first sellers worldwide need an instant, AI-driven store builder that handles design, copy, pricing, multi-currency, and global payment gateways seamlessly from a smartphone.
 
 ## The Solution
-- Merchant downloads mobile app
-- AI asks simple questions: "What's your shop name?" "What do you sell?"
-- Merchant takes a photo of their product
-- AI auto-generates: title, description, category, tags, suggested price
-- Store goes live on a free subdomain (e.g., `shopname.shopo.pk`)
-- Customers browse on mobile web and place COD orders
-- Merchant manages orders from the app
-- Merchants can also attach their OWN custom domain (like Shopify does)
+- Merchant downloads the SHOPO mobile app.
+- AI asks simple questions in natural language: "What's your shop name?" "What do you sell?"
+- Merchant takes product photos -> AI auto-generates titles, descriptions, categories, SEO tags, and market prices.
+- Merchant customizes their store look via **AI Theme Co-Pilot** and visual presets (zero code required).
+- Store goes live on a global subdomain (`shopname.shopo.app`) or custom domain (`yourbrand.com`).
+- Customers browse on mobile web and place orders via **Global Online Payment Gateways (Stripe, PayPal, Cards)** or **Cash on Delivery (COD)** depending on country.
+- Merchant manages orders, analytics, and store customization from their mobile app.
 
 ## Starting Segment
 - **Clothing sellers** (Phase 1 focus) — sizes, colors, variants

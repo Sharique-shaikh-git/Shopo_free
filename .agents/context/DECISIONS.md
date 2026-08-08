@@ -89,3 +89,9 @@
 **Status**: Accepted
 **Decision**: Set root entry route `src/app/index.tsx` to redirect to `/(app)` and re-evaluate `AuthGuard` on segment changes.
 **Rationale**: Having a hardcoded `<Redirect href="/(auth)/welcome" />` in root `index.tsx` created an infinite loop after login. Routing `index.tsx` to `/(app)` allows `AuthGuard` to verify auth token dynamically and enter the app upon successful login.
+
+## ADR-016: Global-First Multi-Currency & Payment Gateway Architecture
+**Date**: 2026-08-08
+**Status**: Accepted
+**Decision**: Engineer SHOPO as a global mobile-first AI store builder competing with Shopify worldwide. Support multi-currency (`USD`, `EUR`, `GBP`, `PKR`, `AED`, `SAR`) and pluggable payment gateways (Stripe, PayPal, Cards, COD).
+**Rationale**: Local pilot uses Pakistan / COD for initial testing, but all core data schemas, storefront rendering engines, API DTOs, and AI theme prompts must be engineered global-first from Day 1.
