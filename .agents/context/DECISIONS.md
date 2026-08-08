@@ -95,3 +95,9 @@
 **Status**: Accepted
 **Decision**: Engineer SHOPO as a global mobile-first AI store builder competing with Shopify worldwide. Support multi-currency (`USD`, `EUR`, `GBP`, `PKR`, `AED`, `SAR`) and pluggable payment gateways (Stripe, PayPal, Cards, COD).
 **Rationale**: Local pilot uses Pakistan / COD for initial testing, but all core data schemas, storefront rendering engines, API DTOs, and AI theme prompts must be engineered global-first from Day 1.
+
+## ADR-017: Geo-Detected Localized Payments & Third-Party BYO Account Integration
+**Date**: 2026-08-08
+**Status**: Accepted
+**Decision**: Implement automatic country geo-detection (Pakistan -> JazzCash, Easypaisa, COD, Raast; Global -> PayPal, Stripe, Cards) and a BYO (Bring Your Own) third-party account connection model.
+**Rationale**: SHOPO is NOT a payment gateway provider or processor. SHOPO allows merchants to seamlessly log in / connect their own third-party accounts (PayPal OAuth, Stripe Keys, JazzCash/Easypaisa Merchant IDs) so customer checkout funds deposit directly into the merchant's own third-party accounts.
